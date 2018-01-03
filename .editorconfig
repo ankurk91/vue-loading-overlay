@@ -1,0 +1,38 @@
+# http://editorconfig.org/
+
+
+# Top-most EditorConfig file
+root = true
+
+
+[*]
+
+# Change these settings to your own preference
+indent_style = space
+indent_size = 4
+
+# Unix-style newlines with a newline ending every file
+end_of_line = lf
+insert_final_newline = true
+charset = utf-8
+trim_trailing_whitespace = true
+
+[*.php]
+indent_size = 4
+
+# Override for blade since its mostly html
+[*.blade.php]
+indent_size = 2
+
+[*.md]
+trim_trailing_whitespace = false
+
+# These properties supported by few editors
+[*.js]
+curly_bracket_next_line = false
+spaces_around_operators = true
+indent_brace_style = 1TBS
+spaces_around_brackets = both
+
+[*.{scss,css,js,ts,html,json,vue,yml,babelrc,eslintrc}]
+indent_size = 2

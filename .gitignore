@@ -9,7 +9,7 @@
 .project
 *.sublime-*
 .brackets.json
-_notes
+.vscode
 
 # logs and cache
 /logs/
@@ -67,4 +67,4 @@ composer.phar
 # Project related
 *.tgz
 /docs/
-/dist/
+/coverage/
