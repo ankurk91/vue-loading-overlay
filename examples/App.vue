@@ -7,7 +7,7 @@
     <button @click.prevent="open()">Programmatic show</button>
     <button @click.prevent="show()">Component show, cancellable</button>
     <hr>
-    <a target="_blank" href="https://github.com/ankurk91/vue-loading-component">Visit site</a>
+    <a target="_blank" href="https://github.com/ankurk91/vue-loading-oveylay">Visit site</a>
   </div>
 </template>
 

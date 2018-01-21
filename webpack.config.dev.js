@@ -10,7 +10,7 @@ module.exports = {
     modules: [
       path.resolve(__dirname, 'src'),
       path.resolve(__dirname, 'examples'),
-      'node_modules'
+      path.resolve(__dirname, 'node_modules'),
     ],
     alias: {
       'vue$': 'vue/dist/vue.esm.js'
@@ -19,7 +19,6 @@ module.exports = {
   },
   entry: {
     app: './examples/index.js',
-    vendor: ['vue']
   },
   output: {
     path: path.resolve(__dirname, 'docs'),// where to store build files
@@ -79,10 +78,20 @@ module.exports = {
       }
     }),
     new webpack.ProvidePlugin({
-      Vue: 'vue',
-      'window.Vue': 'vue',
+      Vue: ['vue/dist/vue.esm.js', 'default'],
     }),
-    new webpack.optimize.CommonsChunkPlugin('vendor'),
+    // https://webpack.js.org/plugins/commons-chunk-plugin/
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      minChunks: function (module) {
+        // This prevents stylesheet resources with the .css or .scss extension
+        // from being moved from their original chunk to the vendor chunk
+        if (module.resource && (/^.*\.(css|scss)$/).test(module.resource)) {
+          return false;
+        }
+        return module.context && module.context.indexOf("node_modules") !== -1;
+      }
+    }),
     // Required when devServer.hot = true
     new webpack.HotModuleReplacementPlugin()
   ],

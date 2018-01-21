@@ -1,5 +1,5 @@
 {
-  "name": "vue-loading-component",
+  "name": "vue-loading-overlay",
   "version": "0.0.1",
   "description": "Vue.js v2.x component for full screen loading indicator",
   "main": "dist/vue-loading.min.js",
@@ -10,7 +10,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ankurk91/vue-loading-component.git"
+    "url": "git+https://github.com/ankurk91/vue-loading-overlay.git"
   },
   "keywords": [
     "vue",
@@ -20,21 +20,22 @@
   "author": "ankurk91",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ankurk91/vue-loading-component/issues"
+    "url": "https://github.com/ankurk91/vue-loading-overlay/issues"
   },
-  "homepage": "https://github.com/ankurk91/vue-loading-component",
+  "homepage": "https://github.com/ankurk91/vue-loading-overlay",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npm run dev",
     "dev": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --config=webpack.config.dev.js",
-    "build": "node ./node_modules/webpack/bin/webpack.js --hide-modules -p --progress"
+    "build": "node ./node_modules/webpack/bin/webpack.js --hide-modules -p --progress",
+    "prepublishOnly": "npm run build"
   },
   "devDependencies": {
     "babel-core": "^6.25.0",
     "babel-loader": "^7.1.0",
     "babel-preset-env": "^1.6.1",
     "clean-webpack-plugin": "^0.1.16",
-    "css-loader": "^0.28.4",
+    "css-loader": "^0.28.9",
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^1.1.6",
     "html-webpack-plugin": "^2.30.1",
@@ -42,10 +43,10 @@
     "sass-loader": "^6.0.6",
     "style-loader": "^0.19.1",
     "vue": "^2.5.13",
-    "vue-loader": "^13.6.2",
+    "vue-loader": "^13.7.0",
     "vue-template-compiler": "^2.5.13",
     "webpack": "^3.10.0",
-    "webpack-dev-server": "^2.9.7"
+    "webpack-dev-server": "^2.11.1"
   },
   "peerDependencies": {
     "vue": "^2.0.0"

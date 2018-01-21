@@ -1,19 +1,21 @@
-# Vue Loading Component
+# Vue Loading Overlay Component
 
 [![vue-js](https://img.shields.io/badge/vue.js-2.x-brightgreen.svg?maxAge=604800)](https://vuejs.org/)
-[![github-tag](https://img.shields.io/github/tag/ankurk91/vue-loading-component.svg?maxAge=1800)](https://github.com/ankurk91/vue-loading-component/)
-[![license](https://img.shields.io/github/license/ankurk91/vue-loading-component.svg?maxAge=1800)]()
+[![downloads](https://img.shields.io/npm/dt/vue-loading-overlay.svg)](http://npm-stats.com/~packages/vue-loading-overlay)
+[![npm-version](https://img.shields.io/npm/v/vue-loading-overlay.svg)](https://www.npmjs.com/package/vue-loading-overlay)
+[![github-tag](https://img.shields.io/github/tag/ankurk91/vue-loading-overlay.svg?maxAge=1800)](https://github.com/ankurk91/vue-loading-overlay/)
+[![license](https://img.shields.io/github/license/ankurk91/vue-loading-overlay.svg?maxAge=1800)](https://yarnpkg.com/en/package/vue-loading-overlay)
 
 Vue.js v2.x component for full screen loading indicator
 
 ## Installation
-:mega: I have no plans to publish this package on npm.
+:mega: Now published to npm
 ```bash
 # npm
-npm install ankurk91/vue-loading-component --save
+npm install vue-loading-overlay --save
 
 # Yarn
-yarn add ankurk91/vue-loading-component
+yarn add vue-loading-overlay
 ```
 
 ## Usage
@@ -27,9 +29,9 @@ yarn add ankurk91/vue-loading-component
 
 <script>
     // Import component
-    import {Loading} from 'vue-loading-component';
+    import {Loading} from 'vue-loading-overlay';
     // Import stylesheet
-    import 'vue-loading-component/dist/vue-loading.min';
+    import 'vue-loading-overlay/dist/vue-loading.min';
 
     export default {
         data() {
@@ -61,9 +63,9 @@ yarn add ankurk91/vue-loading-component
 <script>
     import Vue from 'vue';
     // Import component
-    import {LoadingPlugin} from 'vue-loading-component';
+    import {LoadingPlugin} from 'vue-loading-overlay';
     // Import stylesheet
-    import 'vue-loading-component/dist/vue-loading.min';
+    import 'vue-loading-overlay/dist/vue-loading.min';
     // Init plugin
     Vue.use(LoadingPlugin);
 
