@@ -22,7 +22,7 @@ module.exports = {
     },
     extensions: ['.js', '.json', '.vue']
   },
-  entry: ['./src/index.js', './src/scss/index.scss'],
+  entry: ['./src/index.js'],
   // Don't include theme into library build
   externals: [
     'vue',
@@ -32,6 +32,7 @@ module.exports = {
     filename: 'vue-loading.min.js', // build file name
     library: 'VueLoading',
     libraryTarget: 'umd',
+    libraryExport: 'default',
     umdNamedDefine: true,
   },
   module: {

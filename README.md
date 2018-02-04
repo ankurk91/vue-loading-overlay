@@ -29,7 +29,7 @@ yarn add vue-loading-overlay
 
 <script>
     // Import component
-    import {Loading} from 'vue-loading-overlay';
+    import Loading from 'vue-loading-overlay';
     // Import stylesheet
     import 'vue-loading-overlay/dist/vue-loading.min';
 
@@ -63,11 +63,11 @@ yarn add vue-loading-overlay
 <script>
     import Vue from 'vue';
     // Import component
-    import {LoadingPlugin} from 'vue-loading-overlay';
+    import Loading from 'vue-loading-overlay';
     // Import stylesheet
     import 'vue-loading-overlay/dist/vue-loading.min';
     // Init plugin
-    Vue.use(LoadingPlugin);
+    Vue.use(Loading);
 
     export default {
         methods: {

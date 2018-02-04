@@ -47,13 +47,6 @@ $RECYCLE.BIN/
 # https://docs.npmjs.com/misc/faq#should-i-check-my-node-modules-folder-into-git
 node_modules/
 
-
-# bower packages
-bower_components/
-
-# svn folders
-.svn/
-
 # Composer, exclude on root vendor folder
 /vendor/
 composer.phar

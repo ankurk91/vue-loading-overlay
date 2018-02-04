@@ -18,5 +18,4 @@ const LoadingProgrammatic = {
 };
 
 
-export {Loading, LoadingProgrammatic}
 export default LoadingProgrammatic;

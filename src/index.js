@@ -1,4 +1,6 @@
-import {Loading, LoadingProgrammatic} from './js/index';
+import LoadingProgrammatic from './js/plugin';
+import Component from './js/component.vue';
+import './scss/index.scss';
 
 const LoadingPlugin = (Vue, options = {}) => {
   Vue.$loading = LoadingProgrammatic;
@@ -13,7 +15,6 @@ const LoadingPlugin = (Vue, options = {}) => {
 
 };
 
-Loading.install = LoadingPlugin;
+Component.install = LoadingPlugin;
 
-export default LoadingPlugin;
-export {Loading, LoadingPlugin, LoadingProgrammatic}
+export default Component;

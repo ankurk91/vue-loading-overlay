@@ -14,10 +14,9 @@
 <script type="text/javascript">
   import Vue from 'vue';
 
-  import {LoadingPlugin, Loading} from '../src/index';
-  import '../src/scss/index.scss';
+  import Loading from '../src/index';
 
-  Vue.use(LoadingPlugin);
+  Vue.use(Loading);
 
   export default {
     name: 'app',
