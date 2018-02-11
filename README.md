@@ -8,6 +8,8 @@
 
 Vue.js v2.x component for full screen loading indicator
 
+## Demo on [JSFiddle](https://jsfiddle.net/ankurk91/w8y8k5wo/)
+
 ## Installation
 :mega: Now published to npm
 ```bash
@@ -90,6 +92,18 @@ The component accepts these props:
 | canCancel        | Boolean             | `false`              | Allow user to cancel |
 | onCancel         | Function            | `()=>{}`             | Do something upon cancel |
 
+## Install in non-module environments (without webpack)
+```html
+<!-- Vue js -->
+<script src="https://unpkg.com/vue@2.5/dist/vue.min.js"></script>
+<!-- Lastly add this package -->
+<script src="https://unpkg.com/vue-loading-overlay@2"></script>
+<link rel="stylesheet" href="https://unpkg.com/vue-loading-overlay@latest/dist/vue-loading.min.css">
+<!-- Init the plugin -->
+<script>
+Vue.use(VueLoading)
+</script>
+```
 
 ## Run examples on your localhost
 * Clone this repo

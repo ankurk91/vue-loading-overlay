@@ -24,9 +24,9 @@ module.exports = {
   },
   entry: ['./src/index.js'],
   // Don't include theme into library build
-  externals: [
-    'vue',
-  ],
+  externals: {
+    'vue': 'Vue'
+  },
   output: {
     path: path.resolve(__dirname, 'dist'),// where to store build files
     filename: 'vue-loading.min.js', // build file name
