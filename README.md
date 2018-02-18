@@ -25,7 +25,8 @@ yarn add vue-loading-overlay
 ```html
 <template>
     <div>
-        <loading :active.sync="isSaving" :can-cancel="true"></loading>
+        <loading :active.sync="isLoading" :can-cancel="true" :onCancel="whenCancelled"></loading>
+        <button @click.prevent="fetchData">fetch Data</button>
     </div>
 </template>
 
@@ -33,21 +34,27 @@ yarn add vue-loading-overlay
     // Import component
     import Loading from 'vue-loading-overlay';
     // Import stylesheet
-    import 'vue-loading-overlay/dist/vue-loading.min';
+    import 'vue-loading-overlay/dist/vue-loading.min.css';
 
     export default {
         data() {
             return {
-                isSaving: false,
+                isLoading: false,
             }
         },
         components: {
             Loading
         },
         methods: {
-            submit() {
-                this.isSaving = true;
-                // do AJAX here
+            fetchData() {
+                this.isLoading = true;
+                // AJAX example with axios
+                axios.post('/api').then((response)=>{
+                  this.isLoading = false                
+                })
+            },
+            whenCancelled() {
+              console.log("User cancelled the loader.")
             }
         }
     }
@@ -67,7 +74,7 @@ yarn add vue-loading-overlay
     // Import component
     import Loading from 'vue-loading-overlay';
     // Import stylesheet
-    import 'vue-loading-overlay/dist/vue-loading.min';
+    import 'vue-loading-overlay/dist/vue-loading.min.css';
     // Init plugin
     Vue.use(Loading);
 
@@ -98,7 +105,7 @@ The component accepts these props:
 <script src="https://unpkg.com/vue@2.5/dist/vue.min.js"></script>
 <!-- Lastly add this package -->
 <script src="https://unpkg.com/vue-loading-overlay@2"></script>
-<link rel="stylesheet" href="https://unpkg.com/vue-loading-overlay@latest/dist/vue-loading.min.css">
+<link href="https://unpkg.com/vue-loading-overlay@latest/dist/vue-loading.min.css" rel="stylesheet">
 <!-- Init the plugin -->
 <script>
 Vue.use(VueLoading)

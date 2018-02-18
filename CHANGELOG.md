@@ -1,5 +1,8 @@
 # Changelog
-     
+
+### [2.0.2](https://github.com/ankurk91/vue-loading-overlay/compare/2.0.1...2.0.2) 
+* Fix: Don't call `onCancel` prop functions when loader is not active
+       
 ### [2.0.1](https://github.com/ankurk91/vue-loading-overlay/compare/2.0.0...2.0.1) 
 * Fix: Was not working in non module environments
      

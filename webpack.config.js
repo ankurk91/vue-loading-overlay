@@ -22,7 +22,7 @@ module.exports = {
     },
     extensions: ['.js', '.json', '.vue']
   },
-  entry: ['./src/index.js'],
+  entry: './src/index.js',
   // Don't include theme into library build
   externals: {
     'vue': 'Vue'

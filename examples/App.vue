@@ -2,12 +2,16 @@
   <div>
     <h1>Vue Loading component demo</h1>
 
-    <loading :active.sync="visible" :can-cancel="true"></loading>
+    <loading
+      :active.sync="visible"
+      @close="onClose"
+      :onCancel="whenCancelled"
+      :can-cancel="true"></loading>
 
     <button @click.prevent="open()">Programmatic show</button>
     <button @click.prevent="show()">Component show, cancellable</button>
     <hr>
-    <a target="_blank" href="https://github.com/ankurk91/vue-loading-oveylay">Visit site</a>
+    <a target="_blank" href="https://github.com/ankurk91/vue-loading-overlay">Visit site</a>
   </div>
 </template>
 
@@ -32,12 +36,19 @@
       open() {
         console.log('open was clicked, will auto hide');
         let loader = this.$loading.show();
+        // Simulate async operation
         setTimeout(() => loader.hide(), 3 * 1000)
       },
       show() {
         console.log('show was clicked, click to hide');
         // do AJAX here
         this.visible = true
+      },
+      whenCancelled() {
+        alert("You cancelled the operation.")
+      },
+      onClose() {
+        console.log("Listen to close event")
       }
     }
   }

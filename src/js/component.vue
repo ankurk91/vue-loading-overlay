@@ -49,7 +49,7 @@
     beforeMount() {
       // Insert the Loading component in body tag
       // only if it's programmatic
-      this.programmatic && document.body.appendChild(this.$el)
+      hasWindow && this.programmatic && document.body.appendChild(this.$el)
     },
     mounted() {
       if (this.programmatic) this.isActive = true
@@ -60,6 +60,7 @@
        */
       cancel() {
         if (!this.canCancel) return;
+        if (!this.isActive) return;
 
         this.hide()
       },
