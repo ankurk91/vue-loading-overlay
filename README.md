@@ -25,7 +25,7 @@ yarn add vue-loading-overlay
 ```html
 <template>
     <div>
-        <loading :active.sync="isLoading" :can-cancel="true" :onCancel="whenCancelled"></loading>
+        <loading :active.sync="isLoading" :can-cancel="true" :on-cancel="whenCancelled"></loading>
         <button @click.prevent="fetchData">fetch Data</button>
     </div>
 </template>

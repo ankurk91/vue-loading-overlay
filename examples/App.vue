@@ -5,7 +5,7 @@
     <loading
       :active.sync="visible"
       @close="onClose"
-      :onCancel="whenCancelled"
+      :on-cancel="whenCancelled"
       :can-cancel="true"></loading>
 
     <button @click.prevent="open()">Programmatic show</button>
