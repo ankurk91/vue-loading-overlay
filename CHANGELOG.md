@@ -1,5 +1,8 @@
 # Changelog
 
+### [2.0.4](https://github.com/ankurk91/vue-loading-overlay/compare/2.0.3...2.0.4) 
+* Build: `dist` now includes non-minified js file as well
+
 ### [2.0.3](https://github.com/ankurk91/vue-loading-overlay/compare/2.0.2...2.0.3) 
 * Fix: Webpack build config, [#3](https://github.com/ankurk91/vue-loading-overlay/issues/3)
 

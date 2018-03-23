@@ -1,6 +1,6 @@
 {
   "name": "vue-loading-overlay",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "Vue.js v2.x component for full screen loading indicator",
   "main": "dist/vue-loading.js",
   "unpkg": "dist/vue-loading.min.js",
