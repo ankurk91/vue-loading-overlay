@@ -19,6 +19,7 @@
   import Vue from 'vue';
 
   import Loading from '../src/index';
+  import '../src/scss/index.scss';
 
   Vue.use(Loading);
 

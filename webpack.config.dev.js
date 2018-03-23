@@ -9,6 +9,7 @@ module.exports = {
   resolve: {
     modules: [
       path.resolve(__dirname, 'src'),
+      path.resolve(__dirname, 'dist'),
       path.resolve(__dirname, 'examples'),
       path.resolve(__dirname, 'node_modules'),
     ],
@@ -17,9 +18,7 @@ module.exports = {
     },
     extensions: ['.js', '.jsx', '.json', '.vue'],
   },
-  entry: {
-    app: './examples/index.js',
-  },
+  entry: './examples/index.js',
   output: {
     path: path.resolve(__dirname, 'docs'),// where to store build files
     publicPath: '',// to be used in index.html
@@ -92,13 +91,13 @@ module.exports = {
         return module.context && module.context.indexOf("node_modules") !== -1;
       }
     }),
-    // Required when devServer.hot = true
+    // Required for mhr
     new webpack.HotModuleReplacementPlugin()
   ],
   // Dev server related configs
   devServer: {
     contentBase: path.resolve(__dirname, 'examples'),
-    port: 8000,
+    port: 9000,
     host: 'localhost',
     open: true,
     inline: true,
@@ -109,5 +108,4 @@ module.exports = {
   },
   devtool: '#cheap-module-eval-source-map',
 };
-
 

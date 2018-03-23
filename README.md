@@ -117,7 +117,11 @@ Vue.use(VueLoading)
 * Make sure you have node-js >=6.10 and [yarn](https://yarnpkg.com) >=1.x pre-installed
 * Install dependencies - `yarn install`
 * Run webpack dev server - `yarn start`
-* This should open the demo page at `http://localhost:8000` in your default web browser 
+* This should open the demo page at `http://localhost:9000` in your default web browser 
+
+## Browser support
+* I have not taken care of old browsers.
+* You can apply [autoprefixer](https://github.com/postcss/autoprefixer) on css to support older browsers.
 
 ## Credits
 * [Buefy](https://buefy.github.io/#/documentation/loading) loading component

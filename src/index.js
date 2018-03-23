@@ -1,8 +1,8 @@
-import LoadingProgrammatic from './js/plugin';
-import Component from './js/component.vue';
+import Component from './js/Component.vue';
+import LoadingProgrammatic from './js/api';
 import './scss/index.scss';
 
-const LoadingPlugin = (Vue, options = {}) => {
+const Plugin = (Vue, options = {}) => {
   Vue.$loading = LoadingProgrammatic;
 
   Object.defineProperties(Vue.prototype, {
@@ -15,6 +15,6 @@ const LoadingPlugin = (Vue, options = {}) => {
 
 };
 
-Component.install = LoadingPlugin;
+Component.install = Plugin;
 
 export default Component;

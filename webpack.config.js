@@ -4,11 +4,8 @@ const webpack = require('webpack');
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-
-const extractSass = new ExtractTextPlugin({
-  filename: 'vue-loading.min.css',
-  disable: false
-});
+const UnminifiedWebpackPlugin = require('unminified-webpack-plugin');
+const extractSass = new ExtractTextPlugin('vue-loading.min.css');
 
 module.exports = {
   context: __dirname,
@@ -23,7 +20,6 @@ module.exports = {
     extensions: ['.js', '.json', '.vue']
   },
   entry: './src/index.js',
-  // Don't include theme into library build
   externals: {
     'vue': {
       commonjs: 'vue',
@@ -33,8 +29,8 @@ module.exports = {
     },
   },
   output: {
-    path: path.resolve(__dirname, 'dist'),// where to store build files
-    filename: 'vue-loading.min.js', // build file name
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'vue-loading.min.js',
     library: 'VueLoading',
     libraryTarget: 'umd',
     libraryExport: 'default',
@@ -75,6 +71,9 @@ module.exports = {
     extractSass,
     new CleanWebpackPlugin(['./dist']),
     new webpack.optimize.ModuleConcatenationPlugin(),
+    new UnminifiedWebpackPlugin({
+      exclude: /\.css$/
+    })
   ],
   devtool: false,
   performance: {

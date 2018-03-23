@@ -1,6 +1,6 @@
 <template>
   <transition :name="animation">
-    <div class="loading-overlay is-active" v-if="isActive">
+    <div class="loading-overlay is-active" v-if="isActive" :aria-busy="isActive">
       <div class="loading-background" @click.prevent="cancel"></div>
       <div class="loading-icon"></div>
     </div>
@@ -42,9 +42,7 @@
       }
     },
     created() {
-      if (hasWindow) {
-        document.addEventListener('keyup', this.escape)
-      }
+      hasWindow && document.addEventListener('keyup', this.escape)
     },
     beforeMount() {
       // Insert the Loading component in body tag
@@ -95,9 +93,7 @@
       }
     },
     beforeDestroy() {
-      if (hasWindow) {
-        document.removeEventListener('keyup', this.escape)
-      }
+      hasWindow && document.removeEventListener('keyup', this.escape)
     },
   }
 </script>

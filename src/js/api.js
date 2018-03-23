@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import Loading from './component.vue'
+import Component from './Component.vue'
 
 
 const LoadingProgrammatic = {
@@ -8,7 +8,7 @@ const LoadingProgrammatic = {
       programmatic: true
     };
     const propsData = Object.assign(defaultParam, params);
-    const LoadingComponent = Vue.extend(Loading);
+    const LoadingComponent = Vue.extend(Component);
 
     return new LoadingComponent({
       el: document.createElement('div'),
