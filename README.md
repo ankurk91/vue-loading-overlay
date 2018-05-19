@@ -64,7 +64,7 @@ yarn add vue-loading-overlay
 ```html
 <template>
     <form @submit.prevent="submit">
-        <!-- form inputs -->
+        <!-- your form inputs -->
     </form>
 </template>
 
@@ -81,6 +81,7 @@ yarn add vue-loading-overlay
         methods: {
             submit() {
                 let loader = this.$loading.show();
+                // AJAX example with axios
                 axios.post('/api').then((response)=>{
                   loader.hide()
                 })                 
@@ -95,8 +96,8 @@ The component accepts these props:
 
 | Attribute        | Type                | Default              | Description      |
 | :---             | :---:               | :---:                | :---             |
-| canCancel        | Boolean             | `false`              | Allow user to cancel |
-| onCancel         | Function            | `()=>{}`             | Do something upon cancel |
+| can-cancel        | Boolean             | `false`              | Allow user to cancel? |
+| on-cancel         | Function            | `()=>{}`             | Do something upon cancel |
 
 ## Install in non-module environments (without webpack)
 ```html

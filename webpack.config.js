@@ -6,6 +6,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const UnminifiedWebpackPlugin = require('unminified-webpack-plugin');
 const extractSass = new ExtractTextPlugin('vue-loading.min.css');
+const { VueLoaderPlugin } = require('vue-loader');
 
 module.exports = {
   context: __dirname,
@@ -82,7 +83,8 @@ module.exports = {
     new webpack.optimize.ModuleConcatenationPlugin(),
     new UnminifiedWebpackPlugin({
       exclude: /\.css$/
-    })
+    }),
+    new VueLoaderPlugin(),
   ],
   devtool: false,
   performance: {
