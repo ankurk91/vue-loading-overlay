@@ -29,7 +29,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npm run dev",
     "dev": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --config=webpack.config.dev.js",
-    "build": "node ./node_modules/webpack/bin/webpack.js --hide-modules -p --progress",
+    "build": "node ./node_modules/webpack/bin/webpack.js -p --progress",
     "prepublishOnly": "npm run build"
   },
   "dependencies": {},
@@ -43,6 +43,7 @@
     "file-loader": "^1.1.6",
     "html-webpack-plugin": "^2.30.1",
     "node-sass": "^4.7.2",
+    "postcss-loader": "^2.1.5",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.20.1",
     "unminified-webpack-plugin": "^1.4",

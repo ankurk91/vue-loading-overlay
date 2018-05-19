@@ -8,9 +8,6 @@ module.exports = {
   context: __dirname,
   resolve: {
     modules: [
-      path.resolve(__dirname, 'src'),
-      path.resolve(__dirname, 'dist'),
-      path.resolve(__dirname, 'examples'),
       path.resolve(__dirname, 'node_modules'),
     ],
     alias: {
@@ -20,15 +17,16 @@ module.exports = {
   },
   entry: './examples/index.js',
   output: {
-    path: path.resolve(__dirname, 'docs'),// where to store build files
-    publicPath: '',// to be used in index.html
-    filename: "js/[name].[hash].js" // build file name
+    path: path.resolve(__dirname, 'docs'),
+    publicPath: '',
+    filename: 'js/[name].[hash].js'
   },
   module: {
     rules: [
       {
         test: /\.vue$/,
         loader: 'vue-loader',
+        exclude: path.resolve(__dirname, 'node_modules'),
       },
       {
         test: /\.js$/,
@@ -37,27 +35,61 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loader: 'style-loader!css-loader',
-      },
-      {
-        test: /\.scss$/,
         use: [
           {
-            loader: "style-loader" // creates style nodes from JS strings
-          }, {
-            loader: "css-loader" // translates CSS into CommonJS
-          }, {
-            loader: "sass-loader" // compiles Sass to CSS
-          }
-        ]
+            loader: "style-loader",
+            options: {
+              sourceMap: true,
+              minimize: false
+            }
+          },
+          {
+            loader: "css-loader",
+            options: {
+              sourceMap: true,
+              minimize: false
+            }
+          },
+        ],
+      },
+      {
+        test: /\.s?[ac]ss$/,
+        use: [
+          {
+            loader: 'style-loader',
+            options: {
+              sourceMap: true,
+            }
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true,
+              minimize: false
+            }
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true,
+              minimize: false
+            }
+          },
+        ],
       },
       {
         test: /\.jpe?g$|\.gif$|\.png$/i,
-        loader: 'file-loader?name=[name].[hash].[ext]',
+        loader: 'file-loader',
+        options: {
+          name: '[path][name]-[hash].[ext]',
+        }
       },
       {
         test: /\.(woff|woff2|eot|ttf|svg)(\?.*$|$)/,
-        loader: 'file-loader?name=[name].[ext]?[hash]',
+        loader: 'file-loader',
+        options: {
+          name: '[path][name]-[hash].[ext]',
+        }
       }
 
     ]
@@ -88,7 +120,7 @@ module.exports = {
         if (module.resource && (/^.*\.(css|scss)$/).test(module.resource)) {
           return false;
         }
-        return module.context && module.context.indexOf("node_modules") !== -1;
+        return module.context && module.context.indexOf('node_modules') !== -1;
       }
     }),
     // Required for mhr
@@ -107,5 +139,11 @@ module.exports = {
     stats: 'errors-only'
   },
   devtool: '#cheap-module-eval-source-map',
+  performance: {
+    hints: false,
+  },
+  stats: {
+    modules: false,
+  }
 };
 

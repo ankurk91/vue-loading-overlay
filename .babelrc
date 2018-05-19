@@ -6,9 +6,7 @@
         "modules": false,
         "targets": {
           "browsers": [
-            "> 2%",
-            "last 2 versions",
-            "ie 11"
+            "defaults"
           ],
           "uglify": true
         }

@@ -11,7 +11,6 @@ module.exports = {
   context: __dirname,
   resolve: {
     modules: [
-      path.resolve(__dirname, 'src'),
       path.resolve(__dirname, 'node_modules'),
     ],
     alias: {
@@ -54,15 +53,25 @@ module.exports = {
           use: [
             {
               loader: 'css-loader',
-              options: {importLoaders: 1}
+              options: {
+                minimize: true,
+                importLoaders: 1
+              }
+            },
+            {
+              loader: 'postcss-loader',
+              options: {
+                sourceMap: false,
+                plugins: (loader) => [
+                  require('autoprefixer')()
+                ]
+              }
             },
             {
               loader: 'sass-loader',
               options: {importLoaders: 1}
             },
           ],
-          // use style-loader in development
-          fallback: 'style-loader'
         })
       },
     ]
@@ -78,5 +87,8 @@ module.exports = {
   devtool: false,
   performance: {
     hints: false,
+  },
+  stats: {
+    modules: false,
   }
 };

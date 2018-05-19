@@ -11,7 +11,6 @@ Vue.js v2.x component for full screen loading indicator
 ## Demo on [JSFiddle](https://jsfiddle.net/ankurk91/w8y8k5wo/)
 
 ## Installation
-:mega: Now published to npm
 ```bash
 # npm
 npm install vue-loading-overlay --save
@@ -118,10 +117,6 @@ Vue.use(VueLoading)
 * Install dependencies - `yarn install`
 * Run webpack dev server - `yarn start`
 * This should open the demo page at `http://localhost:9000` in your default web browser 
-
-## Browser support
-* I have not taken care of old browsers.
-* You can apply [autoprefixer](https://github.com/postcss/autoprefixer) on css to support older browsers.
 
 ## Credits
 * [Buefy](https://buefy.github.io/#/documentation/loading) loading component
