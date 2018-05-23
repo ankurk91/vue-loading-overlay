@@ -3,9 +3,10 @@
 const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { VueLoaderPlugin } = require('vue-loader');
+const {VueLoaderPlugin} = require('vue-loader');
 
 module.exports = {
+  mode: 'development',
   context: __dirname,
   resolve: {
     modules: [
@@ -94,6 +95,13 @@ module.exports = {
 
     ]
   },
+  // https://gist.github.com/sokra/1522d586b8e5c0f5072d7565c2bee693
+  optimization: {
+    runtimeChunk: false,
+    splitChunks: {
+      chunks: 'all',
+    }
+  },
   plugins: [
     new HtmlWebpackPlugin({
       inject: true,
@@ -111,33 +119,19 @@ module.exports = {
     new webpack.ProvidePlugin({
       Vue: ['vue/dist/vue.esm.js', 'default'],
     }),
-    // https://webpack.js.org/plugins/commons-chunk-plugin/
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
-      minChunks: function (module) {
-        // This prevents stylesheet resources with the .css or .scss extension
-        // from being moved from their original chunk to the vendor chunk
-        if (module.resource && (/^.*\.(css|scss)$/).test(module.resource)) {
-          return false;
-        }
-        return module.context && module.context.indexOf('node_modules') !== -1;
-      }
-    }),
     // Required for mhr
     new webpack.HotModuleReplacementPlugin(),
     new VueLoaderPlugin(),
   ],
-  // Dev server related configs
-  devServer: {
-    contentBase: path.resolve(__dirname, 'examples'),
-    port: 9000,
+  // webpack-serve related configs
+  serve: {
     host: 'localhost',
+    port: 9000,
     open: true,
-    inline: true,
     hot: true,
-    noInfo: false,
-    quiet: false,
-    stats: 'errors-only'
+    logTime: true,
+    logLevel: 'info',
+    clipboard: false
   },
   devtool: '#cheap-module-eval-source-map',
   performance: {

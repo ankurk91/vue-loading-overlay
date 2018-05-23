@@ -3,10 +3,10 @@
 const webpack = require('webpack');
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const UnminifiedWebpackPlugin = require('unminified-webpack-plugin');
-const extractSass = new ExtractTextPlugin('vue-loading.min.css');
-const { VueLoaderPlugin } = require('vue-loader');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const {VueLoaderPlugin} = require('vue-loader');
 
 module.exports = {
   context: __dirname,
@@ -50,41 +50,58 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        use: extractSass.extract({
-          use: [
-            {
-              loader: 'css-loader',
-              options: {
-                minimize: true,
-                importLoaders: 1
-              }
-            },
-            {
-              loader: 'postcss-loader',
-              options: {
-                sourceMap: false,
-                plugins: (loader) => [
-                  require('autoprefixer')()
-                ]
-              }
-            },
-            {
-              loader: 'sass-loader',
-              options: {importLoaders: 1}
-            },
-          ],
-        })
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              minimize: true,
+              importLoaders: 1
+            }
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              sourceMap: false,
+              plugins: (loader) => [
+                require('autoprefixer')()
+              ]
+            }
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              importLoaders: 1
+            }
+          },
+        ]
       },
     ]
   },
   plugins: [
-    extractSass,
+    new MiniCssExtractPlugin({
+      filename: 'vue-loading.min.css',
+    }),
     new CleanWebpackPlugin(['./dist']),
-    new webpack.optimize.ModuleConcatenationPlugin(),
     new UnminifiedWebpackPlugin({
       exclude: /\.css$/
     }),
     new VueLoaderPlugin(),
+    new UglifyJsPlugin({
+      sourceMap: false,
+      uglifyOptions: {
+        output: {
+          comments: false,
+          beautify: false
+        },
+        compress: {
+          dead_code: true,
+          warnings: false,
+          drop_debugger: true,
+          drop_console: true
+        }
+      }
+    }),
   ],
   devtool: false,
   performance: {
