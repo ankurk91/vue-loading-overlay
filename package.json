@@ -28,8 +28,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npm run dev",
-    "dev": "cross-env NODE_ENV=development node ./node_modules/webpack-serve/cli.js --config=webpack.config.dev.js",
-    "build": "cross-env NODE_ENV=production node ./node_modules/webpack-command/lib/cli.js --mode production",
+    "dev": "cross-env NODE_ENV=development webpack-serve --config=webpack.config.dev.js",
+    "build": "cross-env NODE_ENV=production webpack --mode production",
     "prepublishOnly": "npm run build"
   },
   "dependencies": {},
@@ -49,9 +49,9 @@
     "style-loader": "^0.21.0",
     "unminified-webpack-plugin": "^2.0.0",
     "vue": "^2.5.13",
-    "vue-loader": "^15.2.0",
+    "vue-loader": "^15.2.4",
     "vue-template-compiler": "^2.5.13",
-    "webpack": "^4.8.3",
+    "webpack": "^4.10.2",
     "webpack-command": "^0.2.0",
     "webpack-serve": "^1.0.2"
   },

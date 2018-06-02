@@ -79,10 +79,10 @@ module.exports = {
     ]
   },
   plugins: [
+    new CleanWebpackPlugin(['./dist']),
     new MiniCssExtractPlugin({
       filename: 'vue-loading.min.css',
     }),
-    new CleanWebpackPlugin(['./dist']),
     new UnminifiedWebpackPlugin({
       exclude: /\.css$/
     }),
