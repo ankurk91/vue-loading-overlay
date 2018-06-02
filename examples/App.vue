@@ -10,7 +10,11 @@
 
     <button @click.prevent="open()">Programmatic show</button>
     <button @click.prevent="show()">Component show, cancellable</button>
+    <button @click.prevent="showInContainer()">Programmatic show in container</button>
     <hr>
+    <section class="custom-container" ref="loadingContainer">
+      <h1>Custom container</h1>
+    </section>
     <a target="_blank" href="https://github.com/ankurk91/vue-loading-overlay">Visit site</a>
   </div>
 </template>
@@ -50,7 +54,23 @@
       },
       onClose() {
         console.log("Listen to close event")
+      },
+      showInContainer() {
+        let loader = this.$loading.show({
+          container: this.$refs.loadingContainer
+        });
+        // Simulate async operation
+        setTimeout(() => loader.hide(), 3 * 1000)
       }
     }
   }
 </script>
+
+<style>
+  .custom-container {
+    background: #ffa210;
+    height: 300px;
+    width: 50%;
+    position: relative;
+  }
+</style>

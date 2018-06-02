@@ -5,33 +5,36 @@
   display: none;
   justify-content: center;
   overflow: hidden;
-  position: fixed;
   z-index: 999;
   &.is-active {
     display: flex
   }
-
+  &.is-full-page {
+    position: fixed;
+    .loading-icon {
+      &:after {
+        top: calc(50% - 2.5em);
+        left: calc(50% - 2.5em);
+        width: 5em;
+        height: 5em;
+      }
+    }
+  }
   .loading-background {
     @include overlay;
     background: $loaderBackground;
     opacity: 0.5;
   }
-
   .loading-icon {
     position: relative;
     &:after {
-      animation: spinAround 500ms infinite linear;
-      border: 2px solid $loaderColor;
-      border-radius: 290486px;
-      border-right-color: transparent;
-      border-top-color: transparent;
-      content: "";
-      display: block;
-      height: 5em;
-      left: calc(50% - 2.5em);
+      @include loader;
       position: absolute;
-      top: 0;
-      width: 5em;
+      top: calc(50% - 1.5em);
+      left: calc(50% - 1.5em);
+      width: 3em;
+      height: 3em;
+      border-width: 0.25em;
     }
   }
 }

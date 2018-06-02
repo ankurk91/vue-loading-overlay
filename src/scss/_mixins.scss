@@ -6,3 +6,16 @@
   top: $offset;
 }
 
+@mixin loader() {
+  animation: spinAround 500ms infinite linear;
+  border: 2px solid $loaderColor;
+  border-radius: 290486px;
+  border-right-color: transparent;
+  border-top-color: transparent;
+  content: "";
+  display: block;
+  height: 5em;
+  position: relative;
+  width: 5em;
+}
+

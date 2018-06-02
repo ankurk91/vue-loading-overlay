@@ -1,6 +1,9 @@
 <template>
   <transition :name="animation">
-    <div class="loading-overlay is-active" v-if="isActive" :aria-busy="isActive">
+    <div class="loading-overlay is-active"
+         v-if="isActive"
+         :class="{'is-full-page': isFullPage }"
+         :aria-busy="isActive">
       <div class="loading-background" @click.prevent="cancel"></div>
       <div class="loading-icon"></div>
     </div>
@@ -8,13 +11,18 @@
 </template>
 
 <script>
-  import {removeElement, hasWindow} from './util'
+  import {removeElement, hasWindow, HTMLElement} from './util'
 
   export default {
     name: 'vue-loading',
     props: {
       active: Boolean,
       programmatic: Boolean,
+      container: [Object, Function, HTMLElement],
+      isFullPage: {
+        type: Boolean,
+        default: true
+      },
       animation: {
         type: String,
         default: 'fade'
@@ -45,9 +53,14 @@
       hasWindow && document.addEventListener('keyup', this.escape)
     },
     beforeMount() {
-      // Insert the Loading component in body tag
-      // only if it's programmatic
-      hasWindow && this.programmatic && document.body.appendChild(this.$el)
+      if (hasWindow && this.programmatic) {
+        if (!this.container) {
+          document.body.appendChild(this.$el)
+        } else {
+          this.isFullPage = false;
+          this.container.appendChild(this.$el)
+        }
+      }
     },
     mounted() {
       if (this.programmatic) this.isActive = true
