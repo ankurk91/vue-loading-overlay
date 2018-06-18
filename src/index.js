@@ -4,15 +4,7 @@ import './scss/index.scss';
 
 const Plugin = (Vue, options = {}) => {
   Vue.$loading = LoadingProgrammatic;
-
-  Object.defineProperties(Vue.prototype, {
-    $loading: {
-      get() {
-        return LoadingProgrammatic
-      }
-    }
-  });
-
+  Vue.prototype.$loading = LoadingProgrammatic;
 };
 
 Component.install = Plugin;

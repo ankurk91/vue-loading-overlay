@@ -24,8 +24,11 @@ yarn add vue-loading-overlay
 ```html
 <template>
     <div>
-        <loading :active.sync="isLoading" :can-cancel="true" :on-cancel="whenCancelled"></loading>
-        <button @click.prevent="fetchData">fetch Data</button>
+        <loading :active.sync="isLoading" 
+        :can-cancel="true" 
+        :on-cancel="whenCancelled"
+        :is-full-page="true"></loading>
+        <button @click.prevent="doAjax">fetch Data</button>
     </div>
 </template>
 
@@ -45,7 +48,7 @@ yarn add vue-loading-overlay
             Loading
         },
         methods: {
-            fetchData() {
+            doAjax() {
                 this.isLoading = true;
                 // AJAX example with axios
                 axios.post('/api').then((response)=>{
@@ -64,7 +67,8 @@ yarn add vue-loading-overlay
 ```html
 <template>
     <form @submit.prevent="submit">
-        <!-- your form inputs -->
+        <!-- your form inputs goes here-->
+        <button type="submit">Save</button>
     </form>
 </template>
 
@@ -96,8 +100,20 @@ The component accepts these props:
 
 | Attribute        | Type                | Default              | Description      |
 | :---             | :---:               | :---:                | :---             |
-| can-cancel        | Boolean             | `false`              | Allow user to cancel? |
-| on-cancel         | Function            | `()=>{}`             | Do something upon cancel |
+| can-cancel       | Boolean             | `false`              | Allow user to cancel? |
+| on-cancel        | Function            | `()=>{}`             | Do something upon cancel |
+| is-full-page     | Boolean             | `true`               | When `false`; limit loader to its container* |
+
+* When `is-full-page` is set to `false`, the container element should be positioned as `position: relative`
+
+## API methods
+### `this.$loading.show()`
+```js
+// pass propsData to component
+this.$loading.show({
+  container: this.$refs.loadingContainer
+})
+```
 
 ## Install in non-module environments (without webpack)
 ```html

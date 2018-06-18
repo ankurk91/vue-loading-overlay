@@ -1,5 +1,9 @@
 # Changelog
 
+### [2.1.0](https://github.com/ankurk91/vue-loading-overlay/compare/2.0.4...2.1.0) 
+* Add: allow loader to be restricted to a container element
+* Chore: auto pre-fixer
+
 ### [2.0.4](https://github.com/ankurk91/vue-loading-overlay/compare/2.0.3...2.0.4) 
 * Build: `dist` now includes non-minified js file as well
 
