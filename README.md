@@ -37,7 +37,9 @@ yarn add vue-loading-overlay
     import Loading from 'vue-loading-overlay';
     // Import stylesheet
     import 'vue-loading-overlay/dist/vue-loading.min.css';
-
+    // Using axios for the example only
+    import axios from 'axios';
+    
     export default {
         data() {
             return {
@@ -110,9 +112,11 @@ The component accepts these props:
 ### `this.$loading.show()`
 ```js
 // pass propsData to component
-this.$loading.show({
+let loader = this.$loading.show({
   container: this.$refs.loadingContainer
-})
+});
+// hide loader whenever you want
+loader.hide();
 ```
 
 ## Install in non-module environments (without webpack)
