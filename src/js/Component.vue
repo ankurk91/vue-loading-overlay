@@ -3,7 +3,8 @@
     <div class="loading-overlay is-active"
          v-if="isActive"
          :class="{'is-full-page': isFullPage }"
-         :aria-busy="isActive">
+         :aria-busy="isActive"
+         aria-label="Loading">
       <div class="loading-background" @click.prevent="cancel"></div>
       <div class="loading-icon"></div>
     </div>

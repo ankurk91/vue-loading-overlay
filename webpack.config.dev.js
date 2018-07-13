@@ -48,7 +48,6 @@ module.exports = {
             loader: "css-loader",
             options: {
               sourceMap: true,
-              minimize: false
             }
           },
         ],
@@ -66,7 +65,6 @@ module.exports = {
             loader: 'css-loader',
             options: {
               sourceMap: true,
-              minimize: false
             }
           },
           {
@@ -119,8 +117,6 @@ module.exports = {
     new webpack.ProvidePlugin({
       Vue: ['vue/dist/vue.esm.js', 'default'],
     }),
-    // Required for mhr
-    new webpack.HotModuleReplacementPlugin(),
     new VueLoaderPlugin(),
   ],
   // webpack-serve related configs

@@ -15,7 +15,7 @@
     <section class="custom-container" ref="loadingContainer">
       <h1>Custom container</h1>
     </section>
-    <a target="_blank" href="https://github.com/ankurk91/vue-loading-overlay">Visit site</a>
+    <a target="_blank" href="https://github.com/ankurk91/vue-loading-overlay">Get this package</a>
   </div>
 </template>
 

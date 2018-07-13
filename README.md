@@ -113,6 +113,7 @@ The component accepts these props:
 ```js
 // pass propsData to component
 let loader = this.$loading.show({
+  // Optional parent container reference
   container: this.$refs.loadingContainer
 });
 // hide loader whenever you want
@@ -122,15 +123,18 @@ loader.hide();
 ## Install in non-module environments (without webpack)
 ```html
 <!-- Vue js -->
-<script src="https://unpkg.com/vue@2.5/dist/vue.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5/dist/vue.min.js"></script>
 <!-- Lastly add this package -->
-<script src="https://unpkg.com/vue-loading-overlay@2"></script>
-<link href="https://unpkg.com/vue-loading-overlay@latest/dist/vue-loading.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/vue-loading-overlay@2"></script>
+<link href="https://cdn.jsdelivr.net/npm/vue-loading-overlay@latest/dist/vue-loading.min.css" rel="stylesheet">
 <!-- Init the plugin -->
 <script>
 Vue.use(VueLoading)
 </script>
 ```
+
+### Browser support
+* Modern browsers only
 
 ## Run examples on your localhost
 * Clone this repo
