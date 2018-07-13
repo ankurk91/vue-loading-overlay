@@ -7,6 +7,7 @@
          aria-label="Loading">
       <div class="loading-background" @click.prevent="cancel"></div>
       <div class="loading-icon"></div>
+      <slot></slot>
     </div>
   </transition>
 </template>
