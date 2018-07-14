@@ -3,7 +3,7 @@
   "version": "2.1.0",
   "description": "Vue.js v2.x component for full screen loading indicator",
   "main": "dist/vue-loading.js",
-  "unpkg": "dist/vue-loading.min.js",
+  "browser": "dist/vue-loading.min.js",
   "style": "dist/vue-loading.min.css",
   "files": [
     "src",
