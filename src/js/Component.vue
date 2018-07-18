@@ -32,10 +32,7 @@
       /**
        * Allow user to hide the loader
        */
-      canCancel: {
-        type: Boolean,
-        default: false
-      },
+      canCancel: Boolean,
       /**
        * Do something on cancel
        */
@@ -72,9 +69,7 @@
        * Hide the Loader if canCancel is set to true.
        */
       cancel() {
-        if (!this.canCancel) return;
-        if (!this.isActive) return;
-
+        if (!this.canCancel || !this.isActive) return;
         this.hide()
       },
       /**
