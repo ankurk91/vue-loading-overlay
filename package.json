@@ -29,12 +29,12 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npm run dev",
     "dev": "cross-env NODE_ENV=development webpack-serve --config=webpack.config.dev.js",
-    "build": "cross-env NODE_ENV=production webpack --mode production",
+    "build": "cross-env NODE_ENV=production webpack --progress --mode production",
     "prepublishOnly": "npm run build"
   },
   "dependencies": {},
   "devDependencies": {
-    "autoprefixer": "^8.6.5",
+    "autoprefixer": "^9.0.1",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",
@@ -50,9 +50,9 @@
     "style-loader": "^0.21.0",
     "unminified-webpack-plugin": "^2.0.0",
     "vue": "^2.5.13",
-    "vue-loader": "^15.2.4",
+    "vue-loader": "^15.2.6",
     "vue-template-compiler": "^2.5.13",
-    "webpack": "^4.16.0",
+    "webpack": "^4.16.3",
     "webpack-command": "^0.4.1",
     "webpack-serve": "^2.0.2"
   },
