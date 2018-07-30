@@ -1,8 +1,8 @@
 <template>
   <transition :name="animation">
     <div class="loading-overlay is-active"
-         v-if="isActive"
          :class="{'is-full-page': isFullPage }"
+         v-if="isActive"
          :aria-busy="isActive"
          aria-label="Loading">
       <div class="loading-background" @click.prevent="cancel"></div>
@@ -49,7 +49,7 @@
       }
     },
     created() {
-      hasWindow && document.addEventListener('keyup', this.escape)
+      hasWindow && document.addEventListener('keyup', this.keyPress)
     },
     beforeMount() {
       if (hasWindow && this.programmatic) {
@@ -92,7 +92,7 @@
       /**
        * Keypress event that is bound to the document.
        */
-      escape(event) {
+      keyPress(event) {
         // Esc key
         if (event.keyCode === 27) this.cancel()
       }
@@ -103,7 +103,7 @@
       }
     },
     beforeDestroy() {
-      hasWindow && document.removeEventListener('keyup', this.escape)
+      hasWindow && document.removeEventListener('keyup', this.keyPress)
     },
   }
 </script>
