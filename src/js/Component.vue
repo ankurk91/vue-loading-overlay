@@ -1,6 +1,7 @@
 <template>
   <transition :name="animation">
-    <div class="loading-overlay is-active"
+    <div tabindex="0"
+         class="loading-overlay is-active"
          :class="{'is-full-page': isFullPage }"
          v-if="isActive"
          :aria-busy="isActive"
@@ -62,7 +63,8 @@
       }
     },
     mounted() {
-      if (this.programmatic) this.isActive = true
+      if (this.programmatic) this.isActive = true;
+      hasWindow && document.addEventListener('focusin', this.focusIn)
     },
     methods: {
       /**
@@ -95,6 +97,28 @@
       keyPress(event) {
         // Esc key
         if (event.keyCode === 27) this.cancel()
+      },
+      /**
+       * Trap focus event
+       *
+       * @param event
+       */
+      focusIn(event) {
+        // Ignore when loading is not active
+        if (!this.isActive) return;
+
+        // Allow to focus inside the loading div
+        if (this.$el.contains(event.target)) return;
+
+        if (
+          // When loading is full screen
+          !this.container
+          // When loading is NOT full screen and event target is inside the container
+          || (this.container && this.container.contains(event.target))
+        ) {
+          event.preventDefault();
+          this.$el.focus()
+        }
       }
     },
     watch: {
@@ -103,7 +127,10 @@
       }
     },
     beforeDestroy() {
-      hasWindow && document.removeEventListener('keyup', this.keyPress)
+      if (hasWindow) {
+        document.removeEventListener('keyup', this.keyPress);
+        document.removeEventListener('focusin', this.focusIn)
+      }
     },
   }
 </script>
