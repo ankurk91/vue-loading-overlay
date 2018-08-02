@@ -26,14 +26,16 @@
   },
   "homepage": "https://github.com/ankurk91/vue-loading-overlay",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
+    "test:watch": "npm run test -- --watch --onlyChanged --notify",
     "start": "npm run dev",
     "dev": "cross-env NODE_ENV=development webpack-serve --config=webpack.config.dev.js",
     "build": "cross-env NODE_ENV=production webpack --progress --mode production",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run test && npm run build"
   },
   "dependencies": {},
   "devDependencies": {
+    "@vue/test-utils": "^1.0.0-beta.23",
     "autoprefixer": "^9.0.2",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
@@ -43,6 +45,7 @@
     "css-loader": "^1.0.0",
     "file-loader": "^1.1.6",
     "html-webpack-plugin": "^3.2.0",
+    "jest": "^23.4.2",
     "mini-css-extract-plugin": "^0.4.1",
     "node-sass": "^4.9.2",
     "postcss-loader": "^2.1.6",
@@ -50,6 +53,7 @@
     "style-loader": "^0.21.0",
     "unminified-webpack-plugin": "^2.0.0",
     "vue": "^2.5.17",
+    "vue-jest": "^2.6.0",
     "vue-loader": "^15.2.6",
     "vue-template-compiler": "^2.5.17",
     "webpack": "^4.16.3",
@@ -62,5 +66,20 @@
   "engines": {
     "node": ">=6.9.0",
     "npm": ">=3.10.0"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "jsx",
+      "node",
+      "vue"
+    ],
+    "transform": {
+      "^.+\\.js$": "<rootDir>/node_modules/babel-jest",
+      ".*\\.(vue)$": "<rootDir>/node_modules/vue-jest"
+    },
+    "collectCoverage": false,
+    "testURL": "http://localhost"
   }
 }

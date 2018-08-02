@@ -5,6 +5,7 @@
 [![npm-version](https://img.shields.io/npm/v/vue-loading-overlay.svg)](https://www.npmjs.com/package/vue-loading-overlay)
 [![github-tag](https://img.shields.io/github/tag/ankurk91/vue-loading-overlay.svg?maxAge=1800)](https://github.com/ankurk91/vue-loading-overlay/)
 [![license](https://img.shields.io/github/license/ankurk91/vue-loading-overlay.svg?maxAge=1800)](https://yarnpkg.com/en/package/vue-loading-overlay)
+[![build-status](https://travis-ci.org/ankurk91/vue-loading-overlay.svg?branch=master)](https://travis-ci.org/ankurk91/vue-loading-overlay)
 
 Vue.js v2.x component for full screen loading indicator
 
@@ -142,6 +143,11 @@ Vue.use(VueLoading)
 * Install dependencies - `yarn install`
 * Run webpack dev server - `yarn start`
 * This should open the demo page at `http://localhost:9000` in your default web browser 
+
+## Testing
+* This package is using [Jest](https://github.com/facebook/jest) and [vue-test-utils](https://github.com/vuejs/vue-test-utils) for testing.
+* Tests can be found in `__test__` folder.
+* Execute tests with this command `yarn test`
 
 ## Credits
 * [Buefy](https://buefy.github.io/#/documentation/loading) loading component

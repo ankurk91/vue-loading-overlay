@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Loading component renders when active 1`] = `
+<div
+  aria-label="Loading"
+  aria-live="polite"
+  class="loading-overlay is-active is-full-page"
+  name="fade"
+  tabindex="0"
+>
+  <div
+    class="loading-background"
+  />
+   
+  <div
+    class="loading-icon"
+  />
+   
+</div>
+`;
+
+exports[`Loading component renders when not active 1`] = `<!---->`;
