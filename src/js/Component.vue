@@ -54,28 +54,30 @@
     },
     beforeMount() {
       if (hasWindow && this.programmatic) {
-        if (!this.container) {
-          document.body.appendChild(this.$el)
-        } else {
+        if (this.container) {
           this.isFullPage = false;
           this.container.appendChild(this.$el)
+        } else {
+          document.body.appendChild(this.$el)
         }
       }
     },
     mounted() {
-      if (this.programmatic) this.isActive = true;
+      if (this.programmatic) {
+        this.isActive = true;
+      }
       hasWindow && document.addEventListener('focusin', this.focusIn)
     },
     methods: {
       /**
-       * Hide the Loader if canCancel is set to true.
+       * Proxy to hide() method.
        */
       cancel() {
         if (!this.canCancel || !this.isActive) return;
         this.hide()
       },
       /**
-       * Emit events, and destroy component if it's programmatic.
+       * Hide and destroy component if it's programmatic.
        */
       hide() {
         this.onCancel.apply(null, arguments);
@@ -92,7 +94,9 @@
         }
       },
       /**
-       * Keypress event that is bound to the document.
+       * Keypress event to hide on ESC.
+       *
+       * @param event
        */
       keyPress(event) {
         // Esc key
@@ -107,14 +111,18 @@
         // Ignore when loading is not active
         if (!this.isActive) return;
 
-        // Allow to focus inside the loading div
-        if (this.$el.contains(event.target)) return;
+        if (
+          // Event target is the loading div element itself
+          event.target === this.$el ||
+          // Event target is inside the loading div
+          this.$el.contains(event.target)
+        ) return;
 
         if (
           // When loading is full screen
-          !this.container
-          // When loading is NOT full screen and event target is inside the container
-          || (this.container && this.container.contains(event.target))
+          !this.container ||
+          // When loading is NOT full screen and event target is inside the given container
+          (this.container && this.container.contains(event.target))
         ) {
           event.preventDefault();
           this.$el.focus()
