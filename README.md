@@ -135,7 +135,7 @@ Vue.use(VueLoading)
 ```
 
 ### Browser support
-* Modern browsers only
+* [Modern](http://browserl.ist/) browsers only
 
 ## Run examples on your localhost
 * Clone this repo
