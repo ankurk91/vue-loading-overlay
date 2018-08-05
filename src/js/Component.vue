@@ -50,10 +50,10 @@
       }
     },
     created() {
-      hasWindow && document.addEventListener('keyup', this.keyPress)
+      hasWindow() && document.addEventListener('keyup', this.keyPress)
     },
     beforeMount() {
-      if (hasWindow && this.programmatic) {
+      if (hasWindow() && this.programmatic) {
         if (this.container) {
           this.isFullPage = false;
           this.container.appendChild(this.$el)
@@ -66,7 +66,7 @@
       if (this.programmatic) {
         this.isActive = true;
       }
-      hasWindow && document.addEventListener('focusin', this.focusIn)
+      hasWindow() && document.addEventListener('focusin', this.focusIn)
     },
     methods: {
       /**
@@ -135,7 +135,7 @@
       }
     },
     beforeDestroy() {
-      if (hasWindow) {
+      if (hasWindow()) {
         document.removeEventListener('keyup', this.keyPress);
         document.removeEventListener('focusin', this.focusIn)
       }
