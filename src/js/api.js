@@ -1,7 +1,6 @@
 import Vue from 'vue';
 import Component from './Component.vue'
 
-
 const LoadingProgrammatic = {
   show(params = {}) {
     const defaultParam = {
@@ -16,6 +15,5 @@ const LoadingProgrammatic = {
     })
   }
 };
-
 
 export default LoadingProgrammatic;

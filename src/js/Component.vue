@@ -45,7 +45,7 @@
     },
     data() {
       return {
-        // Mutable property
+        // Don't mutate the prop
         isActive: this.active || false
       }
     },
@@ -80,9 +80,12 @@
        * Hide and destroy component if it's programmatic.
        */
       hide() {
-        this.onCancel.apply(null, arguments);
+        //todo rename this event to `hide`
         this.$emit('close');
         this.$emit('update:active', false);
+        //todo onCancel should be called only when cancelled by user
+        //todo move next line inside cancel() method
+        this.onCancel.apply(null, arguments);
 
         // Timeout for the animation complete before destroying
         if (this.programmatic) {
