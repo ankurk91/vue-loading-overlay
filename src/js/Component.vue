@@ -15,9 +15,11 @@
 
 <script>
   import {removeElement, hasWindow, HTMLElement} from './util'
+  import trapFocusMixin from './trapFocusMixin';
 
   export default {
     name: 'vue-loading',
+    mixins: [trapFocusMixin],
     props: {
       active: Boolean,
       programmatic: Boolean,
@@ -66,7 +68,6 @@
       if (this.programmatic) {
         this.isActive = true;
       }
-      hasWindow() && document.addEventListener('focusin', this.focusIn)
     },
     methods: {
       /**
@@ -105,32 +106,6 @@
         // Esc key
         if (event.keyCode === 27) this.cancel()
       },
-      /**
-       * Trap focus event
-       *
-       * @param event
-       */
-      focusIn(event) {
-        // Ignore when loading is not active
-        if (!this.isActive) return;
-
-        if (
-          // Event target is the loading div element itself
-          event.target === this.$el ||
-          // Event target is inside the loading div
-          this.$el.contains(event.target)
-        ) return;
-
-        if (
-          // When loading is full screen
-          !this.container ||
-          // When loading is NOT full screen and event target is inside the given container
-          (this.container && this.container.contains(event.target))
-        ) {
-          event.preventDefault();
-          this.$el.focus()
-        }
-      }
     },
     watch: {
       active(value) {
@@ -138,10 +113,7 @@
       }
     },
     beforeDestroy() {
-      if (hasWindow()) {
-        document.removeEventListener('keyup', this.keyPress);
-        document.removeEventListener('focusin', this.focusIn)
-      }
+      hasWindow() && document.removeEventListener('keyup', this.keyPress);
     },
   }
 </script>
