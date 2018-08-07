@@ -24,10 +24,12 @@
       active: Boolean,
       programmatic: Boolean,
       container: [Object, Function, HTMLElement],
+      //todo rename this to isFullScreen
       isFullPage: {
         type: Boolean,
         default: true
       },
+      //todo rename this ot transition
       animation: {
         type: String,
         default: 'fade'

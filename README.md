@@ -27,8 +27,7 @@ yarn add vue-loading-overlay
     <div>
         <loading :active.sync="isLoading" 
         :can-cancel="true" 
-        :on-cancel="whenCancelled"
-        :is-full-page="true"></loading>
+        :on-cancel="whenCancelled"></loading>
         <button @click.prevent="doAjax">fetch Data</button>
     </div>
 </template>
@@ -83,6 +82,8 @@ yarn add vue-loading-overlay
     import 'vue-loading-overlay/dist/vue-loading.min.css';
     // Init plugin
     Vue.use(Loading);
+    // Using axios for the example only
+    import axios from 'axios';
 
     export default {
         methods: {
@@ -103,8 +104,10 @@ The component accepts these props:
 
 | Attribute        | Type                | Default              | Description      |
 | :---             | :---:               | :---:                | :---             |
+| active           | Boolean             | `false`              | Show loading by default |
 | can-cancel       | Boolean             | `false`              | Allow user to cancel? |
 | on-cancel        | Function            | `()=>{}`             | Do something upon cancel |
+| animation        | String              | `fade`               | Transition name |
 | is-full-page     | Boolean             | `true`               | When `false`; limit loader to its container* |
 
 * When `is-full-page` is set to `false`, the container element should be positioned as `position: relative`
@@ -115,7 +118,10 @@ The component accepts these props:
 // pass propsData to component
 let loader = this.$loading.show({
   // Optional parent container reference
-  container: this.$refs.loadingContainer
+  container: this.$refs.loadingContainer,
+  // Can also pass available props here
+  canCancel: true,
+  onCancel: this.yourMethodName
 });
 // hide loader whenever you want
 loader.hide();
@@ -149,7 +155,7 @@ Vue.use(VueLoading)
 * Tests can be found in `__test__` folder.
 * Execute tests with this command `yarn test`
 
-## Credits
+## Inspired by
 * [Buefy](https://buefy.github.io/#/documentation/loading) loading component
 
 ## License
