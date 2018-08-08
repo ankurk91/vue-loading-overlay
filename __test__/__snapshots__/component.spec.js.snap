@@ -15,7 +15,6 @@ exports[`Loading component renders when active 1`] = `
   <div
     class="loading-icon"
   />
-   
 </div>
 `;
 
