@@ -7,8 +7,9 @@
          aria-live="polite"
          aria-label="Loading">
       <div class="loading-background" @click.prevent="cancel"></div>
-      <div class="loading-icon"></div>
-      <slot></slot>
+      <slot>
+        <div class="loading-icon"></div>
+      </slot>
     </div>
   </transition>
 </template>
