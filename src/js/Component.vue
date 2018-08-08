@@ -24,12 +24,11 @@
       active: Boolean,
       programmatic: Boolean,
       container: [Object, Function, HTMLElement],
-      //todo rename this to isFullScreen
       isFullPage: {
         type: Boolean,
         default: true
       },
-      //todo rename this ot transition
+      //todo rename this to `transition`
       animation: {
         type: String,
         default: 'fade'
@@ -57,6 +56,7 @@
       hasWindow() && document.addEventListener('keyup', this.keyPress)
     },
     beforeMount() {
+      // Insert the component in DOM when called programmatically
       if (hasWindow() && this.programmatic) {
         if (this.container) {
           this.isFullPage = false;
@@ -67,6 +67,7 @@
       }
     },
     mounted() {
+      // Activate immediately when called programmatically
       if (this.programmatic) {
         this.isActive = true;
       }
@@ -74,6 +75,7 @@
     methods: {
       /**
        * Proxy to hide() method.
+       * Gets called by ESC button or when click outside
        */
       cancel() {
         if (!this.canCancel || !this.isActive) return;

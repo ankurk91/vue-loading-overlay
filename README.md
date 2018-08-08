@@ -24,10 +24,13 @@ yarn add vue-loading-overlay
 #### As component
 ```html
 <template>
-    <div>
+    <div class="loading-parent">
         <loading :active.sync="isLoading" 
         :can-cancel="true" 
-        :on-cancel="whenCancelled"></loading>
+        :on-cancel="whenCancelled"
+        :is-full-page="fullPage"></loading>
+        
+        <label><input type="checkbox" v-model="fullPage">Full page?</label>
         <button @click.prevent="doAjax">fetch Data</button>
     </div>
 </template>
@@ -37,13 +40,14 @@ yarn add vue-loading-overlay
     import Loading from 'vue-loading-overlay';
     // Import stylesheet
     import 'vue-loading-overlay/dist/vue-loading.min.css';
-    // Using axios for the example only
+    // Using axios for the demo only
     import axios from 'axios';
     
     export default {
         data() {
             return {
                 isLoading: false,
+                fullPage: true
             }
         },
         components: {
@@ -63,14 +67,20 @@ yarn add vue-loading-overlay
         }
     }
 </script>
+<style>
+.loading-parent {
+  position: relative;
+}
+</style>
 ```
 
 ### As plugin
 ```html
 <template>
-    <form @submit.prevent="submit">
+    <form @submit.prevent="submit" class="loading-parent" ref="formContainer">
         <!-- your form inputs goes here-->
-        <button type="submit">Save</button>
+        <label><input type="checkbox" v-model="fullPage">Full page?</label>
+        <button type="submit">Login</button>
     </form>
 </template>
 
@@ -82,21 +92,34 @@ yarn add vue-loading-overlay
     import 'vue-loading-overlay/dist/vue-loading.min.css';
     // Init plugin
     Vue.use(Loading);
-    // Using axios for the example only
+    // Using axios for the demo only
     import axios from 'axios';
 
     export default {
+        data() {
+            return {
+                fullPage: false
+            }
+        },
         methods: {
             submit() {
-                let loader = this.$loading.show();
+                let loader = this.$loading.show({
+                  container: this.fullPage ? null : this.$refs.formContainer
+                });
                 // AJAX example with axios
-                axios.post('/api').then((response)=>{
+                axios.post('/api/login').then((response)=>{
                   loader.hide()
                 })                 
             }
         }
     }
 </script>
+
+<style>
+.loading-parent {
+  position: relative;
+}
+</style>
 ```
 
 ## Available props
@@ -104,10 +127,10 @@ The component accepts these props:
 
 | Attribute        | Type                | Default              | Description      |
 | :---             | :---:               | :---:                | :---             |
-| active           | Boolean             | `false`              | Show loading by default |
-| can-cancel       | Boolean             | `false`              | Allow user to cancel? |
-| on-cancel        | Function            | `()=>{}`             | Do something upon cancel |
-| animation        | String              | `fade`               | Transition name |
+| active           | Boolean             | `false`              | Show loading by default when `true`, use the .sync modifier to make it two-way binding |
+| can-cancel       | Boolean             | `false`              | Allow user to cancel by pressing escape or clicking outside |
+| on-cancel        | Function            | `()=>{}`             | Do something upon cancel, works in conjunction with `can-cancel`  |
+| animation        | String              | `fade`               | [Transition](https://vuejs.org/v2/guide/transitions.html) name |
 | is-full-page     | Boolean             | `true`               | When `false`; limit loader to its container* |
 
 * When `is-full-page` is set to `false`, the container element should be positioned as `position: relative`
