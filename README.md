@@ -156,7 +156,7 @@ loader.hide();
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5/dist/vue.min.js"></script>
 <!-- Lastly add this package -->
 <script src="https://cdn.jsdelivr.net/npm/vue-loading-overlay@2"></script>
-<link href="https://cdn.jsdelivr.net/npm/vue-loading-overlay@latest/dist/vue-loading.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/vue-loading-overlay@2/dist/vue-loading.min.css" rel="stylesheet">
 <!-- Init the plugin -->
 <script>
 Vue.use(VueLoading)

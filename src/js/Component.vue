@@ -103,12 +103,13 @@
         }
       },
       /**
-       * Keypress event to hide on ESC.
+       * Key press event to hide on ESC.
        *
        * @param event
        */
       keyPress(event) {
         // Esc key
+        // todo keyCode is deprecated
         if (event.keyCode === 27) this.cancel()
       },
     },
