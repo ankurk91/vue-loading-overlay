@@ -4,6 +4,7 @@
   display: none;
   justify-content: center;
   overflow: hidden;
+  z-index: 1;
   &.is-active {
     display: flex
   }
