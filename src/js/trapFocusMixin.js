@@ -21,11 +21,15 @@ export default {
         this.$el.contains(event.target)
       ) return;
 
+      // Use container as parent when available otherwise use parent element when isFullPage is false
+      let parent = this.container ? this.container : (this.isFullPage ? null : this.$el.parentElement);
+
       if (
-        // When loading is full screen
-        !this.container ||
+        // Always prevent when loading is full screen
+        this.isFullPage ||
+        // When a parent exist means loader is running inside a container
         // When loading is NOT full screen and event target is inside the given container
-        (this.container && this.container.contains(event.target))
+        (parent && parent.contains(event.target))
       ) {
         event.preventDefault();
         this.$el.focus()
