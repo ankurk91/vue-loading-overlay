@@ -54,6 +54,7 @@ module.exports = {
       },
       {
         test: /\.s?[ac]ss$/,
+        exclude: /node_modules/,
         use: [
           {
             loader: 'style-loader',

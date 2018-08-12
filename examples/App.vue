@@ -1,76 +1,55 @@
 <template>
   <div>
-    <h1>Vue Loading component demo</h1>
+    <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark shadow-sm">
+      <span class="navbar-brand mb-0">Vue.js Loading Overlay</span>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/ankurk91/vue-loading-overlay"
+               target="_blank"> GitHub</a></li>
+        </ul>
+    </nav>
+    <main class="container mt-3">
+      <div class="row">
+        <div class="col-md-8">
+          <component-example></component-example>
+          <plugin-example></plugin-example>
+        </div>
 
-    <loading
-      :active.sync="visible"
-      @close="onClose"
-      :on-cancel="whenCancelled"
-      :can-cancel="true"></loading>
+        <aside class="col-md-4">
+          <div class="card">
+            <div class="card-header"> Links</div>
+            <div class="card-body">
+              <ul>
+                <li><a href="https://github.com/ankurk91/vue-loading-overlay" target="_blank">GitHub</a></li>
+                <li><a href="https://www.npmjs.com/package/vue-loading-overlay" target="_blank">npm</a></li>
+                <li><a
+                  href="https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd?hl=en"
+                  target="_blank">Vue.js Dev tools</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </aside>
+      </div>
 
-    <button @click.prevent="open()">Programmatic show</button>
-    <button @click.prevent="show()">Component show, cancellable</button>
-    <button @click.prevent="showInContainer()">Programmatic show in container</button>
-    <hr>
-    <section class="custom-container" ref="loadingContainer">
-      <h1>Custom container</h1>
-    </section>
-    <a target="_blank" href="https://github.com/ankurk91/vue-loading-overlay">Get this package</a>
+    </main>
   </div>
 </template>
 
 <script>
-  import Vue from 'vue';
-
-  import Loading from '../src/index';
-  import '../src/scss/index.scss';
-
-  Vue.use(Loading);
+  import ComponentExample from './components/component';
+  import PluginExample from './components/plugin';
 
   export default {
     name: 'app',
     data() {
-      return {
-        visible: false
-      }
+      return {}
     },
     components: {
-      Loading
+      ComponentExample,
+      PluginExample
     },
-    methods: {
-      open() {
-        console.log('open was clicked, will auto hide');
-        let loader = this.$loading.show();
-        // Simulate async operation
-        setTimeout(() => loader.hide(), 3 * 1000)
-      },
-      show() {
-        console.log('show was clicked, click to hide');
-        // do AJAX here
-        this.visible = true
-      },
-      whenCancelled() {
-        alert("You cancelled the operation.")
-      },
-      onClose() {
-        console.log("Listen to close event")
-      },
-      showInContainer() {
-        let loader = this.$loading.show({
-          container: this.$refs.loadingContainer
-        });
-        // Simulate async operation
-        setTimeout(() => loader.hide(), 3 * 1000)
-      }
-    }
+    methods: {}
   }
 </script>
 
-<style>
-  .custom-container {
-    background: #ffa210;
-    height: 300px;
-    width: 50%;
-    position: relative;
-  }
-</style>
