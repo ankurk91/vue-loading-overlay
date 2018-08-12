@@ -1,5 +1,10 @@
 # Changelog
 
+### [2.2.1](https://github.com/ankurk91/vue-loading-overlay/compare/2.2.0...2.2.1) 
+* Fix: regression in trap focus feature
+* Fix: regression in `z-index` issue
+* Docs: updated demo examples
+
 ### [2.2.0](https://github.com/ankurk91/vue-loading-overlay/compare/2.1.0...2.2.0) 
 * Add: default slot to override the loading indicator
 * Add: trap `focus` feature, user will not be able to tab on elements those are behind the loading overlay
@@ -7,7 +12,7 @@
 * Fix: detecting `window` object
 * Fix: `z-index` issue on loading element
 * Test: add tests
-* docs: update readme with better examples
+* Docs: update readme with better examples
 
 ### [2.1.0](https://github.com/ankurk91/vue-loading-overlay/compare/2.0.4...2.1.0) 
 * Add: allow loader to be restricted to a container element
