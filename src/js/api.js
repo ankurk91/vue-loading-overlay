@@ -2,11 +2,11 @@ import Vue from 'vue';
 import Component from './Component.vue'
 
 const LoadingProgrammatic = {
-  show(params = {}) {
-    const defaultParam = {
+  show(options = {}) {
+    const defaultOptions = {
       programmatic: true
     };
-    const propsData = Object.assign(defaultParam, params);
+    const propsData = Object.assign(defaultOptions, options);
     const LoadingComponent = Vue.extend(Component);
 
     return new LoadingComponent({

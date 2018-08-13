@@ -57,7 +57,7 @@ yarn add vue-loading-overlay
             doAjax() {
                 this.isLoading = true;
                 // AJAX example with axios
-                axios.post('/api').then((response)=>{
+                axios.post('/api/cats').then((response)=>{
                   this.isLoading = false                
                 })
             },
@@ -142,7 +142,7 @@ The component accepts these props:
 let loader = this.$loading.show({
   // Optional parent container reference
   container: this.$refs.loadingContainer,
-  // Can also pass available props here
+  // Can also pass available props here (camelCase property names)
   canCancel: true,
   onCancel: this.yourMethodName
 });
@@ -157,14 +157,15 @@ loader.hide();
 <!-- Lastly add this package -->
 <script src="https://cdn.jsdelivr.net/npm/vue-loading-overlay@2"></script>
 <link href="https://cdn.jsdelivr.net/npm/vue-loading-overlay@2/dist/vue-loading.min.css" rel="stylesheet">
-<!-- Init the plugin -->
+<!-- Init the plugin and component-->
 <script>
-Vue.use(VueLoading)
+Vue.use(VueLoading);
+Vue.component('loading', VueLoading)
 </script>
 ```
 
 ### Browser support
-* [Modern](http://browserl.ist/) browsers only
+* [Modern](http://browserl.ist/?q=defaults%2C+not+ie+%3E+0%2Cnot+ie_mob+%3E+0) browsers only
 
 ## Run examples on your localhost
 * Clone this repo
