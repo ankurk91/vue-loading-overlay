@@ -1,8 +1,6 @@
-import {hasWindow} from "./util";
-
 export default {
   mounted() {
-    hasWindow() && document.addEventListener('focusin', this.focusIn)
+    document.addEventListener('focusin', this.focusIn)
   },
   methods: {
     /**
@@ -37,6 +35,6 @@ export default {
     }
   },
   beforeDestroy() {
-    hasWindow() && document.removeEventListener('focusin', this.focusIn)
+    document.removeEventListener('focusin', this.focusIn)
   }
 }

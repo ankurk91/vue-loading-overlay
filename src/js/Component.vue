@@ -15,7 +15,7 @@
 </template>
 
 <script>
-  import {removeElement, hasWindow, HTMLElement} from './util'
+  import {removeElement, HTMLElement} from './util'
   import trapFocusMixin from './trapFocusMixin';
 
   export default {
@@ -53,12 +53,9 @@
         isActive: this.active || false
       }
     },
-    created() {
-      hasWindow() && document.addEventListener('keyup', this.keyPress)
-    },
     beforeMount() {
       // Insert the component in DOM when called programmatically
-      if (hasWindow() && this.programmatic) {
+      if (this.programmatic) {
         if (this.container) {
           this.isFullPage = false;
           this.container.appendChild(this.$el)
@@ -72,6 +69,8 @@
       if (this.programmatic) {
         this.isActive = true;
       }
+
+      document.addEventListener('keyup', this.keyPress)
     },
     methods: {
       /**
@@ -119,7 +118,7 @@
       }
     },
     beforeDestroy() {
-      hasWindow() && document.removeEventListener('keyup', this.keyPress);
+      document.removeEventListener('keyup', this.keyPress);
     },
   }
 </script>
