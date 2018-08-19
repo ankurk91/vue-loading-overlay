@@ -3,8 +3,8 @@
     <div tabindex="0"
          class="loading-overlay is-active"
          :class="{'is-full-page': isFullPage }"
-         v-if="isActive"
-         aria-live="polite"
+         v-show="isActive"
+         :aria-busy="isActive"
          aria-label="Loading">
       <div class="loading-background" @click.prevent="cancel"></div>
       <slot>
