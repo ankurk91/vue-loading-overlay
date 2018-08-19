@@ -78,7 +78,8 @@
        */
       cancel() {
         if (!this.canCancel || !this.isActive) return;
-        this.hide()
+        this.hide();
+        this.onCancel.apply(null, arguments);
       },
       /**
        * Hide and destroy component if it's programmatic.
@@ -87,9 +88,6 @@
         //todo rename this event to `hide`
         this.$emit('close');
         this.$emit('update:active', false);
-        //todo onCancel should be called only when cancelled by user
-        //todo move next line inside cancel() method
-        this.onCancel.apply(null, arguments);
 
         // Timeout for the animation complete before destroying
         if (this.programmatic) {
