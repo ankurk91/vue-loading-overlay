@@ -85,8 +85,7 @@
        * Hide and destroy component if it's programmatic.
        */
       hide() {
-        //todo rename this event to `hide`
-        this.$emit('close');
+        this.$emit('hide');
         this.$emit('update:active', false);
 
         // Timeout for the animation complete before destroying
