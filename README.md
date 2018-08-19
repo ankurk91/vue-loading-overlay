@@ -130,7 +130,7 @@ The component accepts these props:
 | active           | Boolean             | `false`              | Show loading by default when `true`, use the .sync modifier to make it two-way binding |
 | can-cancel       | Boolean             | `false`              | Allow user to cancel by pressing escape or clicking outside |
 | on-cancel        | Function            | `()=>{}`             | Do something upon cancel, works in conjunction with `can-cancel`  |
-| animation        | String              | `fade`               | [Transition](https://vuejs.org/v2/guide/transitions.html) name |
+| transition        | String              | `fade`               | [Transition](https://vuejs.org/v2/guide/transitions.html) name |
 | is-full-page     | Boolean             | `true`               | When `false`; limit loader to its container* |
 
 * When `is-full-page` is set to `false`, the container element should be positioned as `position: relative`
