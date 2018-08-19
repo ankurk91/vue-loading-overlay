@@ -1,5 +1,5 @@
 <template>
-  <transition :name="animation">
+  <transition :name="transition">
     <div tabindex="0"
          class="loading-overlay is-active"
          :class="{'is-full-page': isFullPage }"
@@ -29,8 +29,7 @@
         type: Boolean,
         default: true
       },
-      //todo rename this to `transition`
-      animation: {
+      transition: {
         type: String,
         default: 'fade'
       },
