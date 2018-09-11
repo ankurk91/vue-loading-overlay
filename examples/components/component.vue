@@ -3,7 +3,9 @@
     <loading :active.sync="isLoading"
              :can-cancel="canCancel"
              :on-cancel="whenCancelled"
-             :is-full-page="fullPage">
+             :is-full-page="fullPage"
+             :color="color"
+             :background-color="bgColor">
       <h3 class="loading-slot" v-if="useSlot">Loading ...</h3>
     </loading>
     <div class="card-body">
@@ -24,6 +26,16 @@
         <label class="custom-control-label" for="input-slot-1">Use slot?</label>
       </div>
 
+      <div class="form-group m-0">
+        <label>Color</label>
+        <input type="color" v-model="color">
+      </div>
+
+      <div class="form-group m-0">
+        <label>Background color</label>
+        <input type="color" v-model="bgColor">
+      </div>
+
       <div class="form-group mt-3">
         <button class="btn btn-outline-primary btn-sm" @click.prevent="simulate">Show loader</button>
       </div>
@@ -41,6 +53,8 @@
         fullPage: true,
         canCancel: false,
         useSlot: false,
+        color: '#cccccc',
+        bgColor:'#ffffff',
         timeout: 3000, //ms
       }
     },
