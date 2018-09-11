@@ -6,10 +6,14 @@
          v-show="isActive"
          :aria-busy="isActive"
          aria-label="Loading">
-      <div class="loading-background" @click.prevent="cancel"></div>
-      <slot>
-        <div class="loading-icon"></div>
-      </slot>
+      <div class="loading-background"
+           @click.prevent="cancel"
+           :style="{background: this.backgroundColor}"></div>
+      <div class="loading-icon">
+        <slot name="default">
+          <component :is="loader" :color="color" :size="size"></component>
+        </slot>
+      </div>
     </div>
   </transition>
 </template>
@@ -17,6 +21,7 @@
 <script>
   import {removeElement, HTMLElement} from './util'
   import trapFocusMixin from './trapFocusMixin';
+  import Loaders from '../loaders';
 
   export default {
     name: 'vue-loading',
@@ -44,6 +49,13 @@
         type: Function,
         default: () => {
         }
+      },
+      color: String,
+      backgroundColor: String,
+      size: Number,
+      loader: {
+        type: String,
+        default: 'spinner'
       }
     },
     data() {
@@ -52,6 +64,7 @@
         isActive: this.active || false
       }
     },
+    components: Loaders,
     beforeMount() {
       // Insert the component in DOM when called programmatically
       if (this.programmatic) {

@@ -11,14 +11,6 @@
   &.is-full-page {
     z-index: 999;
     position: fixed;
-    .loading-icon {
-      &:after {
-        top: calc(50% - 2.5em);
-        left: calc(50% - 2.5em);
-        width: 5em;
-        height: 5em;
-      }
-    }
   }
   .loading-background {
     @include overlay;
@@ -27,14 +19,5 @@
   }
   .loading-icon {
     position: relative;
-    &:after {
-      @include loader;
-      position: absolute;
-      top: calc(50% - 1.5em);
-      left: calc(50% - 1.5em);
-      width: 3em;
-      height: 3em;
-      border-width: 0.25em;
-    }
   }
 }

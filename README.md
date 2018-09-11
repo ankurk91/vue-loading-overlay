@@ -7,7 +7,7 @@
 [![license](https://img.shields.io/github/license/ankurk91/vue-loading-overlay.svg?maxAge=1800)](https://yarnpkg.com/en/package/vue-loading-overlay)
 [![build-status](https://travis-ci.org/ankurk91/vue-loading-overlay.svg?branch=master)](https://travis-ci.org/ankurk91/vue-loading-overlay)
 
-Vue.js v2.x component for full screen loading indicator
+Vue.js component for full screen loading indicator
 
 ## Demo on [JSFiddle](https://jsfiddle.net/ankurk91/w8y8k5wo/)
 
@@ -150,23 +150,13 @@ let loader = this.$loading.show({
 loader.hide();
 ```
 
-## Custom Style
-```scss
-//Set loader or overlay color by overriding SCSS variables
-
-$loaderColor: #ff0000;
-$loaderBackground: #808080;
-
-@import '~vue-loading-overlay/src/scss/index.scss';
-```
-
 ## Install in non-module environments (without webpack)
 ```html
 <!-- Vue js -->
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5/dist/vue.min.js"></script>
 <!-- Lastly add this package -->
-<script src="https://cdn.jsdelivr.net/npm/vue-loading-overlay@2"></script>
-<link href="https://cdn.jsdelivr.net/npm/vue-loading-overlay@2/dist/vue-loading.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/vue-loading-overlay@3"></script>
+<link href="https://cdn.jsdelivr.net/npm/vue-loading-overlay@3/dist/vue-loading.min.css" rel="stylesheet">
 <!-- Init the plugin and component-->
 <script>
 Vue.use(VueLoading);
