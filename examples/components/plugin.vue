@@ -13,6 +13,21 @@
         <label class="custom-control-label" for="input-cancel-2">User can cancel?</label>
       </div>
 
+      <div class="form-group m-0">
+        <label>Color</label>
+        <input type="color" v-model="color">
+      </div>
+
+      <div class="form-group m-0">
+        <label>Background color</label>
+        <input type="color" v-model="bgColor">
+      </div>
+
+      <div class="form-group">
+        <label>Size</label>
+        <input type="number" v-model.number="size" min="1" class="form-control form-control-sm"/>
+      </div>
+
       <div class="form-group mt-3">
         <button class="btn btn-outline-primary btn-sm" @click.prevent="simulate">Show loader</button>
       </div>
@@ -33,6 +48,9 @@
         fullPage: true,
         canCancel: false,
         timeout: 3000, //ms
+        color: '#007bff',
+        bgColor: '#ffffff',
+        size: 64,
       }
     },
     methods: {
@@ -41,6 +59,9 @@
           container: this.fullPage ? null : this.$refs.formContainer,
           canCancel: this.canCancel,
           onCancel: this.whenCancelled,
+          color: this.color,
+          backgroundColor: this.bgColor,
+          size: this.size,
         });
         // simulate async call
         setTimeout(() => {

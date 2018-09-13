@@ -23,7 +23,7 @@
     props: {
       color: {
         type: String,
-        default: '#666'
+        default: '#000'
       },
       size: {
         type: Number,
