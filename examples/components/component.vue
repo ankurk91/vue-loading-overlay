@@ -4,6 +4,7 @@
              :can-cancel="canCancel"
              :on-cancel="whenCancelled"
              :is-full-page="fullPage"
+             :size="size"
              :color="color"
              :background-color="bgColor">
       <h3 class="loading-slot" v-if="useSlot">Loading ...</h3>
@@ -36,6 +37,11 @@
         <input type="color" v-model="bgColor">
       </div>
 
+      <div class="form-group">
+        <label>Size</label>
+        <input type="number" v-model.number="size" min="1" class="form-control form-control-sm"/>
+      </div>
+
       <div class="form-group mt-3">
         <button class="btn btn-outline-primary btn-sm" @click.prevent="simulate">Show loader</button>
       </div>
@@ -53,8 +59,9 @@
         fullPage: true,
         canCancel: false,
         useSlot: false,
-        color: '#cccccc',
-        bgColor:'#ffffff',
+        color: '#007bff',
+        bgColor: '#ffffff',
+        size: 64,
         timeout: 3000, //ms
       }
     },
