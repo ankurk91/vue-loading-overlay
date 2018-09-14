@@ -22,10 +22,6 @@
               <ul>
                 <li><a href="https://github.com/ankurk91/vue-loading-overlay" target="_blank">GitHub</a></li>
                 <li><a href="https://www.npmjs.com/package/vue-loading-overlay" target="_blank">npm</a></li>
-                <li><a
-                  href="https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd?hl=en"
-                  target="_blank">Vue.js Dev tools</a>
-                </li>
               </ul>
             </div>
           </div>

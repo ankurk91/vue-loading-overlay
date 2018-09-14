@@ -4,6 +4,11 @@ const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {VueLoaderPlugin} = require('vue-loader');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CleanWebpackPlugin = require("clean-webpack-plugin");
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+
+const isProduction = process.env.NODE_ENV === 'production';
 
 module.exports = {
   mode: 'development',
@@ -38,16 +43,17 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          {
-            loader: "style-loader",
-            options: {
-              sourceMap: true,
-            }
-          },
+          isProduction ? MiniCssExtractPlugin.loader :
+            {
+              loader: "style-loader",
+              options: {
+                sourceMap: !isProduction,
+              }
+            },
           {
             loader: "css-loader",
             options: {
-              sourceMap: true,
+              sourceMap: !isProduction,
             }
           },
         ],
@@ -56,23 +62,24 @@ module.exports = {
         test: /\.s?[ac]ss$/,
         exclude: /node_modules/,
         use: [
-          {
-            loader: 'style-loader',
-            options: {
-              sourceMap: true,
-            }
-          },
+          isProduction ? MiniCssExtractPlugin.loader :
+            {
+              loader: 'style-loader',
+              options: {
+                sourceMap: !isProduction,
+              }
+            },
           {
             loader: 'css-loader',
             options: {
-              sourceMap: true,
+              sourceMap: !isProduction,
             }
           },
           {
             loader: 'sass-loader',
             options: {
-              sourceMap: true,
-              minimize: false
+              sourceMap: !isProduction,
+              minimize: isProduction
             }
           },
         ],
@@ -91,7 +98,6 @@ module.exports = {
           name: '[path][name]-[hash].[ext]',
         }
       }
-
     ]
   },
   // https://gist.github.com/sokra/1522d586b8e5c0f5072d7565c2bee693
@@ -107,12 +113,12 @@ module.exports = {
       hash: false,
       template: './examples/index.html',
       minify: {
-        removeComments: false,
-        collapseWhitespace: false,
-        removeAttributeQuotes: false,
-        minifyJS: false,
-        minifyCSS: false,
-        minifyURLs: false,
+        removeComments: isProduction,
+        collapseWhitespace: isProduction,
+        removeAttributeQuotes: isProduction,
+        minifyJS: isProduction,
+        minifyCSS: isProduction,
+        minifyURLs: isProduction,
       }
     }),
     new webpack.ProvidePlugin({
@@ -130,7 +136,7 @@ module.exports = {
     logLevel: 'info',
     clipboard: false
   },
-  devtool: '#cheap-module-eval-source-map',
+  devtool: isProduction ? false : '#cheap-module-eval-source-map',
   performance: {
     hints: false,
   },
@@ -139,3 +145,26 @@ module.exports = {
   }
 };
 
+if (isProduction) {
+  module.exports.plugins.push(
+    new CleanWebpackPlugin(['docs']),
+    new MiniCssExtractPlugin({
+      filename: 'css/demo-[hash].css',
+    }),
+    new UglifyJsPlugin({
+      sourceMap: false,
+      uglifyOptions: {
+        output: {
+          comments: false,
+          beautify: false
+        },
+        compress: {
+          dead_code: true,
+          warnings: false,
+          drop_debugger: true,
+          drop_console: true
+        }
+      }
+    }),
+  )
+}
