@@ -60,7 +60,7 @@ module.exports = {
       },
       {
         test: /\.s?[ac]ss$/,
-        exclude: /node_modules/,
+        include: /src/,
         use: [
           isProduction ? MiniCssExtractPlugin.loader :
             {

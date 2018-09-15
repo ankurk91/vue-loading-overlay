@@ -52,7 +52,7 @@ module.exports = {
         exclude: /node_modules/,
       },
       {
-        test: /\.scss$/,
+        test: /\.s?[ac]ss$/,
         use: [
           MiniCssExtractPlugin.loader,
           {
