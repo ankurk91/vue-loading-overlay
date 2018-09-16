@@ -3,10 +3,10 @@ import Component from './Component.vue'
 
 const LoadingProgrammatic = {
   show(options = {}, slots = {}) {
-    const defaultOptions = {
+    const defaultProps = {
       programmatic: true
     };
-    const propsData = Object.assign(defaultOptions, options);
+    const propsData = Object.assign(defaultProps, options);
     const LoadingComponent = Vue.extend(Component);
 
     const instance = new LoadingComponent({
@@ -14,9 +14,9 @@ const LoadingProgrammatic = {
       propsData
     });
 
-    // Set slots
-    Object.keys(slots).map((name)=>{
-      instance.$slots[name] = slots[name]
+    const safeSlots = Object.assign({}, slots);
+    Object.keys(safeSlots).map((name) => {
+      instance.$slots[name] = safeSlots[name]
     });
 
     return instance;
