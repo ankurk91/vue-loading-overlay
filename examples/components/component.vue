@@ -82,12 +82,3 @@
     }
   }
 </script>
-<style>
-  .loading-parent {
-    position: relative;
-  }
-
-  .loading-slot {
-    z-index: 999;
-  }
-</style>
