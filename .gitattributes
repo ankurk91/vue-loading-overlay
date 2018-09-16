@@ -1,6 +1,4 @@
 # https://git-scm.com/book/en/Customizing-Git-Git-Attributes
-# https://help.github.com/articles/dealing-with-line-endings
-
 
 # Auto detect text files and perform LF normalization
 * text=auto

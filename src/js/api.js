@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Component from './Component.vue'
 
-const LoadingProgrammatic = {
+const LoadingApi = {
   show(options = {}, slots = {}) {
     const defaultProps = {
       programmatic: true
@@ -23,4 +23,4 @@ const LoadingProgrammatic = {
   }
 };
 
-export default LoadingProgrammatic;
+export default LoadingApi;

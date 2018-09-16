@@ -1,10 +1,10 @@
 import Component from './js/Component.vue';
-import LoadingProgrammatic from './js/api';
+import LoadingApi from './js/api';
 import './scss/index.scss';
 
 const Plugin = (Vue, options = {}) => {
-  Vue.$loading = LoadingProgrammatic;
-  Vue.prototype.$loading = LoadingProgrammatic;
+  Vue.$loading = LoadingApi;
+  Vue.prototype.$loading = LoadingApi;
 };
 
 Component.install = Plugin;
