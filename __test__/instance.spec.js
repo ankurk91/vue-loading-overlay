@@ -22,7 +22,7 @@ describe('Loading component instance', () => {
   });
 
   test('rendered div has css classes', () => {
-    expect(wrapper.classes()).toContain('loading-overlay')
+    expect(wrapper.classes()).toContain('vld-overlay')
   });
 
 });

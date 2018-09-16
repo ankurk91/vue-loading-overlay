@@ -12,6 +12,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     - rename `close` event to `hide`
     - `onCancel` callback will be called only when cancelled by user
     - use `v-show` instead of `v-if`
+    - CSS classes has been prefixed with `vld` 
+    - CSS file name is `dist/vue-loading.css`, removed `.min`  
 * Added: see docs for usage
     - add `loader` prop
     - add `color` prop

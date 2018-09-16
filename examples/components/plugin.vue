@@ -1,5 +1,5 @@
 <template>
-  <div class="card loading-parent my-3" ref="formContainer">
+  <div class="card vld-parent my-3" ref="formContainer">
     <div class="card-body">
       <h5 class="card-title">Use as plugin</h5>
 
