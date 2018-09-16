@@ -1,15 +1,15 @@
 <template>
   <transition :name="transition">
     <div tabindex="0"
-         class="loading-overlay is-active"
+         class="vld-overlay is-active"
          :class="{'is-full-page': isFullPage }"
          v-show="isActive"
          :aria-busy="isActive"
          aria-label="Loading">
-      <div class="loading-background"
+      <div class="vld-background"
            @click.prevent="cancel"
            :style="{background: this.backgroundColor}"></div>
-      <div class="loading-icon">
+      <div class="vld-icon">
         <slot name="default">
           <component :is="loader" :color="color" :size="size"></component>
         </slot>

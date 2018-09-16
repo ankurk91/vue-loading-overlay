@@ -1,5 +1,5 @@
 <template>
-  <div class="card loading-parent">
+  <div class="card vld-parent">
     <loading :active.sync="isLoading"
              :can-cancel="canCancel"
              :on-cancel="whenCancelled"
@@ -7,7 +7,7 @@
              :size="size"
              :color="color"
              :background-color="bgColor">
-      <h3 class="loading-slot" v-if="useSlot">Loading ...</h3>
+      <h3 v-if="useSlot">Loading ...</h3>
     </loading>
     <div class="card-body">
       <h5 class="card-title">Use as component</h5>

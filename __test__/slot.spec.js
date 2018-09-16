@@ -14,7 +14,7 @@ describe('Loading component slots', () => {
     });
 
     expect(wrapper.contains('h3')).toBe(true);
-    expect(wrapper.contains('.loading-icon')).toBe(true);
+    expect(wrapper.contains('.vld-icon')).toBe(true);
     expect(wrapper.contains('svg')).toBe(false);
     wrapper.destroy();
   });
