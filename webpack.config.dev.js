@@ -59,32 +59,6 @@ module.exports = {
         ],
       },
       {
-        test: /\.s?[ac]ss$/,
-        include: /src/,
-        use: [
-          isProduction ? MiniCssExtractPlugin.loader :
-            {
-              loader: 'style-loader',
-              options: {
-                sourceMap: !isProduction,
-              }
-            },
-          {
-            loader: 'css-loader',
-            options: {
-              sourceMap: !isProduction,
-            }
-          },
-          {
-            loader: 'sass-loader',
-            options: {
-              sourceMap: !isProduction,
-              minimize: isProduction
-            }
-          },
-        ],
-      },
-      {
         test: /\.jpe?g$|\.gif$|\.png$/i,
         loader: 'file-loader',
         options: {

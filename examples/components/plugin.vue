@@ -101,8 +101,3 @@
   }
 </script>
 
-<style>
-  .loading-parent {
-    position: relative;
-  }
-</style>

@@ -1,0 +1,40 @@
+.loading-overlay {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  align-items: center;
+  display: none;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 1
+}
+
+.loading-overlay.is-active {
+  display: flex
+}
+
+.loading-overlay.is-full-page {
+  z-index: 999;
+  position: fixed
+}
+
+.loading-overlay .loading-background {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: #fff;
+  opacity: 0.5
+}
+
+.loading-overlay .loading-icon {
+  position: relative
+}
+
+.loading-parent {
+  position: relative
+}
+

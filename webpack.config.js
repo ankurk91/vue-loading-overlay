@@ -52,40 +52,23 @@ module.exports = {
         exclude: /node_modules/,
       },
       {
-        test: /\.s?[ac]ss$/,
+        test: /\.css$/,
         use: [
           MiniCssExtractPlugin.loader,
           {
-            loader: 'css-loader',
-            options: {
-              importLoaders: 1
-            }
-          },
-          {
-            loader: 'postcss-loader',
+            loader: "css-loader",
             options: {
               sourceMap: false,
-              plugins: (loader) => [
-                require('autoprefixer')()
-              ]
             }
           },
-          {
-            loader: 'sass-loader',
-            options: {
-              importLoaders: 1,
-              minimize: true,
-              outputStyle: 'compressed',
-            }
-          },
-        ]
+        ],
       },
     ]
   },
   plugins: [
     new CleanWebpackPlugin(['./dist']),
     new MiniCssExtractPlugin({
-      filename: 'vue-loading.min.css',
+      filename: 'vue-loading.css',
     }),
     new UnminifiedWebpackPlugin({
       exclude: /\.css$/
