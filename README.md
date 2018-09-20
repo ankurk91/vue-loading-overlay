@@ -149,15 +149,17 @@ let loader = this.$loading.show({
 // hide loader whenever you want
 loader.hide();
 ```
-## Style
+
+## Custom Style
 ```scss
 //Set loader or overlay color by overriding SCSS variables
 
 $loaderColor: #ff0000;
 $loaderBackground: #808080;
 
-@import  'vue-loading-overlay/src/scss/index.scss';
+@import '~vue-loading-overlay/src/scss/index.scss';
 ```
+
 ## Install in non-module environments (without webpack)
 ```html
 <!-- Vue js -->

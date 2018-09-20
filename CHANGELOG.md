@@ -1,5 +1,8 @@
 # Changelog
 
+### [2.2.2](https://github.com/ankurk91/vue-loading-overlay/compare/2.2.1...2.2.2) 
+* Fix: SSR issue [#18](https://github.com/ankurk91/vue-loading-overlay/pull/18)
+
 ### [2.2.1](https://github.com/ankurk91/vue-loading-overlay/compare/2.2.0...2.2.1) 
 * Fix: regression in trap focus feature
 * Fix: regression in `z-index` issue
