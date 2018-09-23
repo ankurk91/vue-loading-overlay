@@ -52,6 +52,7 @@ exports[`Loading component renders when active 1`] = `
         </g>
       </g>
     </svg>
+     
   </div>
 </div>
 `;
@@ -108,6 +109,7 @@ exports[`Loading component renders when not active 1`] = `
         </g>
       </g>
     </svg>
+     
   </div>
 </div>
 `;
