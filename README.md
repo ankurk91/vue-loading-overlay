@@ -24,10 +24,10 @@ yarn add vue-loading-overlay
 #### As component
 ```html
 <template>
-    <div class="loading-parent">
+    <div class="vld-parent">
         <loading :active.sync="isLoading" 
         :can-cancel="true" 
-        :on-cancel="whenCancelled"
+        :on-cancel="onCancel"
         :is-full-page="fullPage"></loading>
         
         <label><input type="checkbox" v-model="fullPage">Full page?</label>
@@ -39,9 +39,7 @@ yarn add vue-loading-overlay
     // Import component
     import Loading from 'vue-loading-overlay';
     // Import stylesheet
-    import 'vue-loading-overlay/dist/vue-loading.min.css';
-    // Using axios for the demo only
-    import axios from 'axios';
+    import 'vue-loading-overlay/dist/vue-loading.css';
     
     export default {
         data() {
@@ -56,28 +54,23 @@ yarn add vue-loading-overlay
         methods: {
             doAjax() {
                 this.isLoading = true;
-                // AJAX example with axios
-                axios.post('/api/cats').then((response)=>{
-                  this.isLoading = false                
-                })
+                // simulate AJAX
+                setTimeout(() => {
+                  this.isLoading = false
+                },5000)
             },
-            whenCancelled() {
+            onCancel() {
               console.log("User cancelled the loader.")
             }
         }
     }
 </script>
-<style>
-.loading-parent {
-  position: relative;
-}
-</style>
 ```
 
 ### As plugin
 ```html
 <template>
-    <form @submit.prevent="submit" class="loading-parent" ref="formContainer">
+    <form @submit.prevent="submit" class="vld-parent" ref="formContainer">
         <!-- your form inputs goes here-->
         <label><input type="checkbox" v-model="fullPage">Full page?</label>
         <button type="submit">Login</button>
@@ -89,11 +82,9 @@ yarn add vue-loading-overlay
     // Import component
     import Loading from 'vue-loading-overlay';
     // Import stylesheet
-    import 'vue-loading-overlay/dist/vue-loading.min.css';
+    import 'vue-loading-overlay/dist/vue-loading.css';
     // Init plugin
     Vue.use(Loading);
-    // Using axios for the demo only
-    import axios from 'axios';
 
     export default {
         data() {
@@ -104,22 +95,21 @@ yarn add vue-loading-overlay
         methods: {
             submit() {
                 let loader = this.$loading.show({
-                  container: this.fullPage ? null : this.$refs.formContainer
+                  container: this.fullPage ? null : this.$refs.formContainer,
+                  canCancel: true,
+                  onCancel: this.onCancel,
                 });
-                // AJAX example with axios
-                axios.post('/api/login').then((response)=>{
+                // simulate AJAX
+                setTimeout(() => {
                   loader.hide()
-                })                 
-            }
+                },5000)                 
+            },
+            onCancel() {
+              console.log("User cancelled the loader.")
+            }                      
         }
     }
 </script>
-
-<style>
-.loading-parent {
-  position: relative;
-}
-</style>
 ```
 
 ## Available props
@@ -131,12 +121,20 @@ The component accepts these props:
 | can-cancel       | Boolean             | `false`              | Allow user to cancel by pressing ESC or clicking outside |
 | on-cancel        | Function            | `()=>{}`             | Do something upon cancel, works in conjunction with `can-cancel`  |
 | transition       | String              | `fade`               | [Transition](https://vuejs.org/v2/guide/transitions.html) name |
-| is-full-page     | Boolean             | `true`               | When `false`; limit loader to its container* |
+| is-full-page     | Boolean             | `true`               | When `false`; limit loader to its container^ |
+| color            | String              | ``                   | Customize the loading icon color |
+| backgroundColor  | String              | ``                   | Customize the overlay background color |
+| size             | Number              | ``                   | Customize the height and width of loading icon |
 
-* When `is-full-page` is set to `false`, the container element should be positioned as `position: relative`
+* ^When `is-full-page` is set to `false`, the container element should be positioned as `position: relative`. 
+You can use css class `vld-parent`.
+
+## Available slots
+* `default` : Replace the animated icon with yours
+* `text` : Place anything right after animated icon, you may need to style this.
 
 ## API methods
-### `this.$loading.show()`
+### `this.$loading.show(?propsData,?slots)`
 ```js
 // pass propsData to component
 let loader = this.$loading.show({
@@ -144,7 +142,13 @@ let loader = this.$loading.show({
   container: this.$refs.loadingContainer,
   // Can also pass available props here (camelCase property names)
   canCancel: true,// default false
-  onCancel: this.yourMethodName
+  onCancel: this.yourMethodName,
+  color: '#000000',
+  backgroundColor: '#ffffff',
+  size: 64,
+},{
+  // Pass slots by their name
+  default: this.$createElement('your-custom-loader-component'),
 });
 // hide loader whenever you want
 loader.hide();
@@ -156,7 +160,7 @@ loader.hide();
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5/dist/vue.min.js"></script>
 <!-- Lastly add this package -->
 <script src="https://cdn.jsdelivr.net/npm/vue-loading-overlay@3"></script>
-<link href="https://cdn.jsdelivr.net/npm/vue-loading-overlay@3/dist/vue-loading.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/vue-loading-overlay@3/dist/vue-loading.css" rel="stylesheet">
 <!-- Init the plugin and component-->
 <script>
 Vue.use(VueLoading);
@@ -178,9 +182,6 @@ Vue.component('loading', VueLoading)
 * This package is using [Jest](https://github.com/facebook/jest) and [vue-test-utils](https://github.com/vuejs/vue-test-utils) for testing.
 * Tests can be found in `__test__` folder.
 * Execute tests with this command `yarn test`
-
-## Inspired by
-* [Buefy](https://buefy.github.io/#/documentation/loading) loading component
 
 ## License
 [MIT](LICENSE.txt) License

@@ -1,6 +1,6 @@
 # http://git-scm.com/docs/gitignore
 
-# sublime and other ide
+# various IDEs
 .idea/
 .project
 *.sublime-*
