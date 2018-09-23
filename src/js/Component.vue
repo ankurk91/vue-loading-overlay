@@ -13,6 +13,8 @@
         <slot name="default">
           <component :is="loader" :color="color" :size="size"></component>
         </slot>
+        <slot name="text">
+        </slot>
       </div>
     </div>
   </transition>
@@ -116,7 +118,6 @@
        * @param event
        */
       keyPress(event) {
-        // Esc key
         // todo keyCode is deprecated
         if (event.keyCode === 27) this.cancel()
       },
