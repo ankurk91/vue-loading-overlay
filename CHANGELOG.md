@@ -2,9 +2,6 @@
 
 All notable changes to this project will be documented in this file.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
-
 ### [3.0.0](https://github.com/ankurk91/vue-loading-overlay/compare/2.2.1...3.0.0) (breaking)
 * Changed: 
     - use SVG instead of CSS animation
@@ -13,14 +10,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     - `onCancel` callback will be called only when cancelled by user
     - use `v-show` instead of `v-if`
     - CSS classes has been prefixed with `vld` 
-    - CSS file name is `dist/vue-loading.css`, removed `.min`  
+    - Output CSS file name has been renamed `dist/vue-loading.css`, removed **`.min`** from name 
 * Added: see docs for usage
     - add `loader` prop
     - add `color` prop
     - add `backgroundColor` prop
-    - add optional second argument to `$loading.show(props?,slots?)`     
+    - add second argument to `$loading.show(props?,slots?)` method to accept slots  
 * Removed: 
-    - SCSS has been removed
+    - SCSS has been removed completely
 * Other:
     - live example available on gh-pages    
     
