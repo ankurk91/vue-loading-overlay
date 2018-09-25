@@ -130,6 +130,8 @@ The component accepts these props:
 You can use css class `vld-parent`.
 
 ## Available slots
+The component accepts these slots:
+
 * `default` : Replace the animated icon with yours
 * `text` : Place anything right after animated icon, you may need to style this.
 
@@ -140,7 +142,7 @@ You can use css class `vld-parent`.
 let loader = this.$loading.show({
   // Optional parent container reference
   container: this.$refs.loadingContainer,
-  // Can also pass available props here (camelCase property names)
+  // Can also pass available props here (camelCased property names)
   canCancel: true,// default false
   onCancel: this.yourMethodName,
   color: '#000000',
