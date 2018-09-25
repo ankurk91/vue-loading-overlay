@@ -17,7 +17,8 @@
     "vue",
     "loading",
     "loader",
-    "overlay"
+    "overlay",
+    "svg"
   ],
   "author": "ankurk91",
   "license": "MIT",

@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-### [3.0.0](https://github.com/ankurk91/vue-loading-overlay/compare/2.2.1...3.0.0) (breaking)
+### [3.0.0](https://github.com/ankurk91/vue-loading-overlay/compare/2.2.2...3.0.0) (breaking)
 * Changed: 
     - use SVG instead of CSS animation
     - rename `animation` prop to `transition`
