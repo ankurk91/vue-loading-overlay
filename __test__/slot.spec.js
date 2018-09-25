@@ -19,4 +19,20 @@ describe('Loading component slots', () => {
     wrapper.destroy();
   });
 
+  test('accepts text slot', () => {
+    let wrapper = mount(Component, {
+      propsData: {
+        active: true
+      },
+      slots: {
+        text: '<h4 class="text-center">Please wait...</h4>'
+      }
+    });
+
+    expect(wrapper.contains('h4')).toBe(true);
+    expect(wrapper.contains('.vld-icon')).toBe(true);
+    expect(wrapper.contains('svg')).toBe(true);
+    wrapper.destroy();
+  });
+
 });

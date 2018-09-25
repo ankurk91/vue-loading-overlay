@@ -71,11 +71,15 @@
       "json",
       "jsx",
       "node",
-      "vue"
+      "vue",
+      "css"
     ],
     "transform": {
       "^.+\\.js$": "<rootDir>/node_modules/babel-jest",
       ".*\\.(vue)$": "<rootDir>/node_modules/vue-jest"
+    },
+    "moduleNameMapper": {
+      "\\.(css|less|scss)$": "<rootDir>/__test__/__mocks__/styleMock.js"
     },
     "collectCoverage": false,
     "testURL": "http://localhost"
