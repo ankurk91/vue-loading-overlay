@@ -1,7 +1,7 @@
 <template>
   <div>
     <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark shadow-sm">
-      <span class="navbar-brand mb-0">Vue.js Loading Overlay</span>
+      <span class="navbar-brand mb-0">Vue.js Loading Overlay v3</span>
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
             <a class="nav-link" href="https://github.com/ankurk91/vue-loading-overlay"
