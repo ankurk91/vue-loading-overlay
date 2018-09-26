@@ -2,11 +2,11 @@
   <div>
     <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark shadow-sm">
       <span class="navbar-brand mb-0">Vue.js Loading Overlay v3</span>
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="https://github.com/ankurk91/vue-loading-overlay"
-               target="_blank"> GitHub</a></li>
-        </ul>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/ankurk91/vue-loading-overlay"
+             target="_blank"> GitHub</a></li>
+      </ul>
     </nav>
     <main class="container mt-3">
       <div class="row">
@@ -29,6 +29,9 @@
       </div>
 
     </main>
+    <footer class="text-center text-muted small mb-3 mt-1">
+      Created by <a href="https://twitter.com/ankurk91" target="_blank" rel="noopener¬">@ankurk91</a>
+    </footer>
   </div>
 </template>
 

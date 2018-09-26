@@ -12,7 +12,7 @@ git:
 
 # Install specific version
 before_install:
-  - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 1.9.4
+  - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 1.10.1
   - export PATH="$HOME/.yarn/bin:$PATH"
 
 install:
@@ -35,8 +35,7 @@ cache:
 # https://docs.travis-ci.com/user/deployment/pages/
 before_deploy:
   - npm run docs
-  - echo '# Examples' > docs/README.md
-  - ls -al docs
+  - echo '# Live examples' > docs/README.md
 
 deploy:
   provider: pages

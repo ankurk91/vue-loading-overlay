@@ -2,9 +2,10 @@ import Component from './js/Component.vue';
 import LoadingApi from './js/api';
 import './css/index.css';
 
-const Plugin = (Vue, options = {}) => {
-  Vue.$loading = LoadingApi;
-  Vue.prototype.$loading = LoadingApi;
+const Plugin = (Vue, props = {}, slots = {}) => {
+  let api = LoadingApi(Vue, props, slots);
+  Vue.$loading = api;
+  Vue.prototype.$loading = api;
 };
 
 Component.install = Plugin;
