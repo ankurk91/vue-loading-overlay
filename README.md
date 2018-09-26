@@ -136,10 +136,10 @@ The component accepts these slots:
 * `text` : Place anything right after animated icon, you may need to style this.
 
 ## API methods
-### `this.$loading.show(?propsData,?slots)`
+### `Vue.$loading.show(?propsData,?slots)`
 ```js
 // pass propsData to component
-let loader = this.$loading.show({
+let loader = Vue.$loading.show({
   // Optional parent container reference
   container: this.$refs.loadingContainer,
   // Can also pass available props here (camelCased property names)
@@ -154,6 +154,23 @@ let loader = this.$loading.show({
 });
 // hide loader whenever you want
 loader.hide();
+```
+
+## Global configs
+You can set props and slots for all future instances when using as plugin
+```js
+Vue.use(Loading, {
+  // props
+  color: 'red'
+},{
+  // slots
+})
+```
+Further you can override any prop or slot when creating new instances
+```js
+let loader = Vue.$loading.show({
+ color: 'blue'
+});
 ```
 
 ## Install in non-module environments (without webpack)

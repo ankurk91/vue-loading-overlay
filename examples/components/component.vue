@@ -39,7 +39,7 @@
 
       <div class="form-group">
         <label>Size</label>
-        <input type="number" v-model.number="size" min="1" class="form-control form-control-sm"/>
+        <input type="range" min="10" step="5" max="256" v-model.number="size" /> <span class="text-muted">{{size}}</span>
       </div>
 
       <div class="form-group mt-3">
