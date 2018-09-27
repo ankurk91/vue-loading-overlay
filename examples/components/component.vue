@@ -4,13 +4,22 @@
              :can-cancel="canCancel"
              :on-cancel="whenCancelled"
              :is-full-page="fullPage"
-             :size="size"
+             :height="height"
+             :width="width"
              :color="color"
+             :loader="loader"
              :background-color="bgColor">
       <h3 v-if="useSlot">Loading ...</h3>
     </loading>
     <div class="card-body">
       <h5 class="card-title">Use as component</h5>
+
+      <div class="form-group m-0">
+        <label>Loader shape</label>
+        <select class="form-control-sm text-capitalize" v-model="loader">
+          <option v-for="item in ['spinner','dots']">{{item}}</option>
+        </select>
+      </div>
 
       <div class="custom-control custom-checkbox">
         <input type="checkbox" class="custom-control-input" id="input-full-page-1" v-model="fullPage">
@@ -24,7 +33,7 @@
 
       <div class="custom-control custom-checkbox">
         <input type="checkbox" class="custom-control-input" id="input-slot-1" v-model="useSlot">
-        <label class="custom-control-label" for="input-slot-1">Use slot?</label>
+        <label class="custom-control-label" for="input-slot-1">Use slot? (replace shape)</label>
       </div>
 
       <div class="form-group m-0">
@@ -38,8 +47,13 @@
       </div>
 
       <div class="form-group">
-        <label>Size</label>
-        <input type="range" min="10" step="5" max="256" v-model.number="size" /> <span class="text-muted">{{size}}</span>
+        <label>Height</label>
+        <input type="range" min="10" step="5" max="256" v-model.number="height"/> <span class="text-muted">{{height}}</span>
+      </div>
+
+      <div class="form-group">
+        <label>Width</label>
+        <input type="range" min="10" step="5" max="256" v-model.number="width"/> <span class="text-muted">{{width}}</span>
       </div>
 
       <div class="form-group mt-3">
@@ -59,9 +73,11 @@
         fullPage: true,
         canCancel: false,
         useSlot: false,
+        loader: 'spinner',
         color: '#007bff',
         bgColor: '#ffffff',
-        size: 64,
+        height: 128,
+        width: 128,
         timeout: 3000, //ms
       }
     },

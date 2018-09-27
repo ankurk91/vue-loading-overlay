@@ -1,5 +1,5 @@
 <template>
-  <svg :width="size" :height="size" viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg" :stroke="color">
+  <svg :width="width" :height="height" viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg" :stroke="color">
     <g fill="none" fill-rule="evenodd">
       <g transform="translate(1 1)" stroke-width="2">
         <circle stroke-opacity=".25" cx="18" cy="18" r="18"/>
@@ -18,6 +18,7 @@
 </template>
 
 <script>
+
   export default {
     name: 'spinner',
     props: {
@@ -25,7 +26,11 @@
         type: String,
         default: '#000'
       },
-      size: {
+      height: {
+        type: Number,
+        default: 64
+      },
+      width: {
         type: Number,
         default: 64
       }

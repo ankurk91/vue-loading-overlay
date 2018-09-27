@@ -124,7 +124,9 @@ The component accepts these props:
 | is-full-page     | Boolean             | `true`               | When `false`; limit loader to its container^ |
 | color            | String              | ``                   | Customize the loading icon color |
 | backgroundColor  | String              | ``                   | Customize the overlay background color |
-| size             | Number              | ``                   | Customize the height and width of loading icon |
+| height           | Number              | ``                   | Customize the height of loading icon |
+| width            | Number              | ``                   | Customize the width of loading icon |
+| loader           | String              | `spinner`            | Name of icon shape you want load |
 
 * ^When `is-full-page` is set to `false`, the container element should be positioned as `position: relative`. 
 You can use css class `vld-parent`.
@@ -147,7 +149,9 @@ let loader = Vue.$loading.show({
   onCancel: this.yourMethodName,
   color: '#000000',
   backgroundColor: '#ffffff',
-  size: 64,
+  loader: 'spinner',
+  width: 64,
+  height: 64,
 },{
   // Pass slots by their name
   default: this.$createElement('your-custom-loader-component'),

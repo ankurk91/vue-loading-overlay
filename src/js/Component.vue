@@ -11,7 +11,7 @@
            :style="{background: this.backgroundColor}"></div>
       <div class="vld-icon">
         <slot name="default">
-          <component :is="loader" :color="color" :size="size"></component>
+          <component :is="loader" :color="color" :width="width" :height="height"></component>
         </slot>
         <slot name="text">
         </slot>
@@ -54,7 +54,8 @@
       },
       color: String,
       backgroundColor: String,
-      size: Number,
+      width: Number,
+      height: Number,
       loader: {
         type: String,
         default: 'spinner'

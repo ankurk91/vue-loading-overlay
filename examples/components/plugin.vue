@@ -3,6 +3,13 @@
     <div class="card-body">
       <h5 class="card-title">Use as plugin</h5>
 
+      <div class="form-group m-0">
+        <label>Loader shape</label>
+        <select class="form-control-sm text-capitalize" v-model="loader">
+          <option v-for="item in ['spinner','dots']">{{item}}</option>
+        </select>
+      </div>
+
       <div class="custom-control custom-checkbox">
         <input type="checkbox" class="custom-control-input" id="input-full-page-2" v-model="fullPage">
         <label class="custom-control-label" for="input-full-page-2">Full page?</label>
@@ -15,7 +22,7 @@
 
       <div class="custom-control custom-checkbox">
         <input type="checkbox" class="custom-control-input" id="input-slot-2" v-model="useSlot">
-        <label class="custom-control-label" for="input-slot-2">Use slot?</label>
+        <label class="custom-control-label" for="input-slot-2">Use slot? (replace shape)</label>
       </div>
 
       <div class="form-group m-0">
@@ -29,8 +36,13 @@
       </div>
 
       <div class="form-group">
-        <label>Size</label>
-        <input type="range" min="10" step="5" max="256" v-model.number="size" /> <span class="text-muted">{{size}}</span>
+        <label>Height</label>
+        <input type="range" min="10" step="5" max="256" v-model.number="height"/> <span class="text-muted">{{height}}</span>
+      </div>
+
+      <div class="form-group">
+        <label>Width</label>
+        <input type="range" min="10" step="5" max="256" v-model.number="width"/> <span class="text-muted">{{width}}</span>
       </div>
 
       <div class="form-group mt-3">
@@ -53,10 +65,12 @@
         fullPage: true,
         canCancel: false,
         useSlot: false,
+        loader: 'spinner',
         timeout: 3000, //ms
         color: '#007bff',
         bgColor: '#ffffff',
-        size: 64,
+        height: 64,
+        width: 64,
       }
     },
     components: {
@@ -87,7 +101,9 @@
           onCancel: this.whenCancelled,
           color: this.color,
           backgroundColor: this.bgColor,
-          size: this.size,
+          height: this.height,
+          width: this.width,
+          loader: this.loader,
         }, slot);
         // simulate async call
         setTimeout(() => {
