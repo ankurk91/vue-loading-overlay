@@ -13,8 +13,8 @@ All notable changes to this project will be documented in this file.
     - Output CSS file name has been renamed `dist/vue-loading.css`, removed **`.min`** from name 
 * Added: see docs for usage
     - add `loader` prop
-    - add `color` prop
-    - add `backgroundColor` prop
+    - add `color` and `backgroundColor` prop
+    - add `height` and `width` prop
     - add second argument to `$loading.show(props?,slots?)` method to accept slots  
 * Removed: 
     - SCSS has been removed completely
