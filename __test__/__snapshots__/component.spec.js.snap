@@ -15,6 +15,7 @@ exports[`Loading component renders when active 1`] = `
   <div
     class="vld-icon"
   >
+     
     <svg
       height="64"
       stroke="#000"
@@ -72,6 +73,7 @@ exports[`Loading component renders when not active 1`] = `
   <div
     class="vld-icon"
   >
+     
     <svg
       height="64"
       stroke="#000"
