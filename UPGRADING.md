@@ -6,7 +6,7 @@
 ```js
 import 'vue-loading-overlay/dist/vue-loading.css';
 ```
-* If you have been importing SCSS files to override color then you should use props instead since SCSS has been removed.
+* If you have been importing SCSS files to override colors then you should use props instead since SCSS has been removed.
 ### Component API
 * Rename `animation` prop to `transition`
 * Rename `close` event to `hide`
