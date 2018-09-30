@@ -10,11 +10,11 @@
            @click.prevent="cancel"
            :style="{background: this.backgroundColor}"></div>
       <div class="vld-icon">
+        <slot name="before"></slot>
         <slot name="default">
           <component :is="loader" :color="color" :width="width" :height="height"></component>
         </slot>
-        <slot name="text">
-        </slot>
+        <slot name="after"></slot>
       </div>
     </div>
   </transition>

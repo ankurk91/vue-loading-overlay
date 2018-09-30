@@ -15,6 +15,7 @@ All notable changes to this project will be documented in this file.
     - add `loader` prop
     - add `color` and `backgroundColor` prop
     - add `height` and `width` prop
+    - add `before` and `after` slots
     - add second argument to `$loading.show(props?,slots?)` method to accept slots  
 * Removed: 
     - SCSS has been removed completely

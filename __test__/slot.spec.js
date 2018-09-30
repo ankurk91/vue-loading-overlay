@@ -19,17 +19,33 @@ describe('Loading component slots', () => {
     wrapper.destroy();
   });
 
-  test('accepts text slot', () => {
+  test('accepts before slot', () => {
     let wrapper = mount(Component, {
       propsData: {
         active: true
       },
       slots: {
-        text: '<h4 class="text-center">Please wait...</h4>'
+        before: '<h4 class="text-center">Please wait...</h4>'
       }
     });
 
     expect(wrapper.contains('h4')).toBe(true);
+    expect(wrapper.contains('.vld-icon')).toBe(true);
+    expect(wrapper.contains('svg')).toBe(true);
+    wrapper.destroy();
+  });
+
+  test('accepts after slot', () => {
+    let wrapper = mount(Component, {
+      propsData: {
+        active: true
+      },
+      slots: {
+        after: '<h3 class="text-center">Please wait...</h3>'
+      }
+    });
+
+    expect(wrapper.contains('h3')).toBe(true);
     expect(wrapper.contains('.vld-icon')).toBe(true);
     expect(wrapper.contains('svg')).toBe(true);
     wrapper.destroy();

@@ -126,7 +126,7 @@ The component accepts these props:
 | backgroundColor  | String              | ``                   | Customize the overlay background color |
 | height           | Number              | ``                   | Customize the height of loading icon |
 | width            | Number              | ``                   | Customize the width of loading icon |
-| loader           | String              | `spinner`            | Name of icon shape you want load |
+| loader           | String              | `spinner`            | Name of icon shape you want load, `spinner` or `dots` |
 
 * ^When `is-full-page` is set to `false`, the container element should be positioned as `position: relative`. 
 You can use css class `vld-parent`.
@@ -135,7 +135,8 @@ You can use css class `vld-parent`.
 The component accepts these slots:
 
 * `default` : Replace the animated icon with yours
-* `text` : Place anything right after animated icon, you may need to style this.
+* `before` : Place anything before animated icon, you may need to style this.
+* `after` : Place anything after animated icon, you may need to style this.
 
 ## API methods
 ### `Vue.$loading.show(?propsData,?slots)`
@@ -154,7 +155,7 @@ let loader = Vue.$loading.show({
   height: 64,
 },{
   // Pass slots by their name
-  default: this.$createElement('your-custom-loader-component'),
+  default: this.$createElement('your-custom-loader-component-element'),
 });
 // hide loader whenever you want
 loader.hide();
