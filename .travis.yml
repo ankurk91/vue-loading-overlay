@@ -5,11 +5,6 @@ language: node_js
 node_js:
   - "10"
 
-# Speed up git clones
-git:
-  depth: 10
-  submodules: false
-
 # Install specific version
 before_install:
   - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 1.10.1
@@ -40,9 +35,9 @@ before_deploy:
 deploy:
   provider: pages
   skip-cleanup: true
-  github-token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
+  github-token: $GITHUB_TOKEN
   keep-history: false
   target-branch:  'gh-pages'
   local-dir:  'docs'
   on:
-    tags: true
+    branch: 'master'

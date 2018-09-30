@@ -1,10 +1,10 @@
 {
   "name": "vue-loading-overlay",
-  "version": "2.2.2",
-  "description": "Vue.js v2.x component for full screen loading indicator",
+  "version": "3.0.0",
+  "description": "Vue.js component for full screen loading indicator",
   "main": "dist/vue-loading.js",
   "browser": "dist/vue-loading.min.js",
-  "style": "dist/vue-loading.min.css",
+  "style": "dist/vue-loading.css",
   "files": [
     "src",
     "dist"
@@ -18,6 +18,7 @@
     "loading",
     "loader",
     "overlay",
+    "spinner",
     "svg"
   ],
   "author": "ankurk91",

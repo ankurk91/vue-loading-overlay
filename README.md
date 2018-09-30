@@ -9,6 +9,8 @@
 
 Vue.js component for full screen loading indicator
 
+:point_right: Version 2 documentation is available on `v2.x` branch.
+
 ## Demo on [JSFiddle](https://jsfiddle.net/ankurk91/w8y8k5wo/)
 
 ## Installation
@@ -95,6 +97,7 @@ yarn add vue-loading-overlay
         methods: {
             submit() {
                 let loader = this.$loading.show({
+                  // Optional parameters
                   container: this.fullPage ? null : this.$refs.formContainer,
                   canCancel: true,
                   onCancel: this.onCancel,
@@ -175,6 +178,8 @@ Further you can override any prop or slot when creating new instances
 ```js
 let loader = Vue.$loading.show({
  color: 'blue'
+},{
+  // slots
 });
 ```
 
