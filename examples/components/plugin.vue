@@ -105,6 +105,7 @@
           width: this.width,
           loader: this.loader,
         }, slot);
+
         // simulate async call
         setTimeout(() => {
           loader.hide()

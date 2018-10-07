@@ -125,7 +125,7 @@ The component accepts these props:
 | on-cancel        | Function            | `()=>{}`             | Do something upon cancel, works in conjunction with `can-cancel`  |
 | transition       | String              | `fade`               | [Transition](https://vuejs.org/v2/guide/transitions.html) name |
 | is-full-page     | Boolean             | `true`               | When `false`; limit loader to its container^ |
-| color            | String              | ``                   | Customize the loading icon color |
+| color            | String              | `#000`                   | Customize the loading icon color |
 | backgroundColor  | String              | ``                   | Customize the overlay background color |
 | height           | Number              | ``                   | Customize the height of loading icon |
 | width            | Number              | ``                   | Customize the width of loading icon |
@@ -133,6 +133,7 @@ The component accepts these props:
 
 * ^When `is-full-page` is set to `false`, the container element should be positioned as `position: relative`. 
 You can use css class `vld-parent`.
+* `height` and `width` may be different based on the `loader` prop
 
 ## Available slots
 The component accepts these slots:
