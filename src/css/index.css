@@ -27,7 +27,6 @@
   right: 0;
   top: 0;
   background: #fff;
-  opacity: 0.5
 }
 
 .vld-overlay .vld-icon {
@@ -37,4 +36,3 @@
 .vld-parent {
   position: relative
 }
-
