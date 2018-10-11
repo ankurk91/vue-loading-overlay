@@ -125,8 +125,9 @@ The component accepts these props:
 | on-cancel        | Function            | `()=>{}`             | Do something upon cancel, works in conjunction with `can-cancel`  |
 | transition       | String              | `fade`               | [Transition](https://vuejs.org/v2/guide/transitions.html) name |
 | is-full-page     | Boolean             | `true`               | When `false`; limit loader to its container^ |
-| color            | String              | `#000`                   | Customize the loading icon color |
-| backgroundColor  | String              | ``                   | Customize the overlay background color |
+| color            | String              | `#000`               | Customize the loading icon color |
+| backgroundColor  | String              | `#fff`               | Customize the overlay background color |
+| opacity          | Number              | `0.5`                | Customize the overlay background opacity |
 | height           | Number              | ``                   | Customize the height of loading icon |
 | width            | Number              | ``                   | Customize the width of loading icon |
 | loader           | String              | `spinner`            | Name of icon shape you want load, `spinner` or `dots` |
@@ -145,15 +146,14 @@ The component accepts these slots:
 ## API methods
 ### `Vue.$loading.show(?propsData,?slots)`
 ```js
-// pass propsData to component
 let loader = Vue.$loading.show({
-  // Optional parent container reference
+  // Can also pass available props (camelCased property names)
   container: this.$refs.loadingContainer,
-  // Can also pass available props here (camelCased property names)
   canCancel: true,// default false
   onCancel: this.yourMethodName,
   color: '#000000',
   backgroundColor: '#ffffff',
+  opacity: 0.5,
   loader: 'spinner',
   width: 64,
   height: 64,

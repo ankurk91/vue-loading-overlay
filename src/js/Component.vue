@@ -8,7 +8,7 @@
          aria-label="Loading">
       <div class="vld-background"
            @click.prevent="cancel"
-           :style="{background: this.backgroundColor}"></div>
+           :style="{background: this.backgroundColor, opacity: this.opacity}"></div>
       <div class="vld-icon">
         <slot name="before"></slot>
         <slot name="default">
@@ -54,6 +54,7 @@
       },
       color: String,
       backgroundColor: String,
+      opacity: Number,
       width: Number,
       height: Number,
       loader: {
