@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-### [3.0.1](https://github.com/ankurk91/vue-loading-overlay/compare/3.0.0...3.0.1) (unreleased)
+### [3.0.1](https://github.com/ankurk91/vue-loading-overlay/compare/3.0.0...3.0.1)
 * Add:
     - `opacity` prop
 

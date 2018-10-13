@@ -3,7 +3,7 @@ import Component from '../src/js/Component';
 
 describe('Loading component props', () => {
 
-  test('props works', () => {
+  test('accepts props', () => {
     let wrapper = mount(Component, {
       propsData: {
         active: true,

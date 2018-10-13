@@ -11,7 +11,7 @@ Vue.js component for full screen loading indicator
 
 :point_right: Version 2 documentation is available on `v2.x` branch.
 
-## Demo on [JSFiddle](https://jsfiddle.net/ankurk91/w8y8k5wo/)
+## [Demo](https://ankurk91.github.io/vue-loading-overlay/) or [JSFiddle](https://jsfiddle.net/ankurk91/w8y8k5wo/)
 
 ## Installation
 ```bash
@@ -133,7 +133,7 @@ The component accepts these props:
 | opacity          | Number              | `0.5`                | Customize the overlay background opacity |
 
 * ^When `is-full-page` is set to `false`, the container element should be positioned as `position: relative`. 
-You can use css class `vld-parent`.
+You can use CSS helper class `vld-parent`.
 * *The default `height` and `width` values may be different based on the `loader` prop
 
 ## Available slots
