@@ -62,7 +62,7 @@ yarn add vue-loading-overlay
                 },5000)
             },
             onCancel() {
-              console.log("User cancelled the loader.")
+              console.log('User cancelled the loader.')
             }
         }
     }
@@ -108,7 +108,7 @@ yarn add vue-loading-overlay
                 },5000)                 
             },
             onCancel() {
-              console.log("User cancelled the loader.")
+              console.log('User cancelled the loader.')
             }                      
         }
     }
@@ -125,16 +125,16 @@ The component accepts these props:
 | on-cancel        | Function            | `()=>{}`             | Do something upon cancel, works in conjunction with `can-cancel`  |
 | transition       | String              | `fade`               | [Transition](https://vuejs.org/v2/guide/transitions.html) name |
 | is-full-page     | Boolean             | `true`               | When `false`; limit loader to its container^ |
-| color            | String              | `#000`               | Customize the loading icon color |
-| backgroundColor  | String              | `#fff`               | Customize the overlay background color |
+| color            | String              | `#000`               | Customize the color of loading icon |
+| height           | Number              | *                    | Customize the height of loading icon |
+| width            | Number              | *                    | Customize the width of loading icon |
+| loader           | String              | `spinner`            | Name of icon shape you want use as loader, `spinner` or `dots` |
+| background-color | String              | `#fff`               | Customize the overlay background color |
 | opacity          | Number              | `0.5`                | Customize the overlay background opacity |
-| height           | Number              | ``                   | Customize the height of loading icon |
-| width            | Number              | ``                   | Customize the width of loading icon |
-| loader           | String              | `spinner`            | Name of icon shape you want load, `spinner` or `dots` |
 
 * ^When `is-full-page` is set to `false`, the container element should be positioned as `position: relative`. 
 You can use css class `vld-parent`.
-* `height` and `width` may be different based on the `loader` prop
+* *The default `height` and `width` values may be different based on the `loader` prop
 
 ## Available slots
 The component accepts these slots:
@@ -147,18 +147,18 @@ The component accepts these slots:
 ### `Vue.$loading.show(?propsData,?slots)`
 ```js
 let loader = Vue.$loading.show({
-  // Can also pass available props (camelCased property names)
+  // Pass props (camelCased property names)
   container: this.$refs.loadingContainer,
-  canCancel: true,// default false
+  canCancel: true, // default false
   onCancel: this.yourMethodName,
   color: '#000000',
-  backgroundColor: '#ffffff',
-  opacity: 0.5,
   loader: 'spinner',
   width: 64,
   height: 64,
+  backgroundColor: '#ffffff',
+  opacity: 0.5,
 },{
-  // Pass slots by their name
+  // Pass slots by their names
   default: this.$createElement('your-custom-loader-component-element'),
 });
 // hide loader whenever you want

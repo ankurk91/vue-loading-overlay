@@ -86,13 +86,13 @@
     },
     methods: {
       simulate() {
-        let slot = this.useSlot ? {
+        let slots = this.useSlot ? {
           // https://vuejs.org/v2/guide/render-function.html#createElement-Arguments
-          default: [this.$createElement('custom-slot', {
+          default: this.$createElement('custom-slot', {
             props: {
               color: '#005cbf'
             }
-          })]
+          })
         } : {};
 
         let loader = this.$loading.show({
@@ -104,7 +104,7 @@
           height: this.height,
           width: this.width,
           loader: this.loader,
-        }, slot);
+        }, slots);
 
         // simulate async call
         setTimeout(() => {

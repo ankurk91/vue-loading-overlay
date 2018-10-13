@@ -4,6 +4,7 @@ import Vue from 'vue';
 
 Vue.config.productionTip = false;
 
+// Bootstrap is being used for demonstration only
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import App from './App.vue';
