@@ -1,6 +1,6 @@
 <template>
   <div>
-    <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark shadow-sm">
+    <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark shadow-sm mb-3">
       <span class="navbar-brand mb-0">Vue.js Loading Overlay v3</span>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
@@ -8,14 +8,15 @@
              target="_blank"> GitHub</a></li>
       </ul>
     </nav>
-    <main class="container mt-3">
+
+    <main class="container">
       <div class="row">
         <div class="col-md-8">
           <component-example></component-example>
           <plugin-example></plugin-example>
         </div>
 
-        <aside class="col-md-4">
+        <aside class="col-md-4 mb-3">
           <div class="card">
             <div class="card-header"> Links</div>
             <div class="card-body">
@@ -27,10 +28,10 @@
           </div>
         </aside>
       </div>
-
     </main>
-    <footer class="text-center text-muted small mb-3 mt-1">
-      Created by <a href="https://twitter.com/ankurk91" target="_blank" rel="noopener¬">@ankurk91</a>
+
+    <footer class="text-center text-muted small mb-3">
+      Created by <a href="https://twitter.com/ankurk91" target="_blank" rel="noopener">@ankurk91</a>
     </footer>
   </div>
 </template>

@@ -1,5 +1,5 @@
 <template>
-  <div class="card vld-parent">
+  <div class="card vld-parent mb-3">
     <loading :active.sync="isLoading"
              :can-cancel="canCancel"
              :on-cancel="whenCancelled"
