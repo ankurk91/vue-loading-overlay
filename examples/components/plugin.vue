@@ -6,7 +6,7 @@
       <div class="form-group m-0">
         <label>Loader shape</label>
         <select class="form-control-sm text-capitalize" v-model="loader">
-          <option v-for="item in ['spinner','dots']">{{item}}</option>
+          <option v-for="item in ['spinner','dots','bars']">{{item}}</option>
         </select>
       </div>
 
@@ -37,12 +37,14 @@
 
       <div class="form-group">
         <label>Height</label>
-        <input type="range" min="10" step="5" max="256" v-model.number="height"/> <span class="text-muted">{{height}}</span>
+        <input type="range" min="10" step="5" max="256" v-model.number="height"/> <span
+        class="text-muted">{{height}}</span>
       </div>
 
       <div class="form-group">
         <label>Width</label>
-        <input type="range" min="10" step="5" max="256" v-model.number="width"/> <span class="text-muted">{{width}}</span>
+        <input type="range" min="10" step="5" max="256" v-model.number="width"/> <span
+        class="text-muted">{{width}}</span>
       </div>
 
       <div class="form-group mt-3">
@@ -63,12 +65,12 @@
     data() {
       return {
         fullPage: true,
-        canCancel: false,
+        canCancel: true,
         useSlot: false,
-        loader: 'spinner',
+        loader: 'dots',
         timeout: 3000, //ms
-        color: '#007bff',
-        bgColor: '#ffffff',
+        color: '#00ab00',
+        bgColor: '#4b4b4b',
         height: 64,
         width: 64,
       }
@@ -104,6 +106,7 @@
           height: this.height,
           width: this.width,
           loader: this.loader,
+          opacity: 0.3,
         }, slots);
 
         // simulate async call

@@ -1,5 +1,5 @@
 <template>
-  <svg :width="width" :height="height" viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg" :fill="color">
+  <svg viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg" :fill="color" :width="width" :height="height">
     <circle cx="15" cy="15" r="15">
       <animate attributeName="r" from="15" to="15"
                begin="0s" dur="0.8s"

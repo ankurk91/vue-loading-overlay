@@ -128,7 +128,7 @@ The component accepts these props:
 | color            | String              | `#000`               | Customize the color of loading icon |
 | height           | Number              | *                    | Customize the height of loading icon |
 | width            | Number              | *                    | Customize the width of loading icon |
-| loader           | String              | `spinner`            | Name of icon shape you want use as loader, `spinner` or `dots` |
+| loader           | String              | `spinner`            | Name of icon shape you want use as loader, `spinner` or `dots` or `bars` |
 | background-color | String              | `#fff`               | Customize the overlay background color |
 | opacity          | Number              | `0.5`                | Customize the overlay background opacity |
 
