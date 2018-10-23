@@ -21,9 +21,9 @@
 </template>
 
 <script>
-  import {removeElement, HTMLElement} from './util'
-  import trapFocusMixin from './trapFocusMixin';
-  import Loaders from '../loaders';
+  import {removeElement, HTMLElement} from './helpers.js'
+  import trapFocusMixin from './trapFocusMixin.js';
+  import Loaders from '../loaders/index.js';
 
   export default {
     name: 'vue-loading',
@@ -49,8 +49,6 @@
        */
       onCancel: {
         type: Function,
-        default: () => {
-        }
       },
       color: String,
       backgroundColor: String,
@@ -65,7 +63,7 @@
     data() {
       return {
         // Don't mutate the prop
-        isActive: this.active || false
+        isActive: this.active
       }
     },
     components: Loaders,

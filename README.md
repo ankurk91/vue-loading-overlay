@@ -123,8 +123,8 @@ The component accepts these props:
 | active           | Boolean             | `false`              | Show loading by default when `true`, use the `.sync` modifier to make it two-way binding |
 | can-cancel       | Boolean             | `false`              | Allow user to cancel by pressing ESC or clicking outside |
 | on-cancel        | Function            | `()=>{}`             | Do something upon cancel, works in conjunction with `can-cancel`  |
-| transition       | String              | `fade`               | [Transition](https://vuejs.org/v2/guide/transitions.html) name |
 | is-full-page     | Boolean             | `true`               | When `false`; limit loader to its container^ |
+| transition       | String              | `fade`               | [Transition](https://vuejs.org/v2/guide/transitions.html) name |
 | color            | String              | `#000`               | Customize the color of loading icon |
 | height           | Number              | *                    | Customize the height of loading icon |
 | width            | Number              | *                    | Customize the width of loading icon |
@@ -134,7 +134,7 @@ The component accepts these props:
 
 * ^When `is-full-page` is set to `false`, the container element should be positioned as `position: relative`. 
 You can use CSS helper class `vld-parent`.
-* *The default `height` and `width` values may be different based on the `loader` prop
+* *The default `height` and `width` values may be vary based on the `loader` prop value
 
 ## Available slots
 The component accepts these slots:
@@ -147,7 +147,7 @@ The component accepts these slots:
 ### `Vue.$loading.show(?propsData,?slots)`
 ```js
 let loader = Vue.$loading.show({
-  // Pass props (camelCased property names)
+  // Pass props by their camelCased names
   container: this.$refs.loadingContainer,
   canCancel: true, // default false
   onCancel: this.yourMethodName,
@@ -159,7 +159,7 @@ let loader = Vue.$loading.show({
   opacity: 0.5,
 },{
   // Pass slots by their names
-  default: this.$createElement('your-custom-loader-component-element'),
+  default: this.$createElement('your-custom-loader-component-name'),
 });
 // hide loader whenever you want
 loader.hide();

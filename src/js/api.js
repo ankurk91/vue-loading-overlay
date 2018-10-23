@@ -1,6 +1,6 @@
 import Component from './Component.vue'
 
-const LoadingApi = (Vue, globalProps = {}, globalSlots = {}) => {
+const Api = (Vue, globalProps = {}, globalSlots = {}) => {
   return {
     show(props = globalProps, slots = globalSlots) {
       const forceProps = {
@@ -23,4 +23,4 @@ const LoadingApi = (Vue, globalProps = {}, globalSlots = {}) => {
   }
 };
 
-export default LoadingApi;
+export default Api;
