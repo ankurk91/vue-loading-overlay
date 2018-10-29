@@ -36,7 +36,7 @@
 <script>
 
   export default {
-    name: 'spinner',
+    name: 'dots',
     props: {
       color: {
         type: String,
