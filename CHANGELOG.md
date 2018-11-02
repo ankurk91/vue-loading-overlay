@@ -2,9 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+### [3.1.0](https://github.com/ankurk91/vue-loading-overlay/compare/3.0.1...3.1.0)
+* Add: `bars` loader type
+
 ### [3.0.1](https://github.com/ankurk91/vue-loading-overlay/compare/3.0.0...3.0.1)
-* Add:
-    - `opacity` prop
+* Add: `opacity` prop
 
 ### [3.0.0](https://github.com/ankurk91/vue-loading-overlay/compare/2.2.2...3.0.0) (breaking)
 * Changed: 
