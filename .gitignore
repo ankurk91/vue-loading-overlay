@@ -39,6 +39,7 @@ $RECYCLE.BIN/
 
 # node packages
 node_modules/
+.pnp*
 
 # Composer, exclude on root vendor folder
 /vendor/

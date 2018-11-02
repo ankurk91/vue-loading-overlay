@@ -3,7 +3,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const UnminifiedWebpackPlugin = require('unminified-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const {VueLoaderPlugin} = require('vue-loader');
@@ -37,7 +37,7 @@ module.exports = {
     umdNamedDefine: true,
     // Workaround to fix umd build, restore webpack v3 behaviour
     // https://github.com/webpack/webpack/issues/6642
-    globalObject: "typeof self !== 'undefined' ? self : this"
+    globalObject: `typeof self !== 'undefined' ? self : this`
   },
   module: {
     rules: [
@@ -56,7 +56,7 @@ module.exports = {
         use: [
           MiniCssExtractPlugin.loader,
           {
-            loader: "css-loader",
+            loader: 'css-loader',
             options: {
               sourceMap: false,
             }

@@ -4,8 +4,8 @@ const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {VueLoaderPlugin} = require('vue-loader');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const CleanWebpackPlugin = require("clean-webpack-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 const isProduction = process.env.NODE_ENV === 'production';
@@ -45,13 +45,13 @@ module.exports = {
         use: [
           isProduction ? MiniCssExtractPlugin.loader :
             {
-              loader: "style-loader",
+              loader: 'style-loader',
               options: {
                 sourceMap: !isProduction,
               }
             },
           {
-            loader: "css-loader",
+            loader: 'css-loader',
             options: {
               sourceMap: !isProduction,
             }
