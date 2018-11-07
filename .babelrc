@@ -1,16 +1,16 @@
 {
   "presets": [
     [
-      "env",
+      "@babel/env",
       {
         "modules": false,
+        "forceAllTransforms": true,
         "targets": {
           "browsers": [
             "defaults",
             "not ie > 0",
             "not ie_mob > 0"
-          ],
-          "uglify": true
+          ]
         }
       }
     ]
@@ -19,7 +19,7 @@
     "test": {
       "presets": [
         [
-          "env",
+          "@babel/env",
           {
             "targets": {
               "node": "current"
