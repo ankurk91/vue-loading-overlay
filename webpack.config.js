@@ -65,6 +65,21 @@ module.exports = {
       },
     ]
   },
+  optimization: {
+    minimizer: [
+      new UglifyJsPlugin({
+        sourceMap: false,
+        uglifyOptions: {
+          output: {
+            beautify: false
+          },
+          compress: {
+            drop_console: true
+          }
+        }
+      }),
+    ]
+  },
   plugins: [
     new CleanWebpackPlugin(['./dist']),
     new MiniCssExtractPlugin({
@@ -74,21 +89,6 @@ module.exports = {
       exclude: /\.css$/
     }),
     new VueLoaderPlugin(),
-    new UglifyJsPlugin({
-      sourceMap: false,
-      uglifyOptions: {
-        output: {
-          comments: false,
-          beautify: false
-        },
-        compress: {
-          dead_code: true,
-          warnings: false,
-          drop_debugger: true,
-          drop_console: true
-        }
-      }
-    }),
   ],
   devtool: false,
   performance: {

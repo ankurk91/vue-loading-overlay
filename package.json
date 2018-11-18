@@ -31,7 +31,7 @@
     "test": "jest",
     "test:watch": "yarn run test -- --watch --onlyChanged --notify",
     "start": "yarn run dev",
-    "dev": "cross-env NODE_ENV=development webpack-serve --config=webpack.config.dev.js",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --hot --config=webpack.config.dev.js",
     "docs": "cross-env NODE_ENV=production webpack --config=webpack.config.dev.js --progress --mode production",
     "build": "cross-env NODE_ENV=production webpack --progress --mode production",
     "prepublishOnly": "yarn run test && yarn run build"
@@ -60,7 +60,7 @@
     "vue-template-compiler": "^2.5.17",
     "webpack": "^4.25.1",
     "webpack-cli": "^3.1.2",
-    "webpack-serve": "^2.0.2"
+    "webpack-dev-server": "^3.1.10"
   },
   "peerDependencies": {
     "vue": "^2.0.0"

@@ -79,7 +79,8 @@ module.exports = {
     runtimeChunk: false,
     splitChunks: {
       chunks: 'all',
-    }
+    },
+    minimizer: [],
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -100,15 +101,17 @@ module.exports = {
     }),
     new VueLoaderPlugin(),
   ],
-  // webpack-serve related configs
-  serve: {
+  devServer: {
+    contentBase: path.resolve(__dirname, 'docs'),
     host: 'localhost',
     port: 9000,
     open: true,
     hot: true,
-    logTime: true,
-    logLevel: 'info',
-    clipboard: false
+    overlay: {
+      warnings: false,
+      errors: true
+    },
+    stats: 'errors-only',
   },
   devtool: isProduction ? false : '#cheap-module-eval-source-map',
   performance: {
@@ -125,20 +128,18 @@ if (isProduction) {
     new MiniCssExtractPlugin({
       filename: 'css/demo-[hash].css',
     }),
+  );
+  module.exports.optimization.minimizer.push(
     new UglifyJsPlugin({
       sourceMap: false,
       uglifyOptions: {
         output: {
-          comments: false,
           beautify: false
         },
         compress: {
-          dead_code: true,
-          warnings: false,
-          drop_debugger: true,
           drop_console: true
         }
       }
     }),
-  )
+  );
 }
