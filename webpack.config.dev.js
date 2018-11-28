@@ -6,7 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {VueLoaderPlugin} = require('vue-loader');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 const isProduction = process.env.NODE_ENV === 'production';
 
@@ -100,6 +100,7 @@ module.exports = {
       Vue: ['vue/dist/vue.esm.js', 'default'],
     }),
     new VueLoaderPlugin(),
+    new webpack.SourceMapDevToolPlugin(),
   ],
   devServer: {
     contentBase: path.resolve(__dirname, 'docs'),
@@ -119,6 +120,8 @@ module.exports = {
   },
   stats: {
     modules: false,
+    children: false,
+    entrypoints: false,
   }
 };
 
@@ -130,13 +133,15 @@ if (isProduction) {
     }),
   );
   module.exports.optimization.minimizer.push(
-    new UglifyJsPlugin({
+    new TerserPlugin({
       sourceMap: false,
-      uglifyOptions: {
+      terserOptions: {
         output: {
-          beautify: false
+          beautify: false,
+          safari10: true,
         },
         compress: {
+          drop_debugger: true,
           drop_console: true
         }
       }
