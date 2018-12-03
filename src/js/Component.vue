@@ -49,6 +49,8 @@
        */
       onCancel: {
         type: Function,
+        default: () => {
+        }
       },
       color: String,
       backgroundColor: String,
