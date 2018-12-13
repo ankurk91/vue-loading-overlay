@@ -1,5 +1,8 @@
 # Changelog
 
+### [3.1.1](https://github.com/ankurk91/vue-loading-overlay/compare/3.1.0...3.1.1)
+* Fix: `onCancel` prop default value to empty function
+
 ### [3.1.0](https://github.com/ankurk91/vue-loading-overlay/compare/3.0.1...3.1.0)
 * Add: `bars` loader type
 

@@ -1,7 +1,7 @@
 {
   "name": "vue-loading-overlay",
-  "version": "3.1.0",
-  "description": "Vue.js component for full screen loading indicator",
+  "version": "3.1.1",
+  "description": "Vue.js component for full screen loading indicator.",
   "main": "dist/vue-loading.js",
   "browser": "dist/vue-loading.min.js",
   "style": "dist/vue-loading.css",
