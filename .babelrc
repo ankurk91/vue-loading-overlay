@@ -1,10 +1,10 @@
 {
   "presets": [
     [
-      "@babel/env",
+      "@babel/preset-env",
       {
         "modules": false,
-        "forceAllTransforms": true,
+        "forceAllTransforms": false,
         "targets": {
           "browsers": [
             "defaults",
@@ -19,7 +19,7 @@
     "test": {
       "presets": [
         [
-          "@babel/env",
+          "@babel/preset-env",
           {
             "targets": {
               "node": "current"

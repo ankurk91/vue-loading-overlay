@@ -72,7 +72,6 @@ module.exports = {
         terserOptions: {
           output: {
             beautify: false,
-            safari10: true,
           },
           compress: {
             drop_debugger: true,
