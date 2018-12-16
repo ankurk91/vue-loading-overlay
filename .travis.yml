@@ -13,7 +13,7 @@ install:
   - yarn install --non-interactive
 
 script:
-  - yarn test --verbose
+  - yarn test --ci --verbose
   - yarn run build
 
 # Monitor only these branches

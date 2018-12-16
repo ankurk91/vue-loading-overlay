@@ -29,7 +29,7 @@
   "homepage": "https://github.com/ankurk91/vue-loading-overlay",
   "scripts": {
     "test": "jest",
-    "test:watch": "yarn run test -- --watch --onlyChanged --notify",
+    "test:watch": "yarn run test --watch --notify",
     "start": "yarn run dev",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --hot --config=webpack.config.dev.js",
     "docs": "cross-env NODE_ENV=production webpack --config=webpack.config.dev.js --progress --mode production",
