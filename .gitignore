@@ -4,11 +4,9 @@
 .idea/
 .project
 *.sublime-*
-.brackets.json
-.vscode
+.vscode/
 
 # logs and cache
-/logs/
 *.log
 npm-debug.log*
 .sass-cache
