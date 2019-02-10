@@ -186,7 +186,7 @@ let loader = Vue.$loading.show({
 ## Install in non-module environments (without webpack)
 ```html
 <!-- Vue js -->
-<script src="https://cdn.jsdelivr.net/npm/vue@2.5/dist/vue.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6/dist/vue.min.js"></script>
 <!-- Lastly add this package -->
 <script src="https://cdn.jsdelivr.net/npm/vue-loading-overlay@3"></script>
 <link href="https://cdn.jsdelivr.net/npm/vue-loading-overlay@3/dist/vue-loading.css" rel="stylesheet">

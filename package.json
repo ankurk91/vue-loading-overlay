@@ -54,10 +54,10 @@
     "mini-css-extract-plugin": "^0.5.0",
     "style-loader": "^0.23.1",
     "unminified-webpack-plugin": "^2.0.0",
-    "vue": "^2.5.21",
+    "vue": "^2.6.4",
     "vue-jest": "^3.0.3",
     "vue-loader": "^15.6.2",
-    "vue-template-compiler": "^2.5.21",
+    "vue-template-compiler": "^2.6.4",
     "webpack": "^4.29.3",
     "webpack-cli": "^3.2.3",
     "webpack-dev-server": "^3.1.14"
