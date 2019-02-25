@@ -1,5 +1,8 @@
 # Changelog
 
+### [3.2.0](https://github.com/ankurk91/vue-loading-overlay/compare/3.1.1...3.2.0)
+* Add: `z-index` prop
+
 ### [3.1.1](https://github.com/ankurk91/vue-loading-overlay/compare/3.1.0...3.1.1)
 * Fix: `onCancel` prop default value to empty function
 
