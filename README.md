@@ -130,6 +130,7 @@ The component accepts these props:
 | loader           | String              | `spinner`            | Name of icon shape you want use as loader, `spinner` or `dots` or `bars` |
 | background-color | String              | `#fff`               | Customize the overlay background color |
 | opacity          | Number              | `0.5`                | Customize the overlay background opacity |
+| z-index          | Number              | `999`                | Customize the overlay z-index |
 
 * ^When `is-full-page` is set to `false`, the container element should be positioned as `position: relative`. 
 You can use CSS helper class `vld-parent`.
@@ -156,6 +157,7 @@ let loader = Vue.$loading.show({
   height: 64,
   backgroundColor: '#ffffff',
   opacity: 0.5,
+  zIndex: 999,
 },{
   // Pass slots by their names
   default: this.$createElement('your-custom-loader-component-name'),

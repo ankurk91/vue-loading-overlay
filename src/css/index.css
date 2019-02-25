@@ -30,11 +30,6 @@
   opacity: 0.5
 }
 
-.vld-overlay .vld-icon {
+.vld-overlay .vld-icon, .vld-parent {
   position: relative
 }
-
-.vld-parent {
-  position: relative
-}
-

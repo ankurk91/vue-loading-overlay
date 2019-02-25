@@ -2,13 +2,15 @@
   <transition :name="transition">
     <div tabindex="0"
          class="vld-overlay is-active"
-         :class="{'is-full-page': isFullPage }"
+         :class="{ 'is-full-page': isFullPage }"
          v-show="isActive"
          :aria-busy="isActive"
-         aria-label="Loading">
+         aria-label="Loading"
+         :style="{ zIndex: this.zIndex }">
       <div class="vld-background"
            @click.prevent="cancel"
-           :style="{background: this.backgroundColor, opacity: this.opacity}"></div>
+           :style="{ background: this.backgroundColor, opacity: this.opacity }">
+      </div>
       <div class="vld-icon">
         <slot name="before"></slot>
         <slot name="default">
@@ -57,6 +59,7 @@
       opacity: Number,
       width: Number,
       height: Number,
+      zIndex: Number,
       loader: {
         type: String,
         default: 'spinner'

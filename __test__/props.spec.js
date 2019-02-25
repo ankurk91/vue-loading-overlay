@@ -14,7 +14,8 @@ describe('Loading component props', () => {
         opacity: 0.6,
         height: 100,
         width: 100,
-        loader: 'dots'
+        loader: 'dots',
+        zIndex: 9999,
       },
     });
 

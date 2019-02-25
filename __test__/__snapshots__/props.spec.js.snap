@@ -6,6 +6,7 @@ exports[`Loading component props accepts props 1`] = `
   aria-label="Loading"
   class="vld-overlay is-active"
   name="custom"
+  style="z-index: 9999;"
   tabindex="0"
 >
   <div
