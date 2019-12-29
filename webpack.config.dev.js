@@ -111,7 +111,7 @@ module.exports = {
     },
     stats: 'errors-only',
   },
-  devtool: isProduction ? false : '#cheap-module-eval-source-map',
+  devtool: isProduction ? false : 'cheap-module-eval-source-map',
   performance: {
     hints: false,
   },

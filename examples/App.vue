@@ -12,8 +12,8 @@
     <main class="container">
       <div class="row">
         <div class="col-md-8">
-          <component-example></component-example>
-          <plugin-example></plugin-example>
+          <component-example/>
+          <plugin-example/>
         </div>
 
         <aside class="col-md-4 mb-3">

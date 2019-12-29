@@ -6,17 +6,17 @@
          v-show="isActive"
          :aria-busy="isActive"
          aria-label="Loading"
-         :style="{ zIndex: this.zIndex }">
+         :style="{ zIndex }">
       <div class="vld-background"
            @click.prevent="cancel"
-           :style="{ background: this.backgroundColor, opacity: this.opacity }">
+           :style="{ background: backgroundColor, opacity }">
       </div>
       <div class="vld-icon">
-        <slot name="before"></slot>
+        <slot name="before"/>
         <slot name="default">
-          <component :is="loader" :color="color" :width="width" :height="height"></component>
+          <component :is="loader" :color="color" :width="width" :height="height"/>
         </slot>
-        <slot name="after"></slot>
+        <slot name="after"/>
       </div>
     </div>
   </transition>
