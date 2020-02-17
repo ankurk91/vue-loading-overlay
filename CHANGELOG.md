@@ -1,5 +1,8 @@
 # Changelog
 
+### [3.3.0](https://github.com/ankurk91/vue-loading-overlay/compare/3.2.0...3.3.0)
+* Increase `z-index` value to `9999`
+
 ### [3.2.0](https://github.com/ankurk91/vue-loading-overlay/compare/3.1.1...3.2.0)
 * Add: `z-index` prop
 
