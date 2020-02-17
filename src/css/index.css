@@ -8,7 +8,7 @@
   display: none;
   justify-content: center;
   overflow: hidden;
-  z-index: 1
+  z-index: 9999
 }
 
 .vld-overlay.is-active {
@@ -16,7 +16,7 @@
 }
 
 .vld-overlay.is-full-page {
-  z-index: 999;
+  z-index: 9999;
   position: fixed
 }
 
