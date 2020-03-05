@@ -1,5 +1,10 @@
 # Changelog
 
+### [3.3.1](https://github.com/ankurk91/vue-loading-overlay/compare/3.3.0...3.3.1)
+* Fix: 
+    - [#42](https://github.com/ankurk91/vue-loading-overlay/issues/42) 
+    - [#44](https://github.com/ankurk91/vue-loading-overlay/issues/44) 
+
 ### [3.3.0](https://github.com/ankurk91/vue-loading-overlay/compare/3.2.0...3.3.0)
 * Increase `z-index` value to `9999`
 
