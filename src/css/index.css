@@ -8,16 +8,16 @@
   display: none;
   justify-content: center;
   overflow: hidden;
-  z-index: 9999
+  z-index: 9999;
 }
 
 .vld-overlay.is-active {
-  display: flex
+  display: flex;
 }
 
 .vld-overlay.is-full-page {
   z-index: 9999;
-  position: fixed
+  position: fixed;
 }
 
 .vld-overlay .vld-background {
@@ -27,9 +27,9 @@
   right: 0;
   top: 0;
   background: #fff;
-  opacity: 0.5
+  opacity: 0.5;
 }
 
 .vld-overlay .vld-icon, .vld-parent {
-  position: relative
+  position: relative;
 }
