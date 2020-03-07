@@ -95,9 +95,6 @@ module.exports = {
       exclude: /\.css$/
     }),
     new VueLoaderPlugin(),
-    new webpack.BannerPlugin({
-      banner: require('./package.json').name
-    }),
   ],
   devtool: false,
   performance: {
