@@ -1,0 +1,47 @@
+name: build
+
+on:
+  push:
+    branches:
+      - master
+      - dev
+  pull_request:
+  schedule:
+    - cron: '0 0 1 * *'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+
+      - name: Using Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - run: yarn install --non-interactive --frozen-lockfile
+      - run: yarn test --verbose
+      - run: yarn run build
+      - run: yarn run docs
+        env:
+          CI: true
+
+      - name: Deploy to gh-pages
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: docs
+          SINGLE_COMMIT: true
+          CLEAN: true
+
