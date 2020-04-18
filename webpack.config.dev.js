@@ -97,7 +97,6 @@ module.exports = {
       Vue: ['vue/dist/vue.esm.js', 'default'],
     }),
     new VueLoaderPlugin(),
-    new webpack.SourceMapDevToolPlugin(),
   ],
   devServer: {
     contentBase: path.resolve(__dirname, 'docs'),
