@@ -4,7 +4,6 @@
       "@babel/preset-env",
       {
         "modules": false,
-        "forceAllTransforms": true,
         "targets": {
           "browsers": [
             "defaults",

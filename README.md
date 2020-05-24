@@ -4,7 +4,7 @@
 [![jsdelivr](https://data.jsdelivr.com/v1/package/npm/vue-loading-overlay/badge?style=rounded)](https://www.jsdelivr.com/package/npm/vue-loading-overlay)
 [![npm-version](https://badgen.net/npm/v/vue-loading-overlay)](https://www.npmjs.com/package/vue-loading-overlay)
 [![github-tag](https://badgen.net/github/tag/ankurk91/vue-loading-overlay)](https://github.com/ankurk91/vue-loading-overlay/)
-![build](https://github.com/ankurk91/vue-loading-overlay/workflows/build/badge.svg)
+[![build](https://github.com/ankurk91/vue-loading-overlay/workflows/build/badge.svg)](https://github.com/ankurk91/vue-loading-overlay/actions)
 [![license](https://badgen.net/github/license/ankurk91/vue-loading-overlay)](https://yarnpkg.com/en/package/vue-loading-overlay)
 
 Vue.js component for full screen loading indicator
@@ -149,7 +149,7 @@ let loader = Vue.$loading.show({
   // Pass props by their camelCased names
   container: this.$refs.loadingContainer,
   canCancel: true, // default false
-  onCancel: this.yourMethodName,
+  onCancel: this.yourCallbackMethod,
   color: '#000000',
   loader: 'spinner',
   width: 64,

@@ -94,7 +94,7 @@ module.exports = {
       }
     }),
     new webpack.ProvidePlugin({
-      Vue: ['vue/dist/vue.esm.js', 'default'],
+      Vue: ['vue/dist/vue.runtime.esm.js', 'default'],
     }),
     new VueLoaderPlugin(),
   ],
