@@ -1,115 +1,123 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Loading component renders when active 1`] = `
-<div
-  aria-busy="true"
-  aria-label="Loading"
-  class="vld-overlay is-active is-full-page"
-  tabindex="0"
+<transition-stub
+  name="fade"
 >
   <div
-    class="vld-background"
-  />
-   
-  <div
-    class="vld-icon"
+    aria-busy="true"
+    aria-label="Loading"
+    class="vld-overlay is-active is-full-page"
+    tabindex="0"
   >
+    <div
+      class="vld-background"
+    />
      
-    <svg
-      height="64"
-      stroke="#000"
-      viewBox="0 0 38 38"
-      width="64"
-      xmlns="http://www.w3.org/2000/svg"
+    <div
+      class="vld-icon"
     >
-      <g
-        fill="none"
-        fill-rule="evenodd"
+       
+      <svg
+        height="64"
+        stroke="#000"
+        viewBox="0 0 38 38"
+        width="64"
+        xmlns="http://www.w3.org/2000/svg"
       >
         <g
-          stroke-width="2"
-          transform="translate(1 1)"
+          fill="none"
+          fill-rule="evenodd"
         >
-          <circle
-            cx="18"
-            cy="18"
-            r="18"
-            stroke-opacity=".25"
-          />
-           
-          <path
-            d="M36 18c0-9.94-8.06-18-18-18"
+          <g
+            stroke-width="2"
+            transform="translate(1 1)"
           >
-            <animatetransform
-              attributeName="transform"
-              dur="0.8s"
-              from="0 18 18"
-              repeatCount="indefinite"
-              to="360 18 18"
-              type="rotate"
+            <circle
+              cx="18"
+              cy="18"
+              r="18"
+              stroke-opacity=".25"
             />
-          </path>
+             
+            <path
+              d="M36 18c0-9.94-8.06-18-18-18"
+            >
+              <animatetransform
+                attributeName="transform"
+                dur="0.8s"
+                from="0 18 18"
+                repeatCount="indefinite"
+                to="360 18 18"
+                type="rotate"
+              />
+            </path>
+          </g>
         </g>
-      </g>
-    </svg>
-     
+      </svg>
+       
+    </div>
   </div>
-</div>
+</transition-stub>
 `;
 
 exports[`Loading component renders when not active 1`] = `
-<div
-  aria-busy="true"
-  aria-label="Loading"
-  class="vld-overlay is-active is-full-page"
-  tabindex="0"
+<transition-stub
+  name="fade"
 >
   <div
-    class="vld-background"
-  />
-   
-  <div
-    class="vld-icon"
+    aria-busy="true"
+    aria-label="Loading"
+    class="vld-overlay is-active is-full-page"
+    tabindex="0"
   >
+    <div
+      class="vld-background"
+    />
      
-    <svg
-      height="64"
-      stroke="#000"
-      viewBox="0 0 38 38"
-      width="64"
-      xmlns="http://www.w3.org/2000/svg"
+    <div
+      class="vld-icon"
     >
-      <g
-        fill="none"
-        fill-rule="evenodd"
+       
+      <svg
+        height="64"
+        stroke="#000"
+        viewBox="0 0 38 38"
+        width="64"
+        xmlns="http://www.w3.org/2000/svg"
       >
         <g
-          stroke-width="2"
-          transform="translate(1 1)"
+          fill="none"
+          fill-rule="evenodd"
         >
-          <circle
-            cx="18"
-            cy="18"
-            r="18"
-            stroke-opacity=".25"
-          />
-           
-          <path
-            d="M36 18c0-9.94-8.06-18-18-18"
+          <g
+            stroke-width="2"
+            transform="translate(1 1)"
           >
-            <animatetransform
-              attributeName="transform"
-              dur="0.8s"
-              from="0 18 18"
-              repeatCount="indefinite"
-              to="360 18 18"
-              type="rotate"
+            <circle
+              cx="18"
+              cy="18"
+              r="18"
+              stroke-opacity=".25"
             />
-          </path>
+             
+            <path
+              d="M36 18c0-9.94-8.06-18-18-18"
+            >
+              <animatetransform
+                attributeName="transform"
+                dur="0.8s"
+                from="0 18 18"
+                repeatCount="indefinite"
+                to="360 18 18"
+                type="rotate"
+              />
+            </path>
+          </g>
         </g>
-      </g>
-    </svg>
-     
+      </svg>
+       
+    </div>
   </div>
-</div>
+</transition-stub>
 `;

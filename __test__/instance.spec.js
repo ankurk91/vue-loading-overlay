@@ -1,5 +1,6 @@
 import {mount} from '@vue/test-utils'
 import Component from '../src/js/Component';
+import transitionStub from "./__stubs__/transition.js";
 
 describe('Loading component instance', () => {
 
@@ -9,6 +10,9 @@ describe('Loading component instance', () => {
     wrapper = mount(Component, {
       propsData: {
         active: true
+      },
+      stubs: {
+        transition: transitionStub()
       }
     });
   });
