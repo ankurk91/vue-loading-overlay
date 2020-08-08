@@ -38,6 +38,10 @@
         type: Boolean,
         default: true
       },
+      enforceFocus: {
+        type: Boolean,
+        default: true
+      },
       transition: {
         type: String,
         default: 'fade'

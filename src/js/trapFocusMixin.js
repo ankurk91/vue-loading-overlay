@@ -1,6 +1,8 @@
 export default {
   mounted() {
-    document.addEventListener('focusin', this.focusIn)
+    if(this.enforceFocus){
+      document.addEventListener('focusin', this.focusIn)
+    }
   },
   methods: {
     /**
