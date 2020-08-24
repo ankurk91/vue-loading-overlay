@@ -1,5 +1,8 @@
 # Changelog
 
+### [3.3.4](https://github.com/ankurk91/vue-loading-overlay/compare/3.3.3...3.3.4)
+* Fix: restore broken IE 11 support. :warning: IE 11 support will be removed in next major version.
+
 ### [3.3.3](https://github.com/ankurk91/vue-loading-overlay/compare/3.3.2...3.3.3)
 * Fix: [#26](https://github.com/ankurk91/vue-loading-overlay/issues/26) by introducing `enforceFocus` prop
 
