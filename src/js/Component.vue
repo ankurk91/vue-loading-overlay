@@ -88,6 +88,8 @@
       }
     },
     mounted() {
+      document.body.style.overflowY = "hidden"
+
       // Activate immediately when called programmatically
       if (this.programmatic) {
         this.isActive = true;
@@ -134,9 +136,16 @@
     watch: {
       active(value) {
         this.isActive = value
+
+        if (value) {
+          document.body.style.overflowY = "hidden"
+        } else {
+          document.body.style.overflowY = "auto"
+        }
       }
     },
     beforeDestroy() {
+      document.body.style.overflowY = "auto"
       document.removeEventListener('keyup', this.keyPress);
     },
   }
