@@ -42,6 +42,10 @@ export default {
       type: Boolean,
       default: true
     },
+    lockScroll: {
+      type: Boolean,
+      default: false
+    },
     transition: {
       type: String,
       default: 'fade'
@@ -121,6 +125,16 @@ export default {
         }, 150)
       }
     },
+    disableScroll() {
+      if (this.isFullPage && this.lockScroll) {
+        document.body.classList.add('vld-shown');
+      }
+    },
+    enableScroll() {
+      if (this.isFullPage && this.lockScroll) {
+        document.body.classList.remove('vld-shown');
+      }
+    },
     /**
      * Key press event to hide on ESC.
      *
@@ -134,6 +148,13 @@ export default {
   watch: {
     active(value) {
       this.isActive = value
+    },
+    isActive(value) {
+      if (value) {
+        this.disableScroll();
+      } else {
+        this.enableScroll()
+      }
     }
   },
   beforeDestroy() {

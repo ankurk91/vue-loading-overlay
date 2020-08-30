@@ -1,3 +1,7 @@
+.vld-shown {
+  overflow: hidden;
+}
+
 .vld-overlay {
   bottom: 0;
   left: 0;
