@@ -3,7 +3,7 @@ import Component from '../src/js/Component';
 
 describe('Loading component props', () => {
 
-  test('accepts props', () => {
+  test('accepts props', async () => {
     let wrapper = mount(Component, {
       propsData: {
         active: true,
@@ -19,6 +19,7 @@ describe('Loading component props', () => {
       },
     });
 
+    await wrapper.vm.$nextTick();
     expect(wrapper.vm.$el).toMatchSnapshot();
     wrapper.destroy();
   });

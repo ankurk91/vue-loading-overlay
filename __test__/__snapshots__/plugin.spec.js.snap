@@ -2,9 +2,10 @@
 
 exports[`Loading plugin has hide method on instance returned by show() 1`] = `
 <div
+  aria-busy="true"
   aria-label="Loading"
-  class="vld-overlay is-active is-full-page"
-  style="display: none;"
+  class="vld-overlay is-active is-full-page fade-enter fade-enter-active"
+  style=""
   tabindex="0"
 >
   <div

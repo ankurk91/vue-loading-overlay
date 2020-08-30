@@ -66,9 +66,9 @@ exports[`Loading component renders when not active 1`] = `
   name="fade"
 >
   <div
-    aria-busy="true"
     aria-label="Loading"
     class="vld-overlay is-active is-full-page"
+    style="display: none;"
     tabindex="0"
   >
     <div

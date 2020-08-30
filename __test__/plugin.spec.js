@@ -16,8 +16,9 @@ describe('Loading plugin', () => {
     expect(localVue.$loading.show).toBeDefined()
   });
 
-  test('has hide method on instance returned by show()', () => {
+  test('has hide method on instance returned by show()', async () => {
     let loader = localVue.$loading.show();
+    await loader.$nextTick();
 
     expect(loader.$el).toMatchSnapshot();
     expect(loader.hide).toBeDefined();
