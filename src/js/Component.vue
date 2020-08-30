@@ -23,121 +23,121 @@
 </template>
 
 <script>
-  import {removeElement, HTMLElement} from './helpers.js'
-  import trapFocusMixin from './trapFocusMixin.js';
-  import Loaders from '../loaders/index.js';
+import {removeElement, HTMLElement} from './helpers.js'
+import trapFocusMixin from './trapFocusMixin.js';
+import Loaders from '../loaders/index.js';
 
-  export default {
-    name: 'vue-loading',
-    mixins: [trapFocusMixin],
-    props: {
-      active: Boolean,
-      programmatic: Boolean,
-      container: [Object, Function, HTMLElement],
-      isFullPage: {
-        type: Boolean,
-        default: true
-      },
-      enforceFocus: {
-        type: Boolean,
-        default: true
-      },
-      transition: {
-        type: String,
-        default: 'fade'
-      },
-      /**
-       * Allow user to hide the loader
-       */
-      canCancel: Boolean,
-      /**
-       * Do something on cancel
-       */
-      onCancel: {
-        type: Function,
-        default: () => {
-        }
-      },
-      color: String,
-      backgroundColor: String,
-      opacity: Number,
-      width: Number,
-      height: Number,
-      zIndex: Number,
-      loader: {
-        type: String,
-        default: 'spinner'
+export default {
+  name: 'vue-loading',
+  mixins: [trapFocusMixin],
+  props: {
+    active: Boolean,
+    programmatic: Boolean,
+    container: [Object, Function, HTMLElement],
+    isFullPage: {
+      type: Boolean,
+      default: true
+    },
+    enforceFocus: {
+      type: Boolean,
+      default: true
+    },
+    transition: {
+      type: String,
+      default: 'fade'
+    },
+    /**
+     * Allow user to hide the loader
+     */
+    canCancel: Boolean,
+    /**
+     * Do something on cancel
+     */
+    onCancel: {
+      type: Function,
+      default: () => {
       }
     },
-    data() {
-      return {
-        // Don't mutate the prop
-        isActive: this.active
+    color: String,
+    backgroundColor: String,
+    opacity: Number,
+    width: Number,
+    height: Number,
+    zIndex: Number,
+    loader: {
+      type: String,
+      default: 'spinner'
+    }
+  },
+  data() {
+    return {
+      // Don't mutate the prop
+      isActive: this.active
+    }
+  },
+  components: Loaders,
+  beforeMount() {
+    // Insert the component in DOM when called programmatically
+    if (this.programmatic) {
+      if (this.container) {
+        this.isFullPage = false;
+        this.container.appendChild(this.$el)
+      } else {
+        document.body.appendChild(this.$el)
       }
+    }
+  },
+  mounted() {
+    // Activate immediately when called programmatically
+    if (this.programmatic) {
+      this.isActive = true;
+    }
+
+    document.addEventListener('keyup', this.keyPress)
+  },
+  methods: {
+    /**
+     * Proxy to hide() method.
+     * Gets called by ESC button or when click outside
+     */
+    cancel() {
+      if (!this.canCancel || !this.isActive) return;
+      this.hide();
+      this.onCancel.apply(null, arguments);
     },
-    components: Loaders,
-    beforeMount() {
-      // Insert the component in DOM when called programmatically
+    /**
+     * Hide and destroy component if it's programmatic.
+     */
+    hide() {
+      this.$emit('hide');
+      this.$emit('update:active', false);
+
+      // Timeout for the animation complete before destroying
       if (this.programmatic) {
-        if (this.container) {
-          this.isFullPage = false;
-          this.container.appendChild(this.$el)
-        } else {
-          document.body.appendChild(this.$el)
-        }
+        this.isActive = false;
+        setTimeout(() => {
+          this.$destroy();
+          removeElement(this.$el)
+        }, 150)
       }
     },
-    mounted() {
-      // Activate immediately when called programmatically
-      if (this.programmatic) {
-        this.isActive = true;
-      }
-
-      document.addEventListener('keyup', this.keyPress)
+    /**
+     * Key press event to hide on ESC.
+     *
+     * @param event
+     */
+    keyPress(event) {
+      // todo keyCode is deprecated
+      if (event.keyCode === 27) this.cancel()
     },
-    methods: {
-      /**
-       * Proxy to hide() method.
-       * Gets called by ESC button or when click outside
-       */
-      cancel() {
-        if (!this.canCancel || !this.isActive) return;
-        this.hide();
-        this.onCancel.apply(null, arguments);
-      },
-      /**
-       * Hide and destroy component if it's programmatic.
-       */
-      hide() {
-        this.$emit('hide');
-        this.$emit('update:active', false);
-
-        // Timeout for the animation complete before destroying
-        if (this.programmatic) {
-          this.isActive = false;
-          setTimeout(() => {
-            this.$destroy();
-            removeElement(this.$el)
-          }, 150)
-        }
-      },
-      /**
-       * Key press event to hide on ESC.
-       *
-       * @param event
-       */
-      keyPress(event) {
-        // todo keyCode is deprecated
-        if (event.keyCode === 27) this.cancel()
-      },
-    },
-    watch: {
-      active(value) {
-        this.isActive = value
-      }
-    },
-    beforeDestroy() {
-      document.removeEventListener('keyup', this.keyPress);
-    },
-  }
+  },
+  watch: {
+    active(value) {
+      this.isActive = value
+    }
+  },
+  beforeDestroy() {
+    document.removeEventListener('keyup', this.keyPress);
+  },
+}
 </script>

@@ -18,21 +18,21 @@
 </template>
 
 <script>
-  export default {
-    name: 'spinner',
-    props: {
-      color: {
-        type: String,
-        default: '#000'
-      },
-      height: {
-        type: Number,
-        default: 64
-      },
-      width: {
-        type: Number,
-        default: 64
-      }
+export default {
+  name: 'spinner',
+  props: {
+    color: {
+      type: String,
+      default: '#000'
+    },
+    height: {
+      type: Number,
+      default: 64
+    },
+    width: {
+      type: Number,
+      default: 64
     }
   }
+}
 </script>

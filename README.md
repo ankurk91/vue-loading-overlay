@@ -134,14 +134,14 @@ The component accepts these props:
 
 * ^When `is-full-page` is set to `false`, the container element should be positioned as `position: relative`. 
 You can use CSS helper class `vld-parent`.
-* *The default `height` and `width` values may be vary based on the `loader` prop value
+* *The default `height` and `width` values may be varied based on the `loader` prop value
 
 ## Available slots
 The component accepts these slots:
 
 * `default` : Replace the animated icon with yours
-* `before` : Place anything before animated icon, you may need to style this.
-* `after` : Place anything after animated icon, you may need to style this.
+* `before` : Place anything before the animated icon, you may need to style this.
+* `after` : Place anything after the animated icon, you may need to style this.
 
 ## API methods
 ### `Vue.$loading.show(?propsData,?slots)`
@@ -204,7 +204,7 @@ Vue.component('loading', VueLoading)
 
 ## Run examples on your localhost
 * Clone this repo
-* Make sure you have node-js `>=10.13` and [yarn](https://yarnpkg.com) `>=1.x` pre-installed
+* Make sure you have node-js `>=12.14` and [yarn](https://yarnpkg.com) `>=1.x` pre-installed
 * Install dependencies - `yarn install`
 * Run webpack dev server - `yarn start`
 * This should open the demo page at `http://localhost:9000` in your default web browser 

@@ -6,6 +6,9 @@ on:
       - master
       - dev
   pull_request:
+    branches:
+      - master
+      - dev
   schedule:
     - cron: '0 0 1 * *'
 

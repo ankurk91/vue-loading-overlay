@@ -28,21 +28,21 @@
 
 </template>
 <script>
-  export default {
-    name: 'bars',
-    props: {
-      color: {
-        type: String,
-        default: '#000'
-      },
-      height: {
-        type: Number,
-        default: 40
-      },
-      width: {
-        type: Number,
-        default: 40
-      }
+export default {
+  name: 'bars',
+  props: {
+    color: {
+      type: String,
+      default: '#000'
+    },
+    height: {
+      type: Number,
+      default: 40
+    },
+    width: {
+      type: Number,
+      default: 40
     }
   }
+}
 </script>

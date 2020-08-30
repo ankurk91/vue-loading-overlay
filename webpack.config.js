@@ -47,7 +47,8 @@ module.exports = {
         exclude: /node_modules/,
         options: {
           compilerOptions: {
-            preserveWhitespace: false
+            preserveWhitespace: false, //Deprecated
+            whitespace: 'condense',
           }
         }
       },
