@@ -2,6 +2,7 @@
 
 ### [3.4.0](https://github.com/ankurk91/vue-loading-overlay/compare/3.3.4...3.4.0)
 * Add: Lock scroll feature, [#51](https://github.com/ankurk91/vue-loading-overlay/issues/51)
+* Add: `blur` prop to blur the background
 
 ### [3.3.4](https://github.com/ankurk91/vue-loading-overlay/compare/3.3.3...3.3.4)
 * Fix: restore broken IE 11 support. :warning: IE 11 support will be removed in next major version.

@@ -9,7 +9,7 @@
          :style="{ zIndex }">
       <div class="vld-background"
            @click.prevent="cancel"
-           :style="{ background: backgroundColor, opacity }">
+           :style="bgStyle">
       </div>
       <div class="vld-icon">
         <slot name="before"/>
@@ -64,6 +64,10 @@ export default {
     },
     color: String,
     backgroundColor: String,
+    blur: {
+      type: String,
+      default: '2px'
+    },
     opacity: Number,
     width: Number,
     height: Number,
@@ -154,6 +158,15 @@ export default {
         this.disableScroll();
       } else {
         this.enableScroll()
+      }
+    }
+  },
+  computed: {
+    bgStyle() {
+      return {
+        background: this.backgroundColor,
+        opacity: this.opacity,
+        backdropFilter: `blur(${this.blur})`
       }
     }
   },
