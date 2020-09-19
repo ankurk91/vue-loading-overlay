@@ -6,6 +6,7 @@
 [![github-tag](https://badgen.net/github/tag/ankurk91/vue-loading-overlay)](https://github.com/ankurk91/vue-loading-overlay/)
 [![build](https://github.com/ankurk91/vue-loading-overlay/workflows/build/badge.svg)](https://github.com/ankurk91/vue-loading-overlay/actions)
 [![license](https://badgen.net/github/license/ankurk91/vue-loading-overlay)](https://yarnpkg.com/en/package/vue-loading-overlay)
+![ts](https://badgen.net/badge/ready/TypeScript/blue)
 
 Vue.js component for full screen loading indicator
 

@@ -3,11 +3,13 @@
   "version": "3.4.0",
   "description": "Vue.js component for full screen loading indicator.",
   "main": "dist/vue-loading.js",
+  "types": "./types/loading.d.ts",
   "browser": "dist/vue-loading.min.js",
   "style": "dist/vue-loading.css",
   "files": [
     "src",
-    "dist"
+    "dist",
+    "types"
   ],
   "repository": {
     "type": "git",

@@ -1,5 +1,8 @@
 # Changelog
 
+### [3.4.1](https://github.com/ankurk91/vue-loading-overlay/compare/3.4.0...3.4.1)
+* Add type definitions
+
 ### [3.4.0](https://github.com/ankurk91/vue-loading-overlay/compare/3.3.4...3.4.0)
 * Add: Lock scroll feature, [#51](https://github.com/ankurk91/vue-loading-overlay/issues/51)
 * Add: `blur` prop to blur the background
