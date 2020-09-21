@@ -203,7 +203,7 @@ Vue.component('loading', VueLoading)
 ```
 
 ### Browser support
-* [Modern](http://browserl.ist/?q=defaults%2C+not+ie+%3E+0%2Cnot+ie_mob+%3E+0) browsers only
+* Modern browsers only
 
 ## Run examples on your localhost
 * Clone this repo
