@@ -1,5 +1,8 @@
 # Changelog
 
+### [3.4.2](https://github.com/ankurk91/vue-loading-overlay/compare/3.4.1...3.4.2)
+* Fix: [#64](https://github.com/ankurk91/vue-loading-overlay/issues/64)
+
 ### [3.4.1](https://github.com/ankurk91/vue-loading-overlay/compare/3.4.0...3.4.1)
 * Add type definitions
 
