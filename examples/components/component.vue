@@ -73,7 +73,7 @@
       return {
         isLoading: false,
         fullPage: true,
-        canCancel: false,
+        canCancel: true,
         useSlot: false,
         loader: 'spinner',
         color: '#007bff',
