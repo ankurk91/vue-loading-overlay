@@ -1,5 +1,10 @@
 # Changelog
 
+### [4.0.0](https://github.com/ankurk91/vue-loading-overlay/compare/3.4.2...4.0.0) :warning:
+
+* Drop support for Vue v2.x and add support for Vue v3.x
+* Drop IE 11 support
+
 ### [3.4.2](https://github.com/ankurk91/vue-loading-overlay/compare/3.4.1...3.4.2)
 
 * Fix: [#64](https://github.com/ankurk91/vue-loading-overlay/issues/64)

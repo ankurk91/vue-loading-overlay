@@ -18,7 +18,9 @@
 </template>
 
 <script>
-export default {
+import {defineComponent} from 'vue';
+
+export default defineComponent({
   name: 'spinner',
   props: {
     color: {
@@ -34,5 +36,5 @@ export default {
       default: 64
     }
   }
-}
+})
 </script>

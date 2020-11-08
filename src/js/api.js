@@ -1,26 +1,31 @@
-import Component from './Component.vue'
+import {createComponent} from './helpers';
+import LoadingVue from "./Component.vue";
 
-const Api = (Vue, globalProps = {}, globalSlots = {}) => {
+export function useLoading(globalProps = {}, globalSlots = {}) {
+
   return {
     show(props = globalProps, slots = globalSlots) {
       const forceProps = {
-        programmatic: true
-      };
-      const propsData = Object.assign({}, globalProps, props, forceProps);
+        programmatic: true,
+        lockScroll: true,
+        isFullPage: false,
+        active: true,
+      }
 
-      const instance = new (Vue.extend(Component))({
-        el: document.createElement('div'),
-        propsData
-      });
+      const propsData = Object.assign({}, globalProps, props, forceProps);
+      let container = propsData.container;
+
+      if (!propsData.container) {
+        container = document.body;
+        propsData.isFullPage = true;
+      }
 
       const mergedSlots = Object.assign({}, globalSlots, slots);
-      Object.keys(mergedSlots).map((name) => {
-        instance.$slots[name] = mergedSlots[name]
-      });
+      const instance = createComponent(LoadingVue, propsData, container, mergedSlots);
 
-      return instance;
-    }
+      return {
+        hide: instance.ctx.hide
+      }
+    },
   }
-};
-
-export default Api;
+}

@@ -1,12 +1,12 @@
 'use strict';
 
-import Vue from 'vue';
+import {createApp} from 'vue';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import App from './App.vue';
+import LoadingPlugin from "../src/index";
 
-new Vue({
-  el: '#app',
-  render: h => h(App),
-});
+const app = createApp(App);
+app.mount('#app')
+app.use(LoadingPlugin);

@@ -28,7 +28,9 @@
 
 </template>
 <script>
-export default {
+import {defineComponent} from 'vue';
+
+export default defineComponent({
   name: 'bars',
   props: {
     color: {
@@ -44,5 +46,5 @@ export default {
       default: 40
     }
   }
-}
+})
 </script>

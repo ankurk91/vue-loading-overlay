@@ -1,13 +1,15 @@
+import {useLoading} from './js/api';
 import Component from './js/Component.vue';
-import LoadingApi from './js/api';
 import './css/index.css';
 
-const Plugin = (Vue, props = {}, slots = {}) => {
-  let api = LoadingApi(Vue, props, slots);
-  Vue.$loading = api;
-  Vue.prototype.$loading = api;
+const Plugin = (app, props = {}, slots = {}) => {
+  const instance = useLoading(app, props, slots);
+  app.config.globalProperties.$loading = instance;
+  app.provide('$loading', instance)
 };
 
 Component.install = Plugin;
 
 export default Component;
+export {useLoading}
+

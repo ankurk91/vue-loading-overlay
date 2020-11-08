@@ -34,8 +34,9 @@
 </template>
 
 <script>
+import {defineComponent} from 'vue';
 
-export default {
+export default defineComponent({
   name: 'dots',
   props: {
     color: {
@@ -51,5 +52,5 @@ export default {
       default: 60
     }
   }
-}
+})
 </script>

@@ -1,13 +1,13 @@
-import {ExtendedVue} from 'vue/types/vue'
-import {PluginFunction} from 'vue'
+import {Plugin} from 'vue'
+import {ComponentInternalInstance} from "@vue/runtime-core";
 
-export interface LoaderComponent extends ExtendedVue<any, any, any, any, any> {
+export interface LoaderComponent extends ComponentInternalInstance {
   hide(): void
 }
 
 export type LoaderType = 'spinner' | 'dots' | 'bars'
 
-export interface PluginOptions {
+export interface Props {
   active?: boolean,
   canCancel?: boolean,
   onCancel?: () => any,
@@ -34,21 +34,17 @@ export interface Slots {
 }
 
 export interface PluginApi {
-  show(options?: PluginOptions, slots?: Slots): LoaderComponent
+  show(props?: Props, slots?: Slots): LoaderComponent
+}
+
+declare module '@vue/runtime-core' {
+  interface ComponentCustomProperties {
+    readonly $loading: PluginApi;
+  }
 }
 
 declare class LoadingPlugin {
-  static install: PluginFunction<PluginOptions>
-}
-
-declare module 'vue/types/vue' {
-  interface Vue {
-    readonly $loading: PluginApi
-  }
-
-  interface VueConstructor {
-    readonly $loading: PluginApi
-  }
+  static install: Plugin<Props>
 }
 
 export default LoadingPlugin

@@ -1,6 +1,6 @@
 <template>
   <div class="card vld-parent mb-3">
-    <loading :active.sync="isLoading"
+    <loading v-model:active="isLoading"
              :can-cancel="canCancel"
              :on-cancel="whenCancelled"
              :is-full-page="fullPage"
@@ -9,7 +9,9 @@
              :color="color"
              :loader="loader"
              :background-color="bgColor">
-      <h3 v-if="useSlot">Loading ...</h3>
+      <template #default v-if="useSlot">
+        <h3>Loading ...</h3>
+      </template>
     </loading>
     <div class="card-body">
       <h5 class="card-title">Use as component</h5>
@@ -17,7 +19,7 @@
       <div class="form-group m-0">
         <label>Loader shape</label>
         <select class="form-control-sm text-capitalize" v-model="loader">
-          <option v-for="item in ['spinner','dots','bars']">{{item}}</option>
+          <option v-for="item in ['spinner','dots','bars']">{{ item }}</option>
         </select>
       </div>
 
@@ -49,13 +51,13 @@
       <div class="form-group">
         <label>Height</label>
         <input type="range" min="10" step="5" max="256" v-model.number="height"/> <span
-        class="text-muted">{{height}}</span>
+        class="text-muted">{{ height }}</span>
       </div>
 
       <div class="form-group">
         <label>Width</label>
         <input type="range" min="10" step="5" max="256" v-model.number="width"/> <span
-        class="text-muted">{{width}}</span>
+        class="text-muted">{{ width }}</span>
       </div>
 
       <div class="form-group mt-3">
@@ -66,37 +68,41 @@
 </template>
 
 <script>
-  import Loading from '../../src/index';
+import Loading from '../../src/index';
 
-  export default {
-    data() {
-      return {
-        isLoading: false,
-        fullPage: true,
-        canCancel: true,
-        useSlot: false,
-        loader: 'spinner',
-        color: '#007bff',
-        bgColor: '#ffffff',
-        height: 128,
-        width: 128,
-        timeout: 3000, //ms
-      }
+let timer = null;
+export default {
+  data() {
+    return {
+      isLoading: false,
+      fullPage: true,
+      canCancel: true,
+      useSlot: false,
+      loader: 'spinner',
+      color: '#007bff',
+      bgColor: '#ffffff',
+      height: 128,
+      width: 128,
+      timeout: 3000, //ms
+    }
+  },
+  components: {
+    Loading
+  },
+  methods: {
+    simulate() {
+      this.isLoading = true;
+
+      // Simulate async call
+      timer = setTimeout(() => {
+        this.isLoading = false
+      }, this.timeout);
     },
-    components: {
-      Loading
-    },
-    methods: {
-      simulate() {
-        this.isLoading = true;
-        // Simulate async call
-        setTimeout(() => {
-          this.isLoading = false
-        }, this.timeout);
-      },
-      whenCancelled() {
-        console.log("User cancelled the loader.")
-      }
+    whenCancelled() {
+      clearTimeout(timer);
+
+      console.log("User cancelled the loader.")
     }
   }
+}
 </script>

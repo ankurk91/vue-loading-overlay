@@ -1,20 +1,26 @@
 <template>
-  <transition :name="transition">
+  <transition ref="root" :name="transition">
     <div tabindex="0"
          class="vld-overlay is-active"
          :class="{ 'is-full-page': isFullPage }"
          v-show="isActive"
          :aria-busy="isActive"
          aria-label="Loading"
-         :style="{ zIndex }">
+         :style="{ zIndex }"
+    >
       <div class="vld-background"
            @click.prevent="cancel"
-           :style="bgStyle">
-      </div>
+           :style="bgStyle"
+      ></div>
       <div class="vld-icon">
         <slot name="before"/>
         <slot name="default">
-          <component :is="loader" :color="color" :width="width" :height="height"/>
+          <component
+            :is="loader"
+            :color="color"
+            :width="width"
+            :height="height"
+          />
         </slot>
         <slot name="after"/>
       </div>
@@ -23,17 +29,18 @@
 </template>
 
 <script>
-import {removeElement, HTMLElement} from './helpers.js'
+import {defineComponent, render} from 'vue';
+import {MayBeHTMLElement, removeElement} from './helpers.js'
 import trapFocusMixin from './trapFocusMixin.js';
 import Loaders from '../loaders/index.js';
 
-export default {
+export default defineComponent({
   name: 'vue-loading',
   mixins: [trapFocusMixin],
   props: {
     active: Boolean,
     programmatic: Boolean,
-    container: [Object, Function, HTMLElement],
+    container: [Object, Function, MayBeHTMLElement],
     isFullPage: {
       type: Boolean,
       default: true
@@ -77,6 +84,7 @@ export default {
       default: 'spinner'
     }
   },
+  emits: ['hide', 'update:active'],
   data() {
     return {
       // Don't mutate the prop
@@ -84,23 +92,7 @@ export default {
     }
   },
   components: Loaders,
-  beforeMount() {
-    // Insert the component in DOM when called programmatically
-    if (this.programmatic) {
-      if (this.container) {
-        this.isFullPage = false;
-        this.container.appendChild(this.$el)
-      } else {
-        document.body.appendChild(this.$el)
-      }
-    }
-  },
   mounted() {
-    // Activate immediately when called programmatically
-    if (this.programmatic) {
-      this.isActive = true;
-    }
-
     document.addEventListener('keyup', this.keyPress)
   },
   methods: {
@@ -120,12 +112,15 @@ export default {
       this.$emit('hide');
       this.$emit('update:active', false);
 
-      // Timeout for the animation complete before destroying
       if (this.programmatic) {
         this.isActive = false;
+
+        // Timeout for the animation complete before destroying
         setTimeout(() => {
-          this.$destroy();
-          removeElement(this.$el)
+          const parent = this.$refs.root.parentElement;
+          // unmount the component
+          render(null, parent);
+          removeElement(parent)
         }, 150)
       }
     },
@@ -170,8 +165,8 @@ export default {
       }
     }
   },
-  beforeDestroy() {
+  beforeUnmount() {
     document.removeEventListener('keyup', this.keyPress);
   },
-}
+})
 </script>

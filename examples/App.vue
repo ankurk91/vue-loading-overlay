@@ -37,8 +37,8 @@
 </template>
 
 <script>
-  import ComponentExample from './components/component';
-  import PluginExample from './components/plugin';
+  import ComponentExample from './components/componentExample.vue';
+  import PluginExample from './components/pluginExample.vue';
 
   export default {
     name: 'app',

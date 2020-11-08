@@ -12,13 +12,20 @@ Vue.js component for full screen loading indicator
 
 ## [Demo](https://ankurk91.github.io/vue-loading-overlay/) or [JSFiddle](https://jsfiddle.net/ankurk91/w8y8k5wo/)
 
+### Version matrix
+
+| Vue.js version | Package version | Branch        |
+| :---           | :---:           | ---:          | 
+| 2.x            | 3.x             | [3.x](https://github.com/ankurk91/vue-loading-overlay/tree/v3.x) |
+| 3.x            | 4.x             | `next`          |
+
 ## Installation
 ```bash
 # yarn
-yarn add vue-loading-overlay@^3.0
+yarn add vue-loading-overlay@^4.0
 
 # npm
-npm install vue-loading-overlay@^3.0 
+npm install vue-loading-overlay@^4.0 
 ```
 
 ## Usage
@@ -26,7 +33,7 @@ npm install vue-loading-overlay@^3.0
 ```html
 <template>
     <div class="vld-parent">
-        <loading :active.sync="isLoading" 
+        <loading v-model:active="isLoading" 
         :can-cancel="true" 
         :on-cancel="onCancel"
         :is-full-page="fullPage"></loading>
@@ -69,6 +76,16 @@ npm install vue-loading-overlay@^3.0
 ```
 
 ### As plugin
+* Install the plugin in your app
+```js
+import {createApp} from 'vue';
+import VueLoading from 'vue-loading-overlay';
+import 'vue-loading-overlay/dist/vue-loading.css';
+// Your app initialization logic goes here
+const app = createApp().mount('#app')
+app.use(VueLoading);
+```
+* Then use the plugin in your components
 ```html
 <template>
     <form @submit.prevent="submit" class="vld-parent" ref="formContainer">
@@ -79,14 +96,6 @@ npm install vue-loading-overlay@^3.0
 </template>
 
 <script>
-    import Vue from 'vue';
-    // Import component
-    import Loading from 'vue-loading-overlay';
-    // Import stylesheet
-    import 'vue-loading-overlay/dist/vue-loading.css';
-    // Init plugin
-    Vue.use(Loading);
-
     export default {
         data() {
             return {
@@ -119,11 +128,11 @@ The component accepts these props:
 
 | Attribute        | Type                | Default              | Description      |
 | :---             | :---:               | :---:                | :---             |
-| active           | Boolean             | `false`              | Show loading by default when `true`, use the `.sync` modifier to make it two-way binding |
+| active           | Boolean             | `false`              | Show loading by default when `true`, use it as `v-model:active` |
 | can-cancel       | Boolean             | `false`              | Allow user to cancel by pressing ESC or clicking outside |
 | on-cancel        | Function            | `()=>{}`             | Do something upon cancel, works in conjunction with `can-cancel`  |
 | is-full-page     | Boolean             | `true`               | When `false`; limit loader to its container^ |
-| transition       | String              | `fade`               | [Transition](https://vuejs.org/v2/guide/transitions.html) name |
+| transition       | String              | `fade`               | Transition name |
 | color            | String              | `#000`               | Customize the color of loading icon |
 | height           | Number              | *                    | Customize the height of loading icon |
 | width            | Number              | *                    | Customize the width of loading icon |
@@ -142,14 +151,16 @@ You can use CSS helper class `vld-parent`.
 ## Available slots
 The component accepts these slots:
 
-* `default` : Replace the animated icon with yours
-* `before` : Place anything before the animated icon, you may need to style this.
-* `after` : Place anything after the animated icon, you may need to style this.
+* `default` - Replace the animated icon with yours
+* `before` - Place anything before the animated icon, you may need to style this.
+* `after` - Place anything after the animated icon, you may need to style this.
 
 ## API methods
-### `Vue.$loading.show(?propsData,?slots)`
+### `this.$loading.show(?propsData,?slots)`
 ```js
-let loader = Vue.$loading.show({
+import {h} from 'vue';
+
+let loader = this.$loading.show({
   // Pass props by their camelCased names
   container: this.$refs.loadingContainer,
   canCancel: true, // default false
@@ -163,7 +174,7 @@ let loader = Vue.$loading.show({
   zIndex: 999,
 },{
   // Pass slots by their names
-  default: this.$createElement('your-custom-loader-component-name'),
+  default: h('your-custom-loader-component-name'),
 });
 // hide loader whenever you want
 loader.hide();
@@ -172,7 +183,7 @@ loader.hide();
 ## Global configs
 You can set props and slots for all future instances when using as plugin
 ```js
-Vue.use(Loading, {
+app.use(Loading, {
   // props
   color: 'red'
 },{
@@ -181,7 +192,7 @@ Vue.use(Loading, {
 ```
 Further you can override any prop or slot when creating new instances
 ```js
-let loader = Vue.$loading.show({
+let loader = this.$loading.show({
  color: 'blue'
 },{
   // slots
@@ -191,14 +202,14 @@ let loader = Vue.$loading.show({
 ## Install in non-module environments (without webpack)
 ```html
 <!-- Vue js -->
-<script src="https://cdn.jsdelivr.net/npm/vue@2.6"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@3"></script>
 <!-- Lastly add this package -->
-<script src="https://cdn.jsdelivr.net/npm/vue-loading-overlay@3"></script>
-<link href="https://cdn.jsdelivr.net/npm/vue-loading-overlay@3/dist/vue-loading.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/vue-loading-overlay@4"></script>
+<link href="https://cdn.jsdelivr.net/npm/vue-loading-overlay@4/dist/vue-loading.css" rel="stylesheet">
 <!-- Init the plugin and component-->
 <script>
-Vue.use(VueLoading);
-Vue.component('loading', VueLoading)
+app.use(VueLoading);
+app.component('loading', VueLoading)
 </script>
 ```
 
@@ -213,7 +224,7 @@ Vue.component('loading', VueLoading)
 * This should open the demo page at `http://localhost:9000` in your default web browser 
 
 ## Testing
-* This package is using [Jest](https://github.com/facebook/jest) and [vue-test-utils](https://github.com/vuejs/vue-test-utils) for testing.
+* This package is using [Jest](https://github.com/facebook/jest) and [vue-test-utils](https://github.com/vuejs/vue-test-utils-next) for testing.
 * Tests can be found in `__test__` folder.
 * Execute tests with this command `yarn test`
 
