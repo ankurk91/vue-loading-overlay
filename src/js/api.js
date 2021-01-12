@@ -1,4 +1,5 @@
 import Component from './Component.vue'
+import { createResolve } from "./utils";
 
 const Api = (Vue, globalProps = {}, globalSlots = {}) => {
   return {
@@ -7,6 +8,8 @@ const Api = (Vue, globalProps = {}, globalSlots = {}) => {
         programmatic: true
       };
       const propsData = Object.assign({}, globalProps, props, forceProps);
+
+      const pm = createResolve()
 
       const instance = new (Vue.extend(Component))({
         el: document.createElement('div'),
@@ -17,6 +20,16 @@ const Api = (Vue, globalProps = {}, globalSlots = {}) => {
       Object.keys(mergedSlots).map((name) => {
         instance.$slots[name] = mergedSlots[name]
       });
+
+      // 启用
+      const clock = new Promise(resolve => {
+        console.time('xx')
+        setTimeout(() => {
+          resolve()
+        }, propsData.showDelay);
+      })
+      pm.resolve(clock);
+      instance.pm = pm;
 
       return instance;
     }

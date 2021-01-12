@@ -24,6 +24,7 @@
 
 <script>
 import {removeElement, HTMLElement} from './helpers.js'
+import { createResolve } from "./utils";
 import trapFocusMixin from './trapFocusMixin.js';
 import Loaders from '../loaders/index.js';
 
@@ -75,12 +76,14 @@ export default {
     loader: {
       type: String,
       default: 'spinner'
-    }
+    },
+    showDelay: Number // show delay
   },
   data() {
     return {
       // Don't mutate the prop
-      isActive: this.active
+      isActive: this.active,
+      pm: null
     }
   },
   components: Loaders,
@@ -117,17 +120,20 @@ export default {
      * Hide and destroy component if it's programmatic.
      */
     hide() {
-      this.$emit('hide');
-      this.$emit('update:active', false);
+      this.pm.promise.then(() => {
+        console.timeEnd('xx')
+        this.$emit('hide');
+        this.$emit('update:active', false);
 
-      // Timeout for the animation complete before destroying
-      if (this.programmatic) {
-        this.isActive = false;
-        setTimeout(() => {
-          this.$destroy();
-          removeElement(this.$el)
-        }, 150)
-      }
+        // Timeout for the animation complete before destroying
+        if (this.programmatic) {
+          this.isActive = false;
+          setTimeout(() => {
+            this.$destroy();
+            removeElement(this.$el)
+          }, 150)
+        }
+      })
     },
     disableScroll() {
       if (this.isFullPage && this.lockScroll) {
@@ -151,11 +157,26 @@ export default {
   },
   watch: {
     active(value) {
-      this.isActive = value
+      if (!value && this.pm) {
+        this.pm.promise.then(() => {
+          this.isActive = value
+        })
+      } else {
+        this.isActive = value
+      }
     },
     isActive(value) {
       if (value) {
         this.disableScroll();
+
+        // create delay
+        this.pm = createResolve()
+        const clock = new Promise(resolve => {
+          setTimeout(() => {
+            resolve()
+          }, this.showDelay);
+        })
+        this.pm.resolve(clock);
       } else {
         this.enableScroll()
       }

@@ -134,6 +134,7 @@ The component accepts these props:
 | enforce-focus    | Boolean             | `true`               | Force focus on loader |
 | lock-scroll      | Boolean             | `false`              | Freeze the scrolling during full screen loader |
 | blur             | String              | `2px`                | Value for the CSS blur backdrop-filter. Set to null or an empty string to disable blurring |
+| showDelay        | Number              | *                | Delays the display for some time (Unit ms) |
 
 * ^When `is-full-page` is set to `false`, the container element should be positioned as `position: relative`. 
 You can use CSS helper class `vld-parent`.
