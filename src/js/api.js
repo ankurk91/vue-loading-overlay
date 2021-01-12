@@ -23,7 +23,6 @@ const Api = (Vue, globalProps = {}, globalSlots = {}) => {
 
       // 启用
       const clock = new Promise(resolve => {
-        console.time('xx')
         setTimeout(() => {
           resolve()
         }, propsData.showDelay);

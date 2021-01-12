@@ -121,7 +121,6 @@ export default {
      */
     hide() {
       this.pm.promise.then(() => {
-        console.timeEnd('xx')
         this.$emit('hide');
         this.$emit('update:active', false);
 
