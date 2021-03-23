@@ -1,6 +1,6 @@
 # Vue Loading Overlay Component
 
-[![downloads](https://badgen.net/npm/dt/vue-loading-overlay)](http://npm-stats.com/~packages/vue-loading-overlay)
+[![downloads](https://badgen.net/npm/dt/vue-loading-overlay)](https://npm-stat.com/charts.html?package=vue-loading-overlay&from=2018-01-01)
 [![jsdelivr](https://data.jsdelivr.com/v1/package/npm/vue-loading-overlay/badge?style=rounded)](https://www.jsdelivr.com/package/npm/vue-loading-overlay)
 [![npm-version](https://badgen.net/npm/v/vue-loading-overlay)](https://www.npmjs.com/package/vue-loading-overlay)
 [![github-tag](https://badgen.net/github/tag/ankurk91/vue-loading-overlay)](https://github.com/ankurk91/vue-loading-overlay/)
@@ -9,6 +9,8 @@
 ![ts](https://badgen.net/badge/ready/TypeScript/blue)
 
 Vue.js component for full screen loading indicator
+
+:warning: The component is not ready for Vue v3 yet
 
 ## [Demo](https://ankurk91.github.io/vue-loading-overlay/) or [JSFiddle](https://jsfiddle.net/ankurk91/w8y8k5wo/)
 
