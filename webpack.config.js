@@ -4,7 +4,6 @@ const webpack = require('webpack');
 const path = require('path');
 const {CleanWebpackPlugin} = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const UnminifiedWebpackPlugin = require('unminified-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const {VueLoaderPlugin} = require('vue-loader');
 
@@ -19,7 +18,10 @@ module.exports = {
     },
     extensions: ['.js', '.json', '.vue']
   },
-  entry: './src/index.js',
+  entry: {
+    'vue-loading': './src/index.js',
+    'vue-loading.min': './src/index.js',
+  },
   externals: {
     'vue': {
       commonjs: 'vue',
@@ -30,14 +32,11 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'vue-loading.min.js',
+    filename: '[name].js',
     library: 'VueLoading',
     libraryTarget: 'umd',
     libraryExport: 'default',
     umdNamedDefine: true,
-    // Workaround to fix umd build, restore webpack v3 behaviour
-    // https://github.com/webpack/webpack/issues/6642
-    globalObject: `typeof self !== 'undefined' ? self : this`
   },
   module: {
     rules: [
@@ -74,13 +73,13 @@ module.exports = {
   optimization: {
     minimizer: [
       new TerserPlugin({
-        sourceMap: false,
+        include: /\.min\.js$/,
+        extractComments: false,
         terserOptions: {
           output: {
-            beautify: false,
+            comments: false,
           },
           compress: {
-            drop_debugger: true,
             drop_console: true
           }
         }
@@ -91,9 +90,6 @@ module.exports = {
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: 'vue-loading.css',
-    }),
-    new UnminifiedWebpackPlugin({
-      exclude: /\.css$/
     }),
     new VueLoaderPlugin(),
   ],
