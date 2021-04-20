@@ -1,4 +1,4 @@
-import {Vue, VueConstructor, ExtendedVue} from 'vue/types/vue'
+import {ExtendedVue} from 'vue/types/vue'
 import {PluginFunction} from 'vue'
 
 export interface LoaderComponent extends ExtendedVue<any, any, any, any, any> {

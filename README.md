@@ -10,17 +10,15 @@
 
 Vue.js component for full screen loading indicator
 
-:warning: The component is not ready for Vue v3 yet
-
 ## [Demo](https://ankurk91.github.io/vue-loading-overlay/) or [JSFiddle](https://jsfiddle.net/ankurk91/w8y8k5wo/)
 
 ## Installation
 ```bash
 # yarn
-yarn add vue-loading-overlay
+yarn add vue-loading-overlay@^3.0
 
 # npm
-npm install vue-loading-overlay 
+npm install vue-loading-overlay@^3.0 
 ```
 
 ## Usage
