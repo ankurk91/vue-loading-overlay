@@ -1,7 +1,12 @@
 import {mount} from '@vue/test-utils';
 import Component from '../src/js/Component';
+import {h} from "vue";
 
 describe('Loading component slots', () => {
+
+  const slot = h('h3', {
+    class: 'custom-slot'
+  }, 'Please Wait ...');
 
   test('accepts default slot and replace loading icon', () => {
     let wrapper = mount(Component, {
@@ -9,14 +14,14 @@ describe('Loading component slots', () => {
         active: true
       },
       slots: {
-        default: '<h3 class="text-center">Please wait...</h3>'
+        default: slot
       }
     });
 
-    expect(wrapper.contains('h3')).toBe(true);
-    expect(wrapper.contains('.vld-icon')).toBe(true);
-    expect(wrapper.contains('svg')).toBe(false);
-    wrapper.destroy();
+    expect(wrapper.find('h3').exists()).toBe(true);
+    expect(wrapper.find('.vld-icon').exists()).toBe(true);
+    expect(wrapper.find('svg').exists()).toBe(false);
+    wrapper.unmount();
   });
 
   test('accepts before slot', () => {
@@ -25,14 +30,14 @@ describe('Loading component slots', () => {
         active: true
       },
       slots: {
-        before: '<h4 class="text-center">Please wait...</h4>'
+        before: slot
       }
     });
 
-    expect(wrapper.contains('h4')).toBe(true);
-    expect(wrapper.contains('.vld-icon')).toBe(true);
-    expect(wrapper.contains('svg')).toBe(true);
-    wrapper.destroy();
+    expect(wrapper.find('h3').exists()).toBe(true);
+    expect(wrapper.find('.vld-icon').exists()).toBe(true);
+    expect(wrapper.find('svg').exists()).toBe(true);
+    wrapper.unmount();
   });
 
   test('accepts after slot', () => {
@@ -41,14 +46,14 @@ describe('Loading component slots', () => {
         active: true
       },
       slots: {
-        after: '<h3 class="text-center">Please wait...</h3>'
+        after: slot
       }
     });
 
-    expect(wrapper.contains('h3')).toBe(true);
-    expect(wrapper.contains('.vld-icon')).toBe(true);
-    expect(wrapper.contains('svg')).toBe(true);
-    wrapper.destroy();
+    expect(wrapper.find('h3').exists()).toBe(true);
+    expect(wrapper.find('.vld-icon').exists()).toBe(true);
+    expect(wrapper.find('svg').exists()).toBe(true);
+    wrapper.unmount();
   });
 
 });

@@ -1,9 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Loading component renders when active 1`] = `
-<transition-stub
-  name="fade"
->
+<transition-stub>
   <div
     aria-busy="true"
     aria-label="Loading"
@@ -13,11 +11,12 @@ exports[`Loading component renders when active 1`] = `
     <div
       class="vld-background"
     />
-     
     <div
       class="vld-icon"
     >
-       
+      
+      
+      
       <svg
         height="64"
         stroke="#000"
@@ -39,7 +38,6 @@ exports[`Loading component renders when active 1`] = `
               r="18"
               stroke-opacity=".25"
             />
-             
             <path
               d="M36 18c0-9.94-8.06-18-18-18"
             >
@@ -55,17 +53,18 @@ exports[`Loading component renders when active 1`] = `
           </g>
         </g>
       </svg>
-       
+      
+      
+      
     </div>
   </div>
 </transition-stub>
 `;
 
 exports[`Loading component renders when not active 1`] = `
-<transition-stub
-  name="fade"
->
+<transition-stub>
   <div
+    aria-busy="false"
     aria-label="Loading"
     class="vld-overlay is-active is-full-page"
     style="display: none;"
@@ -74,11 +73,12 @@ exports[`Loading component renders when not active 1`] = `
     <div
       class="vld-background"
     />
-     
     <div
       class="vld-icon"
     >
-       
+      
+      
+      
       <svg
         height="64"
         stroke="#000"
@@ -100,7 +100,6 @@ exports[`Loading component renders when not active 1`] = `
               r="18"
               stroke-opacity=".25"
             />
-             
             <path
               d="M36 18c0-9.94-8.06-18-18-18"
             >
@@ -116,7 +115,9 @@ exports[`Loading component renders when not active 1`] = `
           </g>
         </g>
       </svg>
-       
+      
+      
+      
     </div>
   </div>
 </transition-stub>

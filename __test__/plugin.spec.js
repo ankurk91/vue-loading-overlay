@@ -1,28 +1,27 @@
-import {mount, createLocalVue} from '@vue/test-utils'
+import {createApp} from 'vue'
 import Plugin from '../src/index';
 
 describe('Loading plugin', () => {
 
-  // Make a copy of local vue
-  let localVue = createLocalVue();
-  // Define the global component
-  localVue.use(Plugin);
+  test('works as plugin', (done) => {
 
-  test('has instance registered', () => {
-    expect(localVue.$loading).toBeDefined()
-  });
+    const app = createApp({
+      render() {
+        return null
+      },
+      async created() {
+        let loader = this.$loading.show();
+        await this.$nextTick();
 
-  test('has show method on instance', () => {
-    expect(localVue.$loading.show).toBeDefined()
-  });
+        expect(document.body.querySelectorAll('.vld-overlay').length).toEqual(1);
+        loader.hide();
 
-  test('has hide method on instance returned by show()', async () => {
-    let loader = localVue.$loading.show();
-    await loader.$nextTick();
+        done();
+      }
+    });
 
-    expect(loader.$el).toMatchSnapshot();
-    expect(loader.hide).toBeDefined();
-    loader.hide();
+    app.use(Plugin);
+    app.mount('body')
   });
 
 });

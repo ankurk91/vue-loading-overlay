@@ -1,9 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Loading component props accepts props 1`] = `
-<transition-stub
-  name="custom"
->
+<transition-stub>
   <div
     aria-busy="true"
     aria-label="Loading"
@@ -15,11 +13,12 @@ exports[`Loading component props accepts props 1`] = `
       class="vld-background"
       style="background: rgb(204, 204, 204); opacity: 0.6;"
     />
-     
     <div
       class="vld-icon"
     >
-       
+      
+      
+      
       <svg
         fill="blue"
         height="100"
@@ -42,7 +41,6 @@ exports[`Loading component props accepts props 1`] = `
             to="15"
             values="15;9;15"
           />
-           
           <animate
             attributeName="fill-opacity"
             begin="0s"
@@ -54,7 +52,6 @@ exports[`Loading component props accepts props 1`] = `
             values="1;.5;1"
           />
         </circle>
-         
         <circle
           cx="60"
           cy="15"
@@ -71,7 +68,6 @@ exports[`Loading component props accepts props 1`] = `
             to="9"
             values="9;15;9"
           />
-           
           <animate
             attributeName="fill-opacity"
             begin="0s"
@@ -83,7 +79,6 @@ exports[`Loading component props accepts props 1`] = `
             values=".5;1;.5"
           />
         </circle>
-         
         <circle
           cx="105"
           cy="15"
@@ -99,7 +94,6 @@ exports[`Loading component props accepts props 1`] = `
             to="15"
             values="15;9;15"
           />
-           
           <animate
             attributeName="fill-opacity"
             begin="0s"
@@ -112,7 +106,9 @@ exports[`Loading component props accepts props 1`] = `
           />
         </circle>
       </svg>
-       
+      
+      
+      
     </div>
   </div>
 </transition-stub>

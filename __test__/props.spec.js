@@ -21,7 +21,7 @@ describe('Loading component props', () => {
 
     await wrapper.vm.$nextTick();
     expect(wrapper.vm.$el).toMatchSnapshot();
-    wrapper.destroy();
+    wrapper.unmount();
   });
 
 });
