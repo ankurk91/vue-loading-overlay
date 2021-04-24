@@ -10,14 +10,14 @@
 
 Vue.js component for full screen loading indicator
 
-## [Demo](https://ankurk91.github.io/vue-loading-overlay/) or [JSFiddle](https://jsfiddle.net/ankurk91/w8y8k5wo/)
+## [Demo](https://ankurk91.github.io/vue-loading-overlay/) or [JSFiddle](https://jsfiddle.net/ankurk91/2ou37bc8/)
 
 ### Version matrix
 
 | Vue.js version | Package version | Branch        |
 | :---           | :---:           | ---:          | 
 | 2.x            | 3.x             | [3.x](https://github.com/ankurk91/vue-loading-overlay/tree/v3.x) |
-| 3.x            | 4.x             | `next`          |
+| 3.x            | 4.x             | `master`          |
 
 ## Installation
 ```bash
@@ -44,9 +44,7 @@ npm install vue-loading-overlay@^4.0
 </template>
 
 <script>
-    // Import component
     import Loading from 'vue-loading-overlay';
-    // Import stylesheet
     import 'vue-loading-overlay/dist/vue-loading.css';
     
     export default {
