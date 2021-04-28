@@ -1,9 +1,4 @@
 import {Plugin} from 'vue'
-import {ComponentInternalInstance} from "@vue/runtime-core";
-
-export interface LoaderComponent extends ComponentInternalInstance {
-  hide(): void
-}
 
 export type LoaderType = 'spinner' | 'dots' | 'bars'
 
@@ -33,8 +28,12 @@ export interface Slots {
   after?: any
 }
 
+export interface ActiveLoader {
+  hide(): void
+}
+
 export interface PluginApi {
-  show(props?: Props, slots?: Slots): LoaderComponent
+  show(props?: Props, slots?: Slots): ActiveLoader
 }
 
 declare module '@vue/runtime-core' {
@@ -43,8 +42,6 @@ declare module '@vue/runtime-core' {
   }
 }
 
-declare class LoadingPlugin {
-  static install: Plugin<Props>
-}
+declare const LoadingPlugin: Plugin
 
 export default LoadingPlugin
