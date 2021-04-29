@@ -20,6 +20,7 @@ Vue.js component for full screen loading indicator
 | 3.x            | 4.x             | `master`          |
 
 ## Installation
+
 ```bash
 # yarn
 yarn add vue-loading-overlay@^4.0
@@ -29,15 +30,18 @@ npm install vue-loading-overlay@^4.0
 ```
 
 ## Usage
+
 #### As component
+
 ```html
+
 <template>
     <div class="vld-parent">
-        <loading v-model:active="isLoading" 
-        :can-cancel="true" 
-        :on-cancel="onCancel"
-        :is-full-page="fullPage"></loading>
-        
+        <loading v-model:active="isLoading"
+                 :can-cancel="true"
+                 :on-cancel="onCancel"
+                 :is-full-page="fullPage"/>
+
         <label><input type="checkbox" v-model="fullPage">Full page?</label>
         <button @click.prevent="doAjax">fetch Data</button>
     </div>
@@ -46,7 +50,7 @@ npm install vue-loading-overlay@^4.0
 <script>
     import Loading from 'vue-loading-overlay';
     import 'vue-loading-overlay/dist/vue-loading.css';
-    
+
     export default {
         data() {
             return {
@@ -62,11 +66,11 @@ npm install vue-loading-overlay@^4.0
                 this.isLoading = true;
                 // simulate AJAX
                 setTimeout(() => {
-                  this.isLoading = false
-                },5000)
+                    this.isLoading = false
+                }, 5000)
             },
             onCancel() {
-              console.log('User cancelled the loader.')
+                console.log('User cancelled the loader.')
             }
         }
     }
@@ -74,19 +78,26 @@ npm install vue-loading-overlay@^4.0
 ```
 
 ### As plugin
+
 * Install the plugin in your app
+
 ```js
 import {createApp} from 'vue';
 import VueLoading from 'vue-loading-overlay';
 import 'vue-loading-overlay/dist/vue-loading.css';
 // Your app initialization logic goes here
-const app = createApp().mount('#app')
+const app = createApp({}).mount('#app')
 app.use(VueLoading);
 ```
+
 * Then use the plugin in your components
+
 ```html
+
 <template>
-    <form @submit.prevent="submit" class="vld-parent" ref="formContainer">
+    <form @submit.prevent="submit" 
+          class="vld-parent" 
+          ref="formContainer">
         <!-- your form inputs goes here-->
         <label><input type="checkbox" v-model="fullPage">Full page?</label>
         <button type="submit">Login</button>
@@ -103,25 +114,26 @@ app.use(VueLoading);
         methods: {
             submit() {
                 let loader = this.$loading.show({
-                  // Optional parameters
-                  container: this.fullPage ? null : this.$refs.formContainer,
-                  canCancel: true,
-                  onCancel: this.onCancel,
+                    // Optional parameters
+                    container: this.fullPage ? null : this.$refs.formContainer,
+                    canCancel: true,
+                    onCancel: this.onCancel,
                 });
                 // simulate AJAX
                 setTimeout(() => {
-                  loader.hide()
-                },5000)                 
+                    loader.hide()
+                }, 5000)
             },
             onCancel() {
-              console.log('User cancelled the loader.')
-            }                      
+                console.log('User cancelled the loader.')
+            }
         }
     }
 </script>
 ```
 
 ## Available props
+
 The component accepts these props:
 
 | Attribute        | Type                | Default              | Description      |
@@ -142,11 +154,12 @@ The component accepts these props:
 | lock-scroll      | Boolean             | `false`              | Freeze the scrolling during full screen loader |
 | blur             | String              | `2px`                | Value for the CSS blur backdrop-filter. Set to null or an empty string to disable blurring |
 
-* ^When `is-full-page` is set to `false`, the container element should be positioned as `position: relative`. 
-You can use CSS helper class `vld-parent`.
+* ^When `is-full-page` is set to `false`, the container element should be positioned as `position: relative`. You can
+  use CSS helper class `vld-parent`.
 * *The default `height` and `width` values may be varied based on the `loader` prop value
 
 ## Available slots
+
 The component accepts these slots:
 
 * `default` - Replace the animated icon with yours
@@ -154,50 +167,57 @@ The component accepts these slots:
 * `after` - Place anything after the animated icon, you may need to style this.
 
 ## API methods
+
 ### `this.$loading.show(?propsData,?slots)`
+
 ```js
 import {h} from 'vue';
 
 let loader = this.$loading.show({
-  // Pass props by their camelCased names
-  container: this.$refs.loadingContainer,
-  canCancel: true, // default false
-  onCancel: this.yourCallbackMethod,
-  color: '#000000',
-  loader: 'spinner',
-  width: 64,
-  height: 64,
-  backgroundColor: '#ffffff',
-  opacity: 0.5,
-  zIndex: 999,
-},{
-  // Pass slots by their names
-  default: h('your-custom-loader-component-name'),
+    // Pass props by their camelCased names
+    container: this.$refs.loadingContainer,
+    canCancel: true, // default false
+    onCancel: this.yourCallbackMethod,
+    color: '#000000',
+    loader: 'spinner',
+    width: 64,
+    height: 64,
+    backgroundColor: '#ffffff',
+    opacity: 0.5,
+    zIndex: 999,
+}, {
+    // Pass slots by their names
+    default: h('your-custom-loader-component-name'),
 });
 // hide loader whenever you want
 loader.hide();
 ```
 
 ## Global configs
+
 You can set props and slots for all future instances when using as plugin
+
 ```js
-app.use(Loading, {
-  // props
-  color: 'red'
-},{
-  // slots
+app.use(VueLoading, {
+    // props
+    color: 'red'
+}, {
+    // slots
 })
 ```
+
 Further you can override any prop or slot when creating new instances
+
 ```js
 let loader = this.$loading.show({
- color: 'blue'
-},{
-  // slots
+    color: 'blue'
+}, {
+    // slots
 });
 ```
 
 ## Install in non-module environments (without webpack)
+
 ```html
 <!-- Vue js -->
 <script src="https://cdn.jsdelivr.net/npm/vue@3"></script>
@@ -206,25 +226,31 @@ let loader = this.$loading.show({
 <link href="https://cdn.jsdelivr.net/npm/vue-loading-overlay@4/dist/vue-loading.css" rel="stylesheet">
 <!-- Init the plugin and component-->
 <script>
-app.use(VueLoading);
-app.component('loading', VueLoading)
+    const app = Vue.createApp({}).mount('#app')
+    app.use(VueLoading);
+    app.component('loading', VueLoading)
 </script>
 ```
 
 ### Browser support
+
 * Modern browsers only
 
 ## Run examples on your localhost
+
 * Clone this repo
 * Make sure you have node-js `>=12.14` and [yarn](https://yarnpkg.com) `>=1.x` pre-installed
 * Install dependencies - `yarn install`
 * Run webpack dev server - `yarn start`
-* This should open the demo page at `http://localhost:9000` in your default web browser 
+* This should open the demo page at `http://localhost:9000` in your default web browser
 
 ## Testing
-* This package is using [Jest](https://github.com/facebook/jest) and [vue-test-utils](https://github.com/vuejs/vue-test-utils-next) for testing.
+
+* This package is using [Jest](https://github.com/facebook/jest)
+  and [vue-test-utils](https://github.com/vuejs/vue-test-utils-next) for testing.
 * Tests can be found in `__test__` folder.
 * Execute tests with this command `yarn test`
 
 ## License
+
 [MIT](LICENSE.txt) License
