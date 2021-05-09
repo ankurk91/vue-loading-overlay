@@ -1,5 +1,9 @@
 # Changelog
 
+### [4.0.2](https://github.com/ankurk91/vue-loading-overlay/compare/4.0.1...4.0.2)
+
+* Fix: usage as plugin, in-correct parameters were being passed
+
 ### [4.0.0](https://github.com/ankurk91/vue-loading-overlay/compare/3.4.2...4.0.0) :warning:
 
 * Drop support for Vue v2.x and add support for Vue v3.x
