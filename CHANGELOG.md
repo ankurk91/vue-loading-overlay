@@ -1,5 +1,9 @@
 # Changelog
 
+### [4.0.3](https://github.com/ankurk91/vue-loading-overlay/compare/4.0.2...4.0.3)
+
+* Fix: Possible SSR issue
+
 ### [4.0.2](https://github.com/ankurk91/vue-loading-overlay/compare/4.0.1...4.0.2)
 
 * Fix: usage as plugin, in-correct parameters were being passed
