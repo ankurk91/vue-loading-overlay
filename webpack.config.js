@@ -36,6 +36,7 @@ module.exports = {
     library: 'VueLoading',
     libraryTarget: 'umd',
     libraryExport: 'default',
+    globalObject: 'this',
     umdNamedDefine: true,
   },
   module: {
