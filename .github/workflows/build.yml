@@ -20,7 +20,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x]
+        node-version: [16.x]
 
     steps:
       - uses: actions/checkout@v2
@@ -36,8 +36,6 @@ jobs:
       - run: yarn test --verbose
       - run: yarn run build
       - run: yarn run docs
-        env:
-          CI: true
 
       - name: Deploy to gh-pages
         if: github.event_name == 'push' && github.ref == 'refs/heads/master'
