@@ -2,7 +2,6 @@
 
 const webpack = require('webpack');
 const path = require('path');
-const {CleanWebpackPlugin} = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const {VueLoaderPlugin} = require('vue-loader');
@@ -31,6 +30,7 @@ module.exports = {
     },
   },
   output: {
+    clean: true,
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].js',
     library: 'VueLoading',
@@ -88,7 +88,6 @@ module.exports = {
     ]
   },
   plugins: [
-    new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: 'vue-loading.css',
     }),

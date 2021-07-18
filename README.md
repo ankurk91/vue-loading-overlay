@@ -86,8 +86,9 @@ import {createApp} from 'vue';
 import VueLoading from 'vue-loading-overlay';
 import 'vue-loading-overlay/dist/vue-loading.css';
 // Your app initialization logic goes here
-const app = createApp({}).mount('#app')
+const app = createApp({});
 app.use(VueLoading);
+app.mount('#app');
 ```
 
 * Then use the plugin in your components
@@ -226,9 +227,10 @@ let loader = this.$loading.show({
 <link href="https://cdn.jsdelivr.net/npm/vue-loading-overlay@4/dist/vue-loading.css" rel="stylesheet">
 <!-- Init the plugin and component-->
 <script>
-    const app = Vue.createApp({}).mount('#app')
+    const app = Vue.createApp({});
     app.use(VueLoading);
     app.component('loading', VueLoading)
+    app.mount('#app')
 </script>
 ```
 
@@ -239,7 +241,7 @@ let loader = this.$loading.show({
 ## Run examples on your localhost
 
 * Clone this repo
-* Make sure you have node-js `>=12.14` and [yarn](https://yarnpkg.com) `>=1.x` pre-installed
+* Make sure you have node-js `>=14.15` and [yarn](https://yarnpkg.com) `>=1.22` pre-installed
 * Install dependencies - `yarn install`
 * Run webpack dev server - `yarn start`
 * This should open the demo page at `http://localhost:9000` in your default web browser
