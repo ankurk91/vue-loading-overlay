@@ -79,7 +79,7 @@ npm install vue-loading-overlay@^4.0
 
 ### As plugin
 
-* Install the plugin in your app
+Install the plugin in your app
 
 ```js
 import {createApp} from 'vue';
@@ -91,13 +91,13 @@ app.use(VueLoading);
 app.mount('#app');
 ```
 
-* Then use the plugin in your components
+Then use the plugin in your components
 
 ```html
 
 <template>
-    <form @submit.prevent="submit" 
-          class="vld-parent" 
+    <form @submit.prevent="submit"
+          class="vld-parent"
           ref="formContainer">
         <!-- your form inputs goes here-->
         <label><input type="checkbox" v-model="fullPage">Full page?</label>
@@ -133,19 +133,20 @@ app.mount('#app');
 </script>
 ```
 
-* or same only with Composition Api
+or same with Composition API
 
-```vue
+```html
+
 <script>
-import { defineComponent, ref, inject } from 'vue'
-import { useLoading } from 'vue-loading-overlay'
+import {defineComponent, ref, inject} from 'vue'
+import {useLoading} from 'vue-loading-overlay'
 
 export default defineComponent({
-    setup(){
+    setup() {
         const $loading = useLoading()
         // or use inject without importing useLoading
         // const $loading =  inject('$loading')
-        
+
         const fullPage = ref(false)
 
         const submit = () => {
@@ -170,8 +171,6 @@ export default defineComponent({
 })
 </script>
 ```
-
-
 
 ## Available props
 
@@ -253,7 +252,7 @@ Further you can override any prop or slot when creating new instances
 let loader = this.$loading.show({
     color: 'blue'
 }, {
-    // slots
+    // override slots
 });
 ```
 

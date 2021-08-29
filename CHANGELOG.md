@@ -1,5 +1,9 @@
 # Changelog
 
+### [4.0.4](https://github.com/ankurk91/vue-loading-overlay/compare/4.0.3...4.0.4)
+
+* Fix: Composition API usage, [#88](https://github.com/ankurk91/vue-loading-overlay/issues/88)
+ 
 ### [4.0.3](https://github.com/ankurk91/vue-loading-overlay/compare/4.0.2...4.0.3)
 
 * Fix: Possible SSR issue
