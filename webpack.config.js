@@ -72,6 +72,7 @@ module.exports = {
     ]
   },
   optimization: {
+    usedExports: false,
     minimizer: [
       new TerserPlugin({
         include: /\.min\.js$/,
