@@ -1,4 +1,5 @@
 **I'm submitting a ...**  (check one with "x")
+
 ```
 [ ] Bug report => search github for a similar issue or PR before submitting
 [ ] Feature request
@@ -6,6 +7,7 @@
 ```
 
 **Tell about your platform**
+
 * Vue.js version : 3.x
 * Browser name and version : Chrome|Firefox|Edge x.x.x
 * This package version : 4.x.x

@@ -4,7 +4,7 @@ module.exports = {
   testURL: 'http://localhost',
   transform: {
     '^.+\\.js$': 'babel-jest',
-    '.*\\.(vue)$': 'vue3-jest'
+    '.*\\.(vue)$': '@vue/vue3-jest'
   },
   moduleFileExtensions: [
     'js',

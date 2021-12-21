@@ -10,40 +10,40 @@ on:
       - master
       - dev
   schedule:
-    - cron: '0 0 10 * *'
+    - cron: '0 0 12 * *'
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
     timeout-minutes: 5
 
-    strategy:
-      matrix:
-        node-version: [16.x]
-
     steps:
-      - uses: actions/checkout@v2
-        with:
-          persist-credentials: false
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-      - name: Using Node.js ${{ matrix.node-version }}
+      - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 16.x
 
-      - run: yarn install --non-interactive --frozen-lockfile
-      - run: yarn test --verbose
-      - run: yarn run build
-      - run: yarn run docs
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2.0.1
+        with:
+          version: 6.23.0
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - run: npm run test
+      - run: bash <(curl -s https://codecov.io/bash)
+      - run: npm run build
+      - run: npm run docs
 
       - name: Deploy to gh-pages
         if: github.event_name == 'push' && github.ref == 'refs/heads/master'
-        uses: JamesIves/github-pages-deploy-action@releases/v4
+        uses: JamesIves/github-pages-deploy-action@4.1.8
         with:
-          token: ${{ secrets.ACCESS_TOKEN }}
           branch: gh-pages
           folder: docs
           single-commit: true
           clean: true
-

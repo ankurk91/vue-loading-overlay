@@ -31,19 +31,19 @@
   "homepage": "https://github.com/ankurk91/vue-loading-overlay",
   "scripts": {
     "test": "jest",
-    "test:watch": "yarn run test --watch --notify",
-    "start": "yarn run dev",
+    "test:watch": "npm run test --watch --notify",
+    "start": "npm run dev",
     "dev": "cross-env NODE_ENV=development webpack serve --progress --hot --config=webpack.config.dev.js",
     "docs": "cross-env NODE_ENV=production webpack --config=webpack.config.dev.js --progress --mode=production",
     "build": "cross-env NODE_ENV=production webpack --progress --mode=production",
-    "prepublishOnly": "yarn run test && yarn run build"
+    "prepublishOnly": "npm run test && npm run build"
   },
-  "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.14.6",
     "@babel/preset-env": "^7.14.7",
     "@vue/compiler-sfc": "^3.1.5",
-    "@vue/test-utils": "^2.0.0-rc.10",
+    "@vue/test-utils": "^2.0.0-rc.17",
+    "@vue/vue3-jest": "^27.0.0-alpha.4",
     "babel-jest": "^27.0.6",
     "babel-loader": "^8.2.2",
     "bootstrap": "^4.6.0",
@@ -56,10 +56,9 @@
     "style-loader": "^3.1.0",
     "vue": "^3.1",
     "vue-loader": "^16.3.1",
-    "vue3-jest": "^27.0.0-alpha.1",
     "webpack": "^5.45.1",
     "webpack-cli": "^4.7.2",
-    "webpack-dev-server": "^4.0.0-beta.3"
+    "webpack-dev-server": "^4.6.0"
   },
   "peerDependencies": {
     "vue": "^3.0.0"
