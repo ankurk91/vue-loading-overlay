@@ -1,9 +1,30 @@
 # Changelog
 
+### [5.0.0](https://github.com/ankurk91/vue-loading-overlay/compare/4.0.4...5.0.0)
+
+* Now you can import package like
+
+```js
+// New way of importing
+import {useLoading} from 'vue-loading-overlay';
+import {Component} from 'vue-loading-overlay';
+import {Plugin} from 'vue-loading-overlay';
+
+// The good old way still works as before
+import VueLoading from 'vue-loading-overlay';
+```
+
+* Use named export in browser environment
+
+```diff
+- app.use(VueLoading)
++ app.use(VueLoading.Plugin)
+```
+
 ### [4.0.4](https://github.com/ankurk91/vue-loading-overlay/compare/4.0.3...4.0.4)
 
 * Fix: Composition API usage, [#88](https://github.com/ankurk91/vue-loading-overlay/issues/88)
- 
+
 ### [4.0.3](https://github.com/ankurk91/vue-loading-overlay/compare/4.0.2...4.0.3)
 
 * Fix: Possible SSR issue

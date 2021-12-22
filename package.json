@@ -1,6 +1,6 @@
 {
   "name": "vue-loading-overlay",
-  "version": "4.0.4",
+  "version": "5.0.0",
   "description": "Vue.js component for full screen loading indicator.",
   "main": "dist/vue-loading.js",
   "types": "./types/loading.d.ts",
@@ -20,8 +20,7 @@
     "loading",
     "loader",
     "overlay",
-    "spinner",
-    "svg"
+    "spinner"
   ],
   "author": "ankurk91",
   "license": "MIT",
@@ -64,6 +63,6 @@
     "vue": "^3.0.0"
   },
   "engines": {
-    "node": ">=10.13.0"
+    "node": ">=12.13.0"
   }
 }

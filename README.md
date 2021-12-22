@@ -15,18 +15,18 @@ Vue.js component for full screen loading indicator
 ### Version matrix
 
 | Vue.js version | Package version | Branch        |
-| :---           | :---:           | ---:          | 
-| 2.x            | 3.x             | [3.x](https://github.com/ankurk91/vue-loading-overlay/tree/v3.x) |
-| 3.x            | 4.x             | `master`          |
+| :---           |:---------------:| ---:          | 
+| 2.x            |       3.x       | [3.x](https://github.com/ankurk91/vue-loading-overlay/tree/v3.x) |
+| 3.x            |       5.x       | `master`          |
 
 ## Installation
 
 ```bash
 # yarn
-yarn add vue-loading-overlay@^4.0
+yarn add vue-loading-overlay@^5.0
 
 # npm
-npm install vue-loading-overlay@^4.0 
+npm install vue-loading-overlay@^5.0 
 ```
 
 ## Usage
@@ -223,13 +223,13 @@ let loader = this.$loading.show({
 <!-- Vue js -->
 <script src="https://cdn.jsdelivr.net/npm/vue@3"></script>
 <!-- Lastly add this package -->
-<script src="https://cdn.jsdelivr.net/npm/vue-loading-overlay@4"></script>
-<link href="https://cdn.jsdelivr.net/npm/vue-loading-overlay@4/dist/vue-loading.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/vue-loading-overlay@5"></script>
+<link href="https://cdn.jsdelivr.net/npm/vue-loading-overlay@5/dist/vue-loading.css" rel="stylesheet">
 <!-- Init the plugin and component-->
 <script>
     const app = Vue.createApp({});
-    app.use(VueLoading);
-    app.component('loading', VueLoading)
+    app.use(VueLoading.Plugin);
+    app.component('loading', VueLoading.Component)
     app.mount('#app')
 </script>
 ```

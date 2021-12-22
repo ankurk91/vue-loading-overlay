@@ -1,11 +1,25 @@
 # Upgrade Guide
 
+## From v5.0 to v4.x
+
+If you are using the package directly from a CDN, Then you need to use named exports now
+
+```diff
+- app.use(VueLoading)
++ app.use(VueLoading.Plugin)
+```
+
+There is no breaking change if you are consuming the package through a module bundler like webpack.
+
 ## From v3.4 to v4.x
+
 If you have been consuming the component, update your code as follows:
+
 ```diff
 - <loading .active.sync="isLoading"/>
 + <loading v-model:active="isLoading"/>
 ```
+
 Everything else should be automatically covered in vue v2 to vue v3 upgrade guide.
 
 ## From v2.x to v3.x

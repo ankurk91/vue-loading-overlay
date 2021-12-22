@@ -11,5 +11,5 @@ const Plugin = (app, props = {}, slots = {}) => {
 Component.install = Plugin;
 
 export default Component;
-export {useLoading}
+export {useLoading, Plugin, Component}
 
