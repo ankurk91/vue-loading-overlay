@@ -1,5 +1,5 @@
 import {createComponent} from './helpers';
-import LoadingVue from "./Component.vue";
+import LoadingComponent from "./Component.vue";
 
 export function useLoading(globalProps = {}, globalSlots = {}) {
 
@@ -21,7 +21,7 @@ export function useLoading(globalProps = {}, globalSlots = {}) {
       }
 
       const mergedSlots = Object.assign({}, globalSlots, slots);
-      const instance = createComponent(LoadingVue, propsData, container, mergedSlots);
+      const instance = createComponent(LoadingComponent, propsData, container, mergedSlots);
 
       return {
         hide: instance.ctx.hide

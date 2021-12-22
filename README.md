@@ -133,7 +133,7 @@ Then use the plugin in your components
 </script>
 ```
 
-or same with Composition API
+#### or same with Composition API
 
 ```html
 
@@ -166,7 +166,6 @@ export default defineComponent({
             submit,
             onCancel
         }
-
     }
 })
 </script>

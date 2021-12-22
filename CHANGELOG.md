@@ -1,8 +1,9 @@
 # Changelog
 
-### [5.0.0](https://github.com/ankurk91/vue-loading-overlay/compare/4.0.4...5.0.0)
+### [5.0.1](https://github.com/ankurk91/vue-loading-overlay/compare/4.0.4...5.0.1)
 
-* Now you can import package like
+* Allow composition API usage, [#88](https://github.com/ankurk91/vue-loading-overlay/issues/88)
+* Now you can import package like 
 
 ```js
 // New way of importing
@@ -14,7 +15,7 @@ import {Plugin} from 'vue-loading-overlay';
 import VueLoading from 'vue-loading-overlay';
 ```
 
-* Use named export in browser environment
+* [BC] Use named export in browser environment
 
 ```diff
 - app.use(VueLoading)
