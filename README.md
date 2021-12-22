@@ -133,6 +133,45 @@ Then use the plugin in your components
 </script>
 ```
 
+or same with Composition API
+
+```html
+
+<script>
+import {defineComponent, ref, inject} from 'vue'
+import {useLoading} from 'vue-loading-overlay'
+
+export default defineComponent({
+    setup() {
+        const $loading = useLoading()
+        // or use inject without importing useLoading
+        // const $loading =  inject('$loading')
+
+        const fullPage = ref(false)
+
+        const submit = () => {
+            const loader = $loading.show({
+                // Optional parameters
+            });
+            // simulate AJAX
+            setTimeout(() => {
+                loader.hide()
+            }, 5000)
+        }
+
+        const onCancel = () => console.log('User cancelled the loader.')
+
+        return {
+            fullPage,
+            submit,
+            onCancel
+        }
+
+    }
+})
+</script>
+```
+
 ## Available props
 
 The component accepts these props:
