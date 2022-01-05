@@ -44,4 +44,6 @@ declare module '@vue/runtime-core' {
 
 declare const LoadingPlugin: Plugin
 
+export declare function useLoading(globalProps?: Props, globalSlots?: Slots): ActiveLoader
+
 export default LoadingPlugin
