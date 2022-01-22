@@ -15,7 +15,7 @@ import {Plugin} from 'vue-loading-overlay';
 import VueLoading from 'vue-loading-overlay';
 ```
 
-* [BC] Use named export in browser environment
+* (Breaking) Use named export in web browser environment
 
 ```diff
 - app.use(VueLoading)

@@ -14,10 +14,10 @@ Vue.js component for full screen loading indicator
 
 ### Version matrix
 
-| Vue.js version | Package version | Branch        |
-| :---           |:---------------:| ---:          | 
+| Vue.js version | Package version |                                                           Branch |
+| :---           |:---------------:|-----------------------------------------------------------------:| 
 | 2.x            |       3.x       | [3.x](https://github.com/ankurk91/vue-loading-overlay/tree/v3.x) |
-| 3.x            |       5.x       | `master`          |
+| 3.x            |       5.x       |                                                           `main` |
 
 ## Installation
 
@@ -138,36 +138,33 @@ Then use the plugin in your components
 ```html
 
 <script>
-import {defineComponent, ref, inject} from 'vue'
-import {useLoading} from 'vue-loading-overlay'
+    import {defineComponent, ref, inject} from 'vue'
+    import {useLoading} from 'vue-loading-overlay'
 
-export default defineComponent({
-    setup() {
-        const $loading = useLoading()
-        // or use inject without importing useLoading
-        // const $loading =  inject('$loading')
+    export default defineComponent({
+        setup() {
+            const $loading = useLoading()
+            // or use inject without importing useLoading
+            // const $loading =  inject('$loading')
 
-        const fullPage = ref(false)
+            const fullPage = ref(false)
 
-        const submit = () => {
-            const loader = $loading.show({
-                // Optional parameters
-            });
-            // simulate AJAX
-            setTimeout(() => {
-                loader.hide()
-            }, 5000)
+            const submit = () => {
+                const loader = $loading.show({
+                    // Optional parameters
+                });
+                // simulate AJAX
+                setTimeout(() => {
+                    loader.hide()
+                }, 5000)
+            }
+
+            return {
+                fullPage,
+                submit,
+            }
         }
-
-        const onCancel = () => console.log('User cancelled the loader.')
-
-        return {
-            fullPage,
-            submit,
-            onCancel
-        }
-    }
-})
+    })
 </script>
 ```
 

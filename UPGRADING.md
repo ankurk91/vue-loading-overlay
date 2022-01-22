@@ -1,6 +1,6 @@
 # Upgrade Guide
 
-## From v5.0 to v4.x
+## From v4.x to v5.x
 
 If you are using the package directly from a CDN, Then you need to use named exports now
 
