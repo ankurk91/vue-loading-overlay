@@ -25,6 +25,9 @@ Vue.js component for full screen loading indicator
 # yarn
 yarn add vue-loading-overlay@^5.0
 
+# pnpm
+pnpm add vue-loading-overlay@^5.0 
+
 # npm
 npm install vue-loading-overlay@^5.0 
 ```
@@ -165,6 +168,32 @@ Then use the plugin in your components
             }
         }
     })
+</script>
+```
+
+
+#### or script setup
+
+```vue
+
+<script type="ts" setup>
+import { ref, inject } from 'vue'
+import { useLoading } from 'vue-loading-overlay'
+
+const $loading = useLoading()
+// or use inject without importing useLoading
+// const $loading =  inject('$loading')
+
+function submit() {
+  const loader = $loading.show({
+    // Optional parameters
+  });
+
+  // simulate AJAX
+  setTimeout(() => {
+      loader.hide()
+  }, 5000)
+}
 </script>
 ```
 
