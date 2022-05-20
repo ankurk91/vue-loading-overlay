@@ -22,10 +22,6 @@ Vue.js component for full screen loading indicator
 ## Installation
 
 ```bash
-# yarn
-yarn add vue-loading-overlay@^5.0
-
-# npm
 npm install vue-loading-overlay@^5.0 
 ```
 
