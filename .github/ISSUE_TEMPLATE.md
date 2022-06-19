@@ -8,7 +8,7 @@
 
 **Tell about your platform**
 
-* Vue.js version : 3.x
+* Vue.js version : 3.2
 * Browser name and version : Chrome|Firefox|Edge x.x.x
 * This package version : 5.x.x
 

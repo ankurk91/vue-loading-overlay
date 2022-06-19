@@ -41,7 +41,7 @@
     "@babel/core": "^7.17.10",
     "@babel/preset-env": "^7.17.10",
     "@vue/compiler-sfc": "^3.2.33",
-    "@vue/test-utils": "^2.0.0-rc.21",
+    "@vue/test-utils": "^2.0.0",
     "@vue/vue3-jest": "^27.0.0",
     "babel-jest": "^27.0.6",
     "babel-loader": "^8.2.5",

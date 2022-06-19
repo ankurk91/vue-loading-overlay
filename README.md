@@ -272,7 +272,7 @@ let loader = this.$loading.show({
 ## Run examples on your localhost
 
 * Clone this repo
-* Make sure you have node-js `>=16.9` and [pnpm](https://pnpm.io/) `>=6.23` pre-installed
+* Make sure you have node-js `>=16.9` and [pnpm](https://pnpm.io/) `>=7.2` pre-installed
 * Install dependencies `pnpm install`
 * Run webpack dev server `npm start`
 * This should open the demo page in your default web browser
@@ -280,7 +280,7 @@ let loader = this.$loading.show({
 ## Testing
 
 * This package is using [Jest](https://github.com/facebook/jest)
-  and [vue-test-utils](https://github.com/vuejs/vue-test-utils-next) for testing.
+  and [vue-test-utils](https://github.com/vuejs/test-utils) for testing.
 * Tests can be found in `__test__` folder.
 * Execute tests with this command `yarn test`
 
