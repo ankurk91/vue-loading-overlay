@@ -1,7 +1,13 @@
 module.exports = {
   testEnvironment: 'jsdom',
   collectCoverage: true,
-  testURL: 'http://localhost',
+  testEnvironmentOptions: {
+    testURL: 'http://localhost',
+    customExportConditions: [
+      'node',
+      'node-addons',
+    ],
+  },
   transform: {
     '^.+\\.js$': 'babel-jest',
     '.*\\.(vue)$': '@vue/vue3-jest'
