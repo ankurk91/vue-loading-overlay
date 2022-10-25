@@ -1,5 +1,5 @@
 <template>
-  <transition ref="root" :name="transition">
+  <transition :name="transition">
     <div tabindex="0"
          class="vld-overlay is-active"
          :class="{ 'is-full-page': isFullPage }"
@@ -117,7 +117,7 @@ export default defineComponent({
 
         // Timeout for the animation complete before destroying
         setTimeout(() => {
-          const parent = this.$refs.root.parentElement;
+          const parent = this.$el.parentElement;
           // unmount the component
           render(null, parent);
           removeElement(parent)

@@ -14,13 +14,13 @@ export default {
 
       if (
         // Event target is the loading div element itself
-        event.target === this.$refs.root ||
+        event.target === this.$el ||
         // Event target is inside the loading div
-        this.$refs.root.contains(event.target)
+        this.$el.contains(event.target)
       ) return;
 
       // Use container as parent when available otherwise use parent element when isFullPage is false
-      let parent = this.container ? this.container : (this.isFullPage ? null : this.$refs.root.parentElement);
+      let parent = this.container ? this.container : (this.isFullPage ? null : this.$el.parentElement);
 
       if (
         // Always prevent when loading is full screen
@@ -30,7 +30,7 @@ export default {
         (parent && parent.contains(event.target))
       ) {
         event.preventDefault();
-        this.$refs.root.focus()
+        this.$el.focus()
       }
     }
   },
