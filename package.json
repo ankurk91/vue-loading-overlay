@@ -4,7 +4,6 @@
   "description": "Vue.js component for full screen loading indicator.",
   "main": "dist/vue-loading.js",
   "types": "./types/loading.d.ts",
-  "browser": "dist/vue-loading.min.js",
   "style": "dist/vue-loading.css",
   "files": [
     "src",
@@ -61,7 +60,7 @@
     "webpack-dev-server": "^4.11.1"
   },
   "peerDependencies": {
-    "vue": "^3.0.0"
+    "vue": "^3.2.0"
   },
   "engines": {
     "node": ">=12.13.0"

@@ -15,7 +15,6 @@ module.exports = {
     alias: {
       vue: "@vue/runtime-dom"
     },
-    extensions: ['.js', '.json', '.vue']
   },
   entry: {
     'vue-loading': './src/index.js',
@@ -33,10 +32,13 @@ module.exports = {
     clean: true,
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].js',
-    library: 'VueLoading',
-    libraryTarget: 'umd',
+    library: {
+      name: 'VueLoading',
+      type: 'umd',
+      umdNamedDefine: true,
+    },
     globalObject: 'this',
-    umdNamedDefine: true,
+    pathinfo: false,
   },
   module: {
     rules: [
@@ -44,12 +46,6 @@ module.exports = {
         test: /\.vue$/,
         loader: 'vue-loader',
         exclude: /node_modules/,
-        options: {
-          compilerOptions: {
-            preserveWhitespace: false, //Deprecated
-            whitespace: 'condense',
-          }
-        }
       },
       {
         test: /\.js$/,

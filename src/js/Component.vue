@@ -11,7 +11,7 @@
       <div class="vld-background"
            @click.prevent="cancel"
            :style="bgStyle"
-      ></div>
+      />
       <div class="vld-icon">
         <slot name="before"/>
         <slot name="default">
@@ -30,9 +30,9 @@
 
 <script>
 import {defineComponent, render} from 'vue';
-import {MayBeHTMLElement, removeElement} from './helpers.js'
-import trapFocusMixin from './trapFocusMixin.js';
-import Loaders from '../loaders/index.js';
+import {MayBeHTMLElement, removeElement} from './helpers'
+import trapFocusMixin from './trapFocusMixin';
+import Loaders from '../loaders/index';
 
 export default defineComponent({
   name: 'vue-loading',
@@ -84,6 +84,7 @@ export default defineComponent({
       default: 'spinner'
     }
   },
+  components: Loaders,
   emits: ['hide', 'update:active'],
   data() {
     return {
@@ -91,7 +92,6 @@ export default defineComponent({
       isActive: this.active
     }
   },
-  components: Loaders,
   mounted() {
     document.addEventListener('keyup', this.keyPress)
   },
@@ -136,8 +136,6 @@ export default defineComponent({
     },
     /**
      * Key press event to hide on ESC.
-     *
-     * @param event
      */
     keyPress(event) {
       // todo keyCode is deprecated

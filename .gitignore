@@ -2,8 +2,6 @@
 
 # various IDEs
 .idea/
-.project
-*.sublime-*
 .vscode/
 
 # logs and cache

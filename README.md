@@ -252,7 +252,7 @@ let loader = this.$loading.show({
 
 ```html
 <!-- Vue js -->
-<script src="https://cdn.jsdelivr.net/npm/vue@3"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@3.2"></script>
 <!-- Lastly add this package -->
 <script src="https://cdn.jsdelivr.net/npm/vue-loading-overlay@5"></script>
 <link href="https://cdn.jsdelivr.net/npm/vue-loading-overlay@5/dist/vue-loading.css" rel="stylesheet">
@@ -264,10 +264,6 @@ let loader = this.$loading.show({
     app.mount('#app')
 </script>
 ```
-
-### Browser support
-
-* Modern browsers only
 
 ## Run examples on your localhost
 

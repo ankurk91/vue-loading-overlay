@@ -8,5 +8,6 @@ import App from './App.vue';
 import LoadingPlugin from "../src/index";
 
 const app = createApp(App);
-app.mount('#app')
 app.use(LoadingPlugin);
+app.mount('#app')
+

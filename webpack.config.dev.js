@@ -19,7 +19,6 @@ module.exports = {
     alias: {
       vue: "@vue/runtime-dom"
     },
-    extensions: ['.js', '.jsx', '.json', '.vue'],
   },
   entry: './examples/index.js',
   output: {
@@ -49,9 +48,7 @@ module.exports = {
             },
           {
             loader: 'css-loader',
-            options: {
-
-            }
+            options: {}
           },
         ],
       },
@@ -71,7 +68,6 @@ module.exports = {
       }
     ]
   },
-  // https://gist.github.com/sokra/1522d586b8e5c0f5072d7565c2bee693
   optimization: {
     runtimeChunk: false,
     splitChunks: {

@@ -7,8 +7,6 @@ export default {
   methods: {
     /**
      * Trap focus event
-     *
-     * @param event
      */
     focusIn(event) {
       // Ignore when loading is not active
