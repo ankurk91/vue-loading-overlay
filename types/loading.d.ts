@@ -18,7 +18,6 @@ export interface Props {
   enforceFocus?: boolean,
   lockScroll?: boolean,
   pauseOnHover?: boolean,
-  blur?: string,
   container?: Object | HTMLElement | Function,
 }
 

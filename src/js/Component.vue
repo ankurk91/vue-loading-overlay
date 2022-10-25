@@ -71,10 +71,6 @@ export default defineComponent({
     },
     color: String,
     backgroundColor: String,
-    blur: {
-      type: String,
-      default: '2px'
-    },
     opacity: Number,
     width: Number,
     height: Number,
@@ -159,7 +155,6 @@ export default defineComponent({
       return {
         background: this.backgroundColor,
         opacity: this.opacity,
-        backdropFilter: `blur(${this.blur})`
       }
     }
   },
