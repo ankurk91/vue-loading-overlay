@@ -5,14 +5,14 @@ exports[`Loading component renders when active 1`] = `
   <div
     aria-busy="true"
     aria-label="Loading"
-    class="vld-overlay is-active is-full-page"
+    class="vl-overlay vl-active vl-full-page"
     tabindex="0"
   >
     <div
-      class="vld-background"
+      class="vl-background"
     />
     <div
-      class="vld-icon"
+      class="vl-icon"
     >
       
       
@@ -66,15 +66,15 @@ exports[`Loading component renders when not active 1`] = `
   <div
     aria-busy="false"
     aria-label="Loading"
-    class="vld-overlay is-active is-full-page"
+    class="vl-overlay vl-active vl-full-page"
     style="display: none;"
     tabindex="0"
   >
     <div
-      class="vld-background"
+      class="vl-background"
     />
     <div
-      class="vld-icon"
+      class="vl-icon"
     >
       
       

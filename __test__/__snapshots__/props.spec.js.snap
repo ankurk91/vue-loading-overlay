@@ -5,16 +5,16 @@ exports[`Loading component props accepts props 1`] = `
   <div
     aria-busy="true"
     aria-label="Loading"
-    class="vld-overlay is-active"
+    class="vl-overlay vl-active"
     style="z-index: 9999;"
     tabindex="0"
   >
     <div
-      class="vld-background"
+      class="vl-background"
       style="background: rgb(204, 204, 204); opacity: 0.6;"
     />
     <div
-      class="vld-icon"
+      class="vl-icon"
     >
       
       

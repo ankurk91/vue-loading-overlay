@@ -18,7 +18,7 @@ describe('Loading component instance', () => {
   });
 
   test('rendered div has css classes', () => {
-    expect(wrapper.find('div').classes()).toContain('vld-overlay');
+    expect(wrapper.find('div').classes()).toContain('vl-overlay');
   });
 
 });

@@ -13,7 +13,7 @@ describe('Loading plugin', () => {
         let loader = this.$loading.show();
         await this.$nextTick();
 
-        expect(document.body.querySelectorAll('.vld-overlay').length).toEqual(1);
+        expect(document.body.querySelectorAll('.vl-overlay').length).toEqual(1);
         loader.hide();
 
         done();
