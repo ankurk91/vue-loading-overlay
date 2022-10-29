@@ -1,4 +1,4 @@
-import {Plugin} from 'vue'
+import {Plugin, Component} from 'vue'
 
 export type LoaderType = 'spinner' | 'dots' | 'bars'
 
@@ -42,7 +42,10 @@ declare module '@vue/runtime-core' {
 }
 
 declare const LoadingPlugin: Plugin
+declare const Component: Component
 
 export declare function useLoading(globalProps?: Props, globalSlots?: Slots): PluginApi
 
-export default LoadingPlugin
+export {LoadingPlugin};
+
+export default Component
