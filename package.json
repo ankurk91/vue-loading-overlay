@@ -2,9 +2,9 @@
   "name": "vue-loading-overlay",
   "version": "5.0.3",
   "description": "Vue.js component for full screen loading indicator.",
-  "main": "dist/vue-loading.js",
-  "types": "./types/loading.d.ts",
-  "style": "dist/vue-loading.css",
+  "main": "dist/index.js",
+  "types": "./types/index.d.ts",
+  "style": "dist/css/index.css",
   "files": [
     "src",
     "dist",

@@ -17,8 +17,8 @@ module.exports = {
     },
   },
   entry: {
-    'vue-loading': './src/index.js',
-    'vue-loading.min': './src/index.js',
+    'index': './src/index.js',
+    'index.min': './src/index.js',
   },
   externals: {
     'vue': {
@@ -85,7 +85,7 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: 'vue-loading.css',
+      filename: 'css/index.css',
     }),
     new VueLoaderPlugin(),
   ],

@@ -5,9 +5,6 @@ export default {
     }
   },
   methods: {
-    /**
-     * Trap focus event
-     */
     focusIn(event) {
       // Ignore when loading is not active
       if (!this.isActive) return;

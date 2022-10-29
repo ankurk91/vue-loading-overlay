@@ -1,5 +1,5 @@
 import {createComponent} from './helpers';
-import LoadingComponent from "./Component.vue";
+import LoadingComponent from './Component.vue';
 
 export function useLoading(globalProps = {}, globalSlots = {}) {
 

@@ -1,5 +1,5 @@
 import {createApp} from 'vue'
-import Plugin from '../src/index';
+import {LoadingPlugin} from '../src/index';
 
 describe('Loading plugin', () => {
 
@@ -20,7 +20,7 @@ describe('Loading plugin', () => {
       }
     });
 
-    app.use(Plugin);
+    app.use(LoadingPlugin);
     app.mount('body')
   });
 

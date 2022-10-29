@@ -45,7 +45,7 @@ npm install vue-loading-overlay@^5.0
 
 <script>
     import Loading from 'vue-loading-overlay';
-    import 'vue-loading-overlay/dist/vue-loading.css';
+    import 'vue-loading-overlay/dist/css/index.css';
 
     export default {
         data() {
@@ -79,11 +79,11 @@ Install the plugin in your app
 
 ```js
 import {createApp} from 'vue';
-import VueLoading from 'vue-loading-overlay';
+import {LoadingPlugin} from 'vue-loading-overlay';
 import 'vue-loading-overlay/dist/vue-loading.css';
 // Your app initialization logic goes here
 const app = createApp({});
-app.use(VueLoading);
+app.use(LoadingPlugin);
 app.mount('#app');
 ```
 
@@ -132,35 +132,27 @@ Then use the plugin in your components
 #### or same with Composition API
 
 ```html
-
-<script>
-    import {defineComponent, ref, inject} from 'vue'
+<script setup>
+    import {ref, inject} from 'vue'
     import {useLoading} from 'vue-loading-overlay'
+    
+    const $loading = useLoading({
+        // options
+    });
+    // or use inject without importing useLoading
+    // const $loading =  inject('$loading')
 
-    export default defineComponent({
-        setup() {
-            const $loading = useLoading()
-            // or use inject without importing useLoading
-            // const $loading =  inject('$loading')
+    const fullPage = ref(false)
 
-            const fullPage = ref(false)
-
-            const submit = () => {
-                const loader = $loading.show({
-                    // Optional parameters
-                });
-                // simulate AJAX
-                setTimeout(() => {
-                    loader.hide()
-                }, 5000)
-            }
-
-            return {
-                fullPage,
-                submit,
-            }
-        }
-    })
+    const submit = () => {
+        const loader = $loading.show({
+            // Optional parameters
+        });
+        // simulate AJAX
+        setTimeout(() => {
+            loader.hide()
+        }, 5000)
+    }
 </script>
 ```
 
@@ -247,7 +239,7 @@ let loader = this.$loading.show({
 });
 ```
 
-## Install in non-module environments (without webpack)
+## Use directly in browser (with CDN)
 
 ```html
 <!-- Vue js -->
@@ -258,7 +250,7 @@ let loader = this.$loading.show({
 <!-- Init the plugin and component-->
 <script>
     const app = Vue.createApp({});
-    app.use(VueLoading.Plugin);
+    app.use(VueLoading.LoadingPlugin);
     app.component('loading', VueLoading.Component)
     app.mount('#app')
 </script>
@@ -267,7 +259,7 @@ let loader = this.$loading.show({
 ## Run examples on your localhost
 
 * Clone this repo
-* Make sure you have node-js `>=16.9` and [pnpm](https://pnpm.io/) `>=7.2` pre-installed
+* Make sure you have node-js `>=18.12` and [pnpm](https://pnpm.io/) `>=7.12` pre-installed
 * Install dependencies `pnpm install`
 * Run webpack dev server `npm start`
 * This should open the demo page in your default web browser
