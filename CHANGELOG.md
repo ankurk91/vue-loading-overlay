@@ -1,9 +1,16 @@
 # Changelog
 
+### [6.0.0](https://github.com/ankurk91/vue-loading-overlay/compare/5.0.3...6.0.0)
+
+* Remove plugin from default export
+* Remove `blur` prop
+* Change dist CSS file name
+* Rename CSS class names
+
 ### [5.0.1](https://github.com/ankurk91/vue-loading-overlay/compare/4.0.4...5.0.1)
 
 * Allow composition API usage, [#88](https://github.com/ankurk91/vue-loading-overlay/issues/88)
-* Now you can import package like 
+* Now you can import package like
 
 ```js
 // New way of importing

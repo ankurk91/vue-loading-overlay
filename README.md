@@ -17,12 +17,12 @@ Vue.js component for full screen loading indicator
 | Vue.js version | Package version |                                                           Branch |
 | :---           |:---------------:|-----------------------------------------------------------------:| 
 | 2.x            |       3.x       | [3.x](https://github.com/ankurk91/vue-loading-overlay/tree/v3.x) |
-| 3.x            |       5.x       |                                                           `main` |
+| 3.x            |       6.x       |                                                           `main` |
 
 ## Installation
 
 ```bash
-npm install vue-loading-overlay@^5.0 
+npm install vue-loading-overlay@^6.0 
 ```
 
 ## Usage
@@ -75,12 +75,12 @@ npm install vue-loading-overlay@^5.0
 
 ### As plugin
 
-Install the plugin in your app
+Initialise the plugin in your app
 
 ```js
 import {createApp} from 'vue';
 import {LoadingPlugin} from 'vue-loading-overlay';
-import 'vue-loading-overlay/dist/vue-loading.css';
+import 'vue-loading-overlay/dist/css/index.css';
 // Your app initialization logic goes here
 const app = createApp({});
 app.use(LoadingPlugin);
@@ -245,8 +245,8 @@ let loader = this.$loading.show({
 <!-- Vue js -->
 <script src="https://cdn.jsdelivr.net/npm/vue@3.2"></script>
 <!-- Lastly add this package -->
-<script src="https://cdn.jsdelivr.net/npm/vue-loading-overlay@5"></script>
-<link href="https://cdn.jsdelivr.net/npm/vue-loading-overlay@5/dist/vue-loading.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/vue-loading-overlay@6"></script>
+<link href="https://cdn.jsdelivr.net/npm/vue-loading-overlay@6/dist/css/index.css" rel="stylesheet">
 <!-- Init the plugin and component-->
 <script>
     const app = Vue.createApp({});
@@ -269,7 +269,7 @@ let loader = this.$loading.show({
 * This package is using [Jest](https://github.com/facebook/jest)
   and [vue-test-utils](https://github.com/vuejs/test-utils) for testing.
 * Tests can be found in `__test__` folder.
-* Execute tests with this command `yarn test`
+* Execute tests with this command `npm test`
 
 ## License
 
