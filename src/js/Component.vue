@@ -1,18 +1,18 @@
 <template>
   <transition :name="transition">
     <div tabindex="0"
-         class="vld-overlay is-active"
-         :class="{ 'is-full-page': isFullPage }"
+         class="vl-overlay vl-active"
+         :class="{ 'vl-full-page': isFullPage }"
          v-show="isActive"
          :aria-busy="isActive"
          aria-label="Loading"
          :style="{ zIndex }"
     >
-      <div class="vld-background"
+      <div class="vl-background"
            @click.prevent="cancel"
            :style="bgStyle"
       />
-      <div class="vld-icon">
+      <div class="vl-icon">
         <slot name="before"/>
         <slot name="default">
           <component
@@ -35,7 +35,7 @@ import trapFocusMixin from './trapFocusMixin';
 import Loaders from '../loaders/index';
 
 export default defineComponent({
-  name: 'vue-loading',
+  name: 'VueLoading',
   mixins: [trapFocusMixin],
   props: {
     active: Boolean,
@@ -122,12 +122,12 @@ export default defineComponent({
     },
     disableScroll() {
       if (this.isFullPage && this.lockScroll) {
-        document.body.classList.add('vld-shown');
+        document.body.classList.add('vl-shown');
       }
     },
     enableScroll() {
       if (this.isFullPage && this.lockScroll) {
-        document.body.classList.remove('vld-shown');
+        document.body.classList.remove('vl-shown');
       }
     },
     /**

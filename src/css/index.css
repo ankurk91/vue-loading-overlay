@@ -1,8 +1,8 @@
-.vld-shown {
+.vl-shown {
   overflow: hidden;
 }
 
-.vld-overlay {
+.vl-overlay {
   bottom: 0;
   left: 0;
   position: absolute;
@@ -15,16 +15,16 @@
   z-index: 9999;
 }
 
-.vld-overlay.is-active {
+.vl-overlay.vl-active {
   display: flex;
 }
 
-.vld-overlay.is-full-page {
+.vl-overlay.vl-full-page {
   z-index: 9999;
   position: fixed;
 }
 
-.vld-overlay .vld-background {
+.vl-overlay .vl-background {
   bottom: 0;
   left: 0;
   position: absolute;
@@ -34,6 +34,6 @@
   opacity: 0.5;
 }
 
-.vld-overlay .vld-icon, .vld-parent {
+.vl-overlay .vl-icon, .vl-parent {
   position: relative;
 }

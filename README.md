@@ -5,7 +5,7 @@
 [![npm-version](https://badgen.net/npm/v/vue-loading-overlay)](https://www.npmjs.com/package/vue-loading-overlay)
 [![github-tag](https://badgen.net/github/tag/ankurk91/vue-loading-overlay)](https://github.com/ankurk91/vue-loading-overlay/)
 [![build](https://github.com/ankurk91/vue-loading-overlay/workflows/build/badge.svg)](https://github.com/ankurk91/vue-loading-overlay/actions)
-[![license](https://badgen.net/github/license/ankurk91/vue-loading-overlay)](https://yarnpkg.com/en/package/vue-loading-overlay)
+[![license](https://badgen.net/github/license/ankurk91/vue-loading-overlay)](LICENSE.txt)
 ![TypeScript](https://badgen.net/badge/icon/Typed?icon=typescript&label&labelColor=blue&color=555555)
 
 Vue.js component for full screen loading indicator
@@ -32,7 +32,7 @@ npm install vue-loading-overlay@^5.0
 ```html
 
 <template>
-    <div class="vld-parent">
+    <div class="vl-parent">
         <loading v-model:active="isLoading"
                  :can-cancel="true"
                  :on-cancel="onCancel"
@@ -93,7 +93,7 @@ Then use the plugin in your components
 
 <template>
     <form @submit.prevent="submit"
-          class="vld-parent"
+          class="vl-parent"
           ref="formContainer">
         <!-- your form inputs goes here-->
         <label><input type="checkbox" v-model="fullPage">Full page?</label>
@@ -178,8 +178,8 @@ The component accepts these props:
 | lock-scroll      | Boolean             | `false`              | Freeze the scrolling during full screen loader |
 
 * ^When `is-full-page` is set to `false`, the container element should be positioned as `position: relative`. You can
-  use CSS helper class `vld-parent`.
-* *The default `height` and `width` values may be varied based on the `loader` prop value
+  use CSS helper class `vl-parent`.
+* *The default `height` and `width` values may vary based on the `loader` prop value
 
 ## Available slots
 
