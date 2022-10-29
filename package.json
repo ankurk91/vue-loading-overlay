@@ -3,7 +3,7 @@
   "version": "5.0.3",
   "description": "Vue.js component for full screen loading indicator.",
   "main": "dist/index.js",
-  "types": "./types/index.d.ts",
+  "types": "types/index.d.ts",
   "style": "dist/css/index.css",
   "files": [
     "src",
@@ -31,9 +31,9 @@
     "test": "jest --runInBand",
     "test:watch": "npm run test --watch --notify",
     "start": "npm run dev",
-    "dev": "cross-env NODE_ENV=development webpack serve --progress --hot --config=webpack.config.dev.js",
-    "docs": "cross-env NODE_ENV=production webpack --config=webpack.config.dev.js --progress --mode=production",
-    "build": "cross-env NODE_ENV=production webpack --progress --mode=production",
+    "dev": "webpack serve --node-env=development  --progress --hot --config=webpack.config.dev.js",
+    "docs": "webpack --node-env=production  --config=webpack.config.dev.js --progress --mode=production",
+    "build": "webpack --node-env=production  --progress --mode=production",
     "prepublishOnly": "npm run test && npm run build"
   },
   "devDependencies": {
@@ -45,7 +45,6 @@
     "babel-jest": "^29.0.3",
     "babel-loader": "^8.2.5",
     "bootstrap": "^4",
-    "cross-env": "^7.0.3",
     "css-loader": "^6.7.1",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",

@@ -9,7 +9,6 @@ specifiers:
   babel-jest: ^29.0.3
   babel-loader: ^8.2.5
   bootstrap: ^4
-  cross-env: ^7.0.3
   css-loader: ^6.7.1
   file-loader: ^6.2.0
   html-webpack-plugin: ^5.5.0
@@ -32,7 +31,6 @@ devDependencies:
   babel-jest: 29.0.3_@babel+core@7.19.1
   babel-loader: 8.2.5_rhsdbzevgb5tizdhlla5jsbgyu
   bootstrap: 4.6.2
-  cross-env: 7.0.3
   css-loader: 6.7.1_webpack@5.74.0
   file-loader: 6.2.0_webpack@5.74.0
   html-webpack-plugin: 5.5.0_webpack@5.74.0
@@ -2643,14 +2641,6 @@ packages:
 
   /core-util-is/1.0.3:
     resolution: {integrity: sha512-ZQBvi1DcpJ4GDqanjucZ2Hj3wEO5pZDS89BWbkcrvdxksJorwUDDZamX9ldFkp9aw2lmBDLgkObEA4DWNJ9FYQ==}
-    dev: true
-
-  /cross-env/7.0.3:
-    resolution: {integrity: sha512-+/HKd6EgcQCJGh2PSjZuUitQBQynKor4wrFbRg4DtAgS1aWO+gU52xpH7M9ScGgXSYmAVS9bIJ8EzuaGw0oNAw==}
-    engines: {node: '>=10.14', npm: '>=6', yarn: '>=1'}
-    hasBin: true
-    dependencies:
-      cross-spawn: 7.0.3
     dev: true
 
   /cross-spawn/7.0.3:
