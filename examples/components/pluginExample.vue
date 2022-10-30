@@ -55,10 +55,10 @@
 </template>
 
 <script>
-import {h} from 'vue';
+import {h, defineComponent} from 'vue';
 
 let timer = null;
-export default {
+export default defineComponent({
   data() {
     return {
       fullPage: true,
@@ -107,6 +107,6 @@ export default {
       } : {}
     }
   }
-}
+})
 </script>
 

@@ -268,7 +268,6 @@ let loader = this.$loading.show({
 
 * This package is using [Jest](https://github.com/facebook/jest)
   and [vue-test-utils](https://github.com/vuejs/test-utils) for testing.
-* Tests can be found in `__test__` folder.
 * Execute tests with this command `npm test`
 
 ## License

@@ -12,7 +12,7 @@ export function useLoading(globalProps = {}, globalSlots = {}) {
         active: true,
       }
 
-      const propsData = Object.assign({}, globalProps, props, forceProps);
+      const propsData = {...globalProps, ...props, ...forceProps};
       let container = propsData.container;
 
       if (!propsData.container) {
@@ -20,7 +20,7 @@ export function useLoading(globalProps = {}, globalSlots = {}) {
         propsData.isFullPage = true;
       }
 
-      const mergedSlots = Object.assign({}, globalSlots, slots);
+      const mergedSlots = {...globalSlots, ...slots};
       const instance = createComponent(LoadingComponent, propsData, container, mergedSlots);
 
       return {

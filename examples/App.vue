@@ -3,7 +3,7 @@
     <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark shadow-sm mb-3">
       <span class="navbar-brand mb-0">Vue.js Loading Overlay</span>
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
+        <li class="nav-item active">
           <a class="nav-link" href="https://github.com/ankurk91/vue-loading-overlay"
              target="_blank"> GitHub</a></li>
       </ul>
@@ -36,20 +36,8 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import ComponentExample from './components/componentExample.vue';
 import PluginExample from './components/pluginExample.vue';
-
-export default {
-  name: 'app',
-  data() {
-    return {}
-  },
-  components: {
-    ComponentExample,
-    PluginExample
-  },
-  methods: {}
-}
 </script>
 

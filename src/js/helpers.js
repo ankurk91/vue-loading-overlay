@@ -8,6 +8,7 @@ export function removeElement(el) {
   }
 }
 
+// Taken from https://github.com/moyoujun/vue3-loading-overlay/blob/master/src/index.ts
 export function createComponent(component, props, parentContainer, slots = {}) {
   const vNode = h(component, props, slots)
   const container = document.createElement('div');

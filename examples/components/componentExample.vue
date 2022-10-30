@@ -68,10 +68,11 @@
 </template>
 
 <script>
+import {defineComponent} from 'vue';
 import Loading from '../../src/index';
 
 let timer = null;
-export default {
+export default defineComponent({
   data() {
     return {
       isLoading: false,
@@ -104,5 +105,5 @@ export default {
       console.log("User cancelled the loader.")
     }
   }
-}
+})
 </script>

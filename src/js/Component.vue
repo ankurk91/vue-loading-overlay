@@ -49,10 +49,7 @@ export default defineComponent({
       type: Boolean,
       default: true
     },
-    lockScroll: {
-      type: Boolean,
-      default: false
-    },
+    lockScroll: Boolean,
     transition: {
       type: String,
       default: 'fade'

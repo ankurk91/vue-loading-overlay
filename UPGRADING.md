@@ -2,7 +2,7 @@
 
 ## From v5.x to v6.x
 
-If you have been consuming the plugin then you have to use named import now
+If you have been consuming the plugin then you have to use named imports now
 
 ```diff
 - import LoadingPlugin from 'vue-loading-overlay';
@@ -17,14 +17,20 @@ Change CSS import file name as follows
 + import 'vue-loading-overlay/dist/css/index.css';
 ```
 
-If you have been using the CSS class names, then changes them as follows
+If you have been using the CSS class names, then changes them as follows, notice
+all CSS class names has been prefixed with `vl` now
 
 ```diff
 - <div class="vld-parent">
 + <div class="vl-parent">
 ```
 
-All CSS class names has been prefixed with `vl` now
+If you have been consuming this package via CDN then
+
+```diff
+- app.use(VueLoading.Plugin);
++ app.use(VueLoading.LoadingPlugin);
+```
 
 ## From v4.x to v5.x
 
