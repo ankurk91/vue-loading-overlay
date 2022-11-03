@@ -3,7 +3,7 @@
 [![downloads](https://badgen.net/npm/dt/vue-loading-overlay)](https://npm-stat.com/charts.html?package=vue-loading-overlay&from=2018-01-01)
 [![jsdelivr](https://data.jsdelivr.com/v1/package/npm/vue-loading-overlay/badge?style=rounded)](https://www.jsdelivr.com/package/npm/vue-loading-overlay)
 [![npm-version](https://badgen.net/npm/v/vue-loading-overlay)](https://www.npmjs.com/package/vue-loading-overlay)
-[![github-tag](https://badgen.net/github/tag/ankurk91/vue-loading-overlay)](https://github.com/ankurk91/vue-loading-overlay/)
+[![github-tag](https://badgen.net/github/tag/ankurk91/vue-loading-overlay)](https://github.com/ankurk91/vue-loading-overlay/tags)
 [![build](https://github.com/ankurk91/vue-loading-overlay/workflows/build/badge.svg)](https://github.com/ankurk91/vue-loading-overlay/actions)
 [![license](https://badgen.net/github/license/ankurk91/vue-loading-overlay)](LICENSE.txt)
 ![TypeScript](https://badgen.net/badge/icon/Typed?icon=typescript&label&labelColor=blue&color=555555)
@@ -221,7 +221,7 @@ loader.hide();
 You can set props and slots for all future instances when using as plugin
 
 ```js
-app.use(VueLoading, {
+app.use(LoadingPlugin, {
     // props
     color: 'red'
 }, {
