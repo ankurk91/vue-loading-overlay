@@ -17,7 +17,7 @@ Change CSS import file name as follows
 + import 'vue-loading-overlay/dist/css/index.css';
 ```
 
-If you have been using the CSS class names, then changes them as follows, notice
+If you have been using the CSS class names, then change them as follows, notice
 all CSS class names has been prefixed with `vl` now
 
 ```diff
