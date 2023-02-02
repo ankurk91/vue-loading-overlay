@@ -1,7 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Loading component renders when active 1`] = `
-<transition-stub>
+<transition-stub
+  appear="false"
+  css="true"
+  name="fade"
+  persisted="true"
+>
   <div
     aria-busy="true"
     aria-label="Loading"
@@ -62,7 +67,12 @@ exports[`Loading component renders when active 1`] = `
 `;
 
 exports[`Loading component renders when not active 1`] = `
-<transition-stub>
+<transition-stub
+  appear="false"
+  css="true"
+  name="fade"
+  persisted="true"
+>
   <div
     aria-busy="false"
     aria-label="Loading"

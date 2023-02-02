@@ -1,7 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Loading component props accepts props 1`] = `
-<transition-stub>
+<transition-stub
+  appear="false"
+  css="true"
+  name="custom"
+  persisted="true"
+>
   <div
     aria-busy="true"
     aria-label="Loading"
