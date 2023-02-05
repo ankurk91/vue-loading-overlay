@@ -2,7 +2,6 @@
 
 const webpack = require('webpack');
 const path = require('path');
-const {CleanWebpackPlugin} = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const {VueLoaderPlugin} = require('vue-loader');
@@ -10,13 +9,9 @@ const {VueLoaderPlugin} = require('vue-loader');
 module.exports = {
   context: __dirname,
   resolve: {
-    modules: [
-      path.resolve(__dirname, 'node_modules'),
-    ],
     alias: {
       'vue$': 'vue/dist/vue.runtime.esm.js'
     },
-    extensions: ['.js', '.json', '.vue']
   },
   entry: {
     'vue-loading': './src/index.js',
@@ -31,12 +26,16 @@ module.exports = {
     },
   },
   output: {
+    clean: true,
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].js',
-    library: 'VueLoading',
-    libraryTarget: 'umd',
-    libraryExport: 'default',
-    umdNamedDefine: true,
+    library: {
+      name: 'VueLoading',
+      type: 'umd',
+      umdNamedDefine: true,
+      export: 'default'
+    },
+    globalObject: 'this'
   },
   module: {
     rules: [
@@ -62,9 +61,6 @@ module.exports = {
           MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
-            options: {
-              sourceMap: false,
-            }
           },
         ],
       },
@@ -87,7 +83,6 @@ module.exports = {
     ]
   },
   plugins: [
-    new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: 'vue-loading.css',
     }),

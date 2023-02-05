@@ -37,19 +37,18 @@
 </template>
 
 <script>
-  import ComponentExample from './components/component';
-  import PluginExample from './components/plugin';
+import ComponentExample from './components/component.vue';
+import PluginExample from './components/plugin.vue';
 
-  export default {
-    name: 'app',
-    data() {
-      return {}
-    },
-    components: {
-      ComponentExample,
-      PluginExample
-    },
-    methods: {}
-  }
+export default {
+  name: 'app',
+  data() {
+    return {}
+  },
+  components: {
+    ComponentExample,
+    PluginExample
+  },
+  methods: {}
+}
 </script>
-

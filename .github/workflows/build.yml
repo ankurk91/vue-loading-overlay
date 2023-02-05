@@ -3,48 +3,53 @@ name: build
 on:
   push:
     branches:
-      - master
+      - main
       - dev
+      - v3.x
   pull_request:
     branches:
-      - master
+      - main
       - dev
+      - v3.x
   schedule:
-    - cron: '0 0 10 * *'
+    - cron: '0 0 18 * *'
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [14.x]
+    timeout-minutes: 5
 
     steps:
-      - uses: actions/checkout@v2
-        with:
-          persist-credentials: false
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-      - name: Using Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 18.x
 
-      - run: yarn install --non-interactive --frozen-lockfile
-      - run: yarn test --verbose
-      - run: yarn run build
-      - run: yarn run docs
-        env:
-          CI: true
+      - name: Install pnpm
+        run: npm install -g pnpm@^7
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Execute tests
+        run: npm run test
+
+      - name: Upload coverage report
+        uses: codecov/codecov-action@v3
+        with:
+          fail_ci_if_error: false
+
+      - run: npm run build
+      - run: npm run docs
 
       - name: Deploy to gh-pages
-        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
-        uses: JamesIves/github-pages-deploy-action@releases/v3
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          BRANCH: gh-pages
-          FOLDER: docs
-          SINGLE_COMMIT: true
-          CLEAN: true
-
+          branch: gh-pages
+          folder: docs
+          single-commit: true
+          clean: true

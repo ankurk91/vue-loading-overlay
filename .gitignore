@@ -2,8 +2,6 @@
 
 # various IDEs
 .idea/
-.project
-*.sublime-*
 .vscode/
 
 # logs and cache
@@ -11,7 +9,6 @@
 npm-debug.log*
 .sass-cache
 .cache
-.php_cs.cache
 
 # OS generated files
 [Tt]humbs.db
@@ -37,11 +34,6 @@ $RECYCLE.BIN/
 
 # node packages
 node_modules/
-.pnp*
-
-# Composer, exclude on root vendor folder
-/vendor/
-composer.phar
 
 # Security tokens
 *.pem
