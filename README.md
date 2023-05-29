@@ -243,7 +243,7 @@ let loader = this.$loading.show({
 
 ```html
 <!-- Vue js -->
-<script src="https://cdn.jsdelivr.net/npm/vue@3.2"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@3.3"></script>
 <!-- Lastly add this package -->
 <script src="https://cdn.jsdelivr.net/npm/vue-loading-overlay@6"></script>
 <link href="https://cdn.jsdelivr.net/npm/vue-loading-overlay@6/dist/css/index.css" rel="stylesheet">
@@ -259,7 +259,7 @@ let loader = this.$loading.show({
 ## Run examples on your localhost
 
 * Clone this repo
-* Make sure you have node-js `>=18.12` and [pnpm](https://pnpm.io/) `>=7.18` pre-installed
+* Make sure you have node-js `>=18.16` and [pnpm](https://pnpm.io/) `>=8.x` pre-installed
 * Install dependencies `pnpm install`
 * Run webpack dev server `npm start`
 * This should open the demo page in your default web browser
