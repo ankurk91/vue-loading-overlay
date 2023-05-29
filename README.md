@@ -216,7 +216,7 @@ let loader = Vue.$loading.show({
 ## Run examples on your localhost
 
 * Clone this repo
-* Make sure you have node-js `>=18.12` and [pnpm](https://pnpm.io/) `>=7.12` pre-installed
+* Make sure you have node-js `>=18.16` and [pnpm](https://pnpm.io/) `>=8.x` pre-installed
 * Install dependencies `pnpm install`
 * Run webpack dev server `npm start`
 * This should open the demo page in your default web browser
