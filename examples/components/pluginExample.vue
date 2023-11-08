@@ -86,6 +86,7 @@ export default defineComponent({
         width: this.width,
         loader: this.loader,
         opacity: 0.3,
+        lockScroll: true,
       }, this.exampleSlots);
 
       // simulate async call
@@ -109,4 +110,3 @@ export default defineComponent({
   }
 })
 </script>
-

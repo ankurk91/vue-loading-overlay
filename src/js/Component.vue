@@ -139,12 +139,15 @@ export default defineComponent({
     active(value) {
       this.isActive = value
     },
-    isActive(value) {
-      if (value) {
-        this.disableScroll();
-      } else {
-        this.enableScroll()
-      }
+    isActive: {
+      handler (value)  {
+        if (value) {
+          this.disableScroll();
+        } else {
+          this.enableScroll()
+        }
+      },
+      immediate: true
     }
   },
   computed: {
