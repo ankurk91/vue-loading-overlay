@@ -1,5 +1,9 @@
 # Changelog
 
+### [6.0.4](https://github.com/ankurk91/vue-loading-overlay/compare/6.0.3...6.0.4)
+
+* Fix issue, #119
+
 ### [6.0.0](https://github.com/ankurk91/vue-loading-overlay/compare/5.0.3...6.0.0)
 
 * Remove plugin from default export
