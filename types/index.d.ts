@@ -35,7 +35,7 @@ export interface PluginApi {
   show(props?: Props, slots?: Slots): ActiveLoader
 }
 
-declare module '@vue/runtime-core' {
+declare module 'vue' {
   interface ComponentCustomProperties {
     readonly $loading: PluginApi;
   }
