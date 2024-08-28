@@ -21,15 +21,15 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 20.x
 
       - name: Install pnpm
-        run: npm install -g pnpm@^8
+        run: npm install -g pnpm@^9
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
@@ -38,7 +38,7 @@ jobs:
         run: npm run test
 
       - name: Upload coverage report
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v4
         with:
           fail_ci_if_error: false
 
