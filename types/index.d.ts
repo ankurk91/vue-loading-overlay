@@ -1,4 +1,4 @@
-import {Plugin, Component} from 'vue'
+import type {App, DefineComponent} from 'vue'
 
 export type LoaderType = 'spinner' | 'dots' | 'bars'
 
@@ -41,11 +41,11 @@ declare module 'vue' {
   }
 }
 
-declare const LoadingPlugin: Plugin
-declare const Component: Component
+declare const LoadingPlugin: (app: App, props?: Props, slots?: Slots) => void
+declare const Component: DefineComponent<Props, {}, {}, {}, {}, {}, {}, { 'hide': () => void, 'update:active': (value: boolean) => void }>
 
-export declare function useLoading(globalProps?: Props, globalSlots?: Slots): PluginApi
+declare function useLoading(globalProps?: Props, globalSlots?: Slots): PluginApi
 
-export {LoadingPlugin};
+export {LoadingPlugin, Component, useLoading};
 
 export default Component
