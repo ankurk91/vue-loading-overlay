@@ -1,0 +1,40 @@
+.vl-shown {
+  overflow: hidden;
+}
+
+.vl-overlay {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  align-items: center;
+  display: none;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 9999;
+}
+
+.vl-overlay.vl-active {
+  display: flex;
+}
+
+.vl-overlay.vl-full-page {
+  z-index: 9999;
+  position: fixed;
+}
+
+.vl-overlay .vl-background {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: #fff;
+  opacity: 0.5;
+}
+
+.vl-overlay .vl-icon, .vl-parent {
+  position: relative;
+}
+
