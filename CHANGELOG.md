@@ -1,5 +1,9 @@
 # Changelog
 
+### [6.0.6](https://github.com/ankurk91/vue-loading-overlay/compare/6.0.5...6.0.6)
+
+* Fix: Typescript def, #126
+
 ### [6.0.5](https://github.com/ankurk91/vue-loading-overlay/compare/6.0.4...6.0.5)
 
 * Fix: Typescript def, #123
