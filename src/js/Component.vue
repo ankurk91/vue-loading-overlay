@@ -5,6 +5,7 @@
          :class="{ 'vl-full-page': isFullPage }"
          v-show="isActive"
          :aria-busy="isActive"
+         aria-live="polite"
          aria-label="Loading"
          :style="{ zIndex }"
     >
