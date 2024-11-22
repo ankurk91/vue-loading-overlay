@@ -10,6 +10,7 @@ exports[`Loading component props accepts props 1`] = `
   <div
     aria-busy="true"
     aria-label="Loading"
+    aria-live="polite"
     class="vl-overlay vl-active"
     style="z-index: 9999;"
     tabindex="0"

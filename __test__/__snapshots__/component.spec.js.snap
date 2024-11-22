@@ -10,6 +10,7 @@ exports[`Loading component renders when active 1`] = `
   <div
     aria-busy="true"
     aria-label="Loading"
+    aria-live="polite"
     class="vl-overlay vl-active vl-full-page"
     tabindex="0"
   >
@@ -76,6 +77,7 @@ exports[`Loading component renders when not active 1`] = `
   <div
     aria-busy="false"
     aria-label="Loading"
+    aria-live="polite"
     class="vl-overlay vl-active vl-full-page"
     style="display: none;"
     tabindex="0"
